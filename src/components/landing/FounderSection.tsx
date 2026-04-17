@@ -11,7 +11,7 @@ export const FounderSection = () => {
         <div>
           <p className="text-xs uppercase tracking-[0.3em] text-primary-glow">Quem está por trás</p>
           <h2 className="mt-3 font-display text-5xl md:text-6xl font-bold leading-tight">
-            Felipe James<br />Cavalheiro
+            Matheus<br />Nascimento
           </h2>
           <p className="mt-6 text-white/75 text-lg max-w-md">
             Mais de 10 anos transformando marcas em referências visuais. Especialista em direção criativa e fotografia editorial para marcas que querem se destacar.
@@ -25,7 +25,7 @@ export const FounderSection = () => {
         <div className="relative">
           <div className="absolute -inset-4 bg-blue-grad rounded-[2rem] opacity-30 blur-2xl" />
           <div className="relative overflow-hidden rounded-[2rem] border border-white/10 shadow-glow">
-            <img src={founder} alt="Felipe James Cavalheiro" loading="lazy" className="w-full h-auto" />
+            <img src={founder} alt="Matheus Nascimento" loading="lazy" className="w-full h-auto" />
           </div>
         </div>
       </div>
