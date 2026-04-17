@@ -1,4 +1,4 @@
-import founder from "@/assets/founder-portrait.jpg";
+import founder from "@/assets/founder-portrait-new.jpg";
 import { DecorativeGear } from "./DecorativeGear";
 
 export const FounderSection = () => {
