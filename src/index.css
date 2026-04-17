@@ -1,105 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Light surfaces */
+    --background: 220 33% 97%;          /* #F4F6FA */
+    --foreground: 222 40% 19%;          /* #1C2742 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 100% 99%;
+    --card-foreground: 222 40% 19%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 222 40% 19%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary = electric blue */
+    --primary: 226 100% 57%;            /* #245CFF */
+    --primary-foreground: 210 100% 99%;
+    --primary-glow: 222 100% 68%;       /* #5B84FF */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 222 60% 14%;           /* deep navy */
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 25% 92%;
+    --muted-foreground: 222 20% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 226 100% 57%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 25% 88%;
+    --input: 220 25% 88%;
+    --ring: 226 100% 57%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Brand navy scale */
+    --navy-deep: 218 75% 10%;           /* #07142D */
+    --navy: 222 75% 16%;                /* #0A1E46 */
+    --navy-soft: 222 60% 22%;
+    --light-soft: 220 33% 97%;
+    --light-card: 220 100% 99%;
+
+    /* Gradients */
+    --gradient-hero: radial-gradient(120% 80% at 70% 30%, hsl(222 90% 30% / 0.55), transparent 60%),
+                     radial-gradient(80% 60% at 20% 80%, hsl(226 100% 57% / 0.25), transparent 60%),
+                     linear-gradient(180deg, hsl(218 75% 8%), hsl(222 75% 14%));
+    --gradient-blue: linear-gradient(135deg, hsl(226 100% 57%), hsl(222 100% 68%));
+    --gradient-navy: linear-gradient(180deg, hsl(218 75% 10%), hsl(222 75% 16%));
+    --gradient-card: linear-gradient(160deg, hsl(222 80% 22%), hsl(218 75% 12%));
+
+    /* Shadows */
+    --shadow-glow: 0 30px 80px -20px hsl(226 100% 57% / 0.45);
+    --shadow-card: 0 20px 50px -20px hsl(218 75% 10% / 0.25);
+    --shadow-soft: 0 10px 30px -10px hsl(218 30% 30% / 0.15);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 218 75% 8%;
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
+    --card: 222 75% 14%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
+    --popover: 218 75% 10%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
+    --primary: 226 100% 62%;
+    --primary-foreground: 210 100% 99%;
+    --secondary: 222 60% 18%;
     --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --muted: 222 40% 18%;
+    --muted-foreground: 215 20% 70%;
+    --accent: 222 100% 68%;
+    --accent-foreground: 218 75% 8%;
+    --border: 222 40% 22%;
+    --input: 222 40% 22%;
+    --ring: 226 100% 62%;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Sora', 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .bg-hero { background: var(--gradient-hero); }
+  .bg-navy-grad { background: var(--gradient-navy); }
+  .bg-blue-grad { background: var(--gradient-blue); }
+  .bg-card-grad { background: var(--gradient-card); }
+  .text-gradient-blue {
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-card-premium { box-shadow: var(--shadow-card); }
+  .ring-glow { box-shadow: 0 0 0 1px hsl(226 100% 57% / 0.3), 0 20px 60px -15px hsl(226 100% 57% / 0.5); }
+  .glow-blue::after {
+    content: "";
+    position: absolute; inset: -40% -20% auto auto;
+    width: 60%; aspect-ratio: 1;
+    background: radial-gradient(closest-side, hsl(226 100% 57% / 0.35), transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+  .marquee {
+    animation: marquee 30s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .fade-up { animation: fade-up 0.7s ease-out both; }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
