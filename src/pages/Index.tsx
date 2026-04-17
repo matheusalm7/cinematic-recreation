@@ -1,9 +1,6 @@
 import { Hero } from "@/components/landing/Hero";
-import { LogoStrip } from "@/components/landing/LogoStrip";
 import { StatementSection } from "@/components/landing/StatementSection";
-import { PortfolioSection } from "@/components/landing/PortfolioSection";
 import { ServicesSection } from "@/components/landing/ServicesSection";
-import { GallerySection } from "@/components/landing/GallerySection";
 import { DifferentialsSection } from "@/components/landing/DifferentialsSection";
 import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { ProcessSection } from "@/components/landing/ProcessSection";
@@ -16,11 +13,8 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Hero />
-      <LogoStrip />
       <StatementSection />
-      <PortfolioSection />
       <ServicesSection />
-      <GallerySection />
       <DifferentialsSection />
       <TestimonialsSection />
       <ProcessSection />

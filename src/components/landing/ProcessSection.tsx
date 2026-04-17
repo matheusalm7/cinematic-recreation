@@ -1,49 +1,92 @@
-import { Button } from "@/components/ui/button";
+import { Sparkles } from "lucide-react";
 import { DecorativeGear } from "./DecorativeGear";
 
 const steps = [
-  { n: "01", title: "Briefing estratégico", desc: "Entendemos sua marca, público e objetivos." },
-  { n: "02", title: "Direção criativa", desc: "Construímos conceito, mood e referências." },
-  { n: "03", title: "Pré-produção", desc: "Locação, equipe, styling e cronograma definidos." },
-  { n: "04", title: "Sessão de fotos", desc: "Captura no estúdio com toda atenção aos detalhes." },
-  { n: "05", title: "Seleção e tratamento", desc: "Curadoria fina e pós-produção premium." },
-  { n: "06", title: "Entrega final", desc: "Material organizado e pronto para usar." },
+  {
+    n: "01",
+    title: "Contato e briefing",
+    desc: "Você entra em contato. Conversamos sobre sua ideia, seus objetivos e o que precisa ser entregue. Aqui, eu escuto e começo a traduzir sua visão em estratégia visual.",
+  },
+  {
+    n: "02",
+    title: "Conceito e\ndireção criativa",
+    desc: "Desenvolvemos o conceito juntos. Criação de moodboard, definição de paleta, estilo, referências e planejamento criativo. Tudo pensado para refletir a identidade da sua marca.",
+  },
+  {
+    n: "03",
+    title: "Produção e preparação",
+    desc: "Organizo toda a estrutura: iluminação, equipamentos, casting, styling. Você não precisa se preocupar com detalhes técnicos, eu cuido de tudo.",
+  },
+  {
+    n: "04",
+    title: "Sessão de fotos",
+    desc: "Com tudo pronto, executamos. A fotografia acontece com direção clara, fluidez e foco no resultado. Você vê a sua marca ganhando forma em tempo real.",
+  },
+  {
+    n: "05",
+    title: "Edição e pós-produção",
+    desc: "Tratamento preciso, cor fiel, recorte limpo e padronização. Aqui, cada imagem é finalizada com o nível de qualidade que sua marca exige.",
+  },
+  {
+    n: "06",
+    title: "Entrega com design\npronto para uso",
+    desc: "Você recebe tudo ajustado e pronto para publicar: formatos otimizados (feed, reels, stories, catálogo, campanha), composição visual alinhada e texto integrado, se necessário.",
+  },
 ];
 
 export const ProcessSection = () => {
   return (
-    <section id="processo" className="relative bg-navy-grad text-white py-24 overflow-hidden">
-      <div className="absolute top-1/3 left-0 h-[400px] w-[400px] bg-primary/20 blur-[140px] rounded-full" />
-      <div className="absolute bottom-0 right-0 h-[500px] w-[500px] bg-primary-glow/15 blur-[140px] rounded-full" />
-      <DecorativeGear variant="camera" side="left" position="bottom" />
+    <section id="processo" className="relative bg-navy-grad text-white py-24 md:py-32 overflow-hidden">
+      {/* ambient bg glows */}
+      <div className="absolute top-1/4 -left-40 h-[500px] w-[500px] rounded-full bg-primary/15 blur-[160px]" />
+      <div className="absolute bottom-1/4 -right-40 h-[500px] w-[500px] rounded-full bg-primary-glow/10 blur-[160px]" />
+
+      <DecorativeGear variant="lens" side="left" position="middle" />
 
       <div className="container relative z-10">
         <div className="text-center max-w-xl mx-auto">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary-glow">Como funciona</p>
-          <h2 className="mt-3 font-display text-4xl md:text-5xl font-bold">O processo, do início ao fim.</h2>
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] text-white/70 backdrop-blur">
+            <Sparkles className="h-3 w-3 text-primary-glow" /> Processos
+          </span>
+          <h2 className="mt-5 font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05]">
+            Como funciona o processo
+          </h2>
         </div>
 
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {steps.map((s, i) => (
-            <div
+        <div className="mt-16 max-w-5xl mx-auto space-y-5">
+          {steps.map((s) => (
+            <article
               key={s.n}
-              className={`relative rounded-2xl p-7 border transition-all hover:-translate-y-1 ${
-                i === 1 || i === 4
-                  ? "bg-blue-grad border-primary/50 shadow-glow"
-                  : "bg-card-grad border-white/10 hover:border-primary/40"
-              }`}
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-card-grad p-8 md:p-10 hover:border-primary/40 transition-all"
             >
-              <p className={`font-display text-4xl ${i === 1 || i === 4 ? "text-white/40" : "text-primary-glow/50"}`}>{s.n}</p>
-              <h3 className="mt-3 font-display text-xl font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm text-white/75">{s.desc}</p>
-            </div>
+              {/* huge soft blue glow centered-left */}
+              <div className="pointer-events-none absolute inset-y-0 left-1/4 w-[55%] bg-[radial-gradient(ellipse_at_center,_hsl(226_100%_57%_/_0.55),_transparent_65%)] blur-2xl" />
+
+              <div className="relative z-10 grid md:grid-cols-2 gap-6 md:gap-10 items-start">
+                <div>
+                  <p className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-white/70">
+                    <Sparkles className="h-3 w-3 text-primary-glow" /> Passo | {s.n}
+                  </p>
+                  <h3 className="mt-4 font-display text-3xl md:text-4xl font-bold whitespace-pre-line leading-[1.1]">
+                    {s.title}
+                  </h3>
+                </div>
+                <p className="text-sm md:text-base text-white/80 leading-relaxed md:pt-12">
+                  {s.desc}
+                </p>
+              </div>
+            </article>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <Button size="lg" className="bg-white text-navy-deep hover:bg-white/90 rounded-full h-12 px-8 font-semibold">
-            Iniciar meu projeto
-          </Button>
+        <div className="mt-14 text-center">
+          <a
+            href="#contato"
+            className="inline-flex items-center gap-2 rounded-full bg-primary/30 backdrop-blur border border-primary/40 px-7 py-3.5 text-sm font-semibold text-white shadow-glow hover:bg-primary/40 transition"
+          >
+            Entre em contato agora
+            <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/20">↗</span>
+          </a>
         </div>
       </div>
 
@@ -52,7 +95,7 @@ export const ProcessSection = () => {
         <div className="flex gap-12 marquee w-max font-display text-sm md:text-base text-white uppercase tracking-widest">
           {Array.from({ length: 12 }).map((_, i) => (
             <span key={i} className="flex items-center gap-12 shrink-0">
-              Mais que fotos. Estratégia visual ✦ Confiança que vende ✦ Posicionamento premium ✦
+              Mais que fotos. Estratégia visual que comunica, vende e posiciona ✦
             </span>
           ))}
         </div>
