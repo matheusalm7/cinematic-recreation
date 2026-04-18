@@ -13,13 +13,13 @@ const SOCIAL_AVATARS = [
 export const Hero = () => {
   return (
     <section className="relative overflow-hidden text-foreground">
-      {/* Background: blue at top → white at bottom */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[hsl(218_75%_10%)] via-[hsl(220_60%_45%)] via-50% to-background" />
+      {/* Background: stays blue through hero + showcase, fades to white only at the very bottom */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[hsl(218_75%_8%)] via-[hsl(222_75%_14%)] via-70% to-background" />
       {/* Soft blue glows for atmosphere */}
       <div className="absolute -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-primary/30 blur-[140px] -z-10" />
-      <div className="absolute top-[20%] left-1/4 h-[500px] w-[500px] rounded-full bg-primary-glow/20 blur-[140px] -z-10" />
-      {/* Bottom fade to pure white for next-section continuity */}
-      <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-b from-transparent to-background -z-10" />
+      <div className="absolute top-[30%] left-1/4 h-[500px] w-[500px] rounded-full bg-primary-glow/20 blur-[140px] -z-10" />
+      {/* Bottom fade to white only at the very end, after the showcase */}
+      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-b from-transparent to-background -z-10" />
 
       {/* Top nav */}
       <header className="relative z-20">
