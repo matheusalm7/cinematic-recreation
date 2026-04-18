@@ -1,4 +1,5 @@
 import { Hero } from "@/components/landing/Hero";
+import { VideoCaptureSection } from "@/components/landing/VideoCaptureSection";
 import { StatementSection } from "@/components/landing/StatementSection";
 import { ServicesSection } from "@/components/landing/ServicesSection";
 import { DifferentialsSection } from "@/components/landing/DifferentialsSection";
@@ -13,6 +14,7 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Hero />
+      <VideoCaptureSection />
       <StatementSection />
       <ServicesSection />
       <DifferentialsSection />
