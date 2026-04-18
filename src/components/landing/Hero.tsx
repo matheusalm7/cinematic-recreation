@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Camera } from "lucide-react";
-import hero from "@/assets/hero-photographer.jpg";
 
 export const Hero = () => {
   return (
@@ -28,8 +27,24 @@ export const Hero = () => {
       <div className="absolute -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-primary/30 blur-[140px]" />
       <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-primary-glow/20 blur-[120px]" />
 
-      <div className="container relative z-10 grid lg:grid-cols-2 gap-12 items-center pt-12 pb-24 lg:py-28">
-        <div className="fade-up">
+      <div className="container relative z-10 flex justify-center pt-12 pb-24 lg:py-28">
+        <div className="fade-up relative w-full max-w-3xl text-center px-8 sm:px-12 py-12 sm:py-16">
+          {/* REC-style frame */}
+          <div className="pointer-events-none absolute inset-0 border border-white/15 rounded-sm" aria-hidden="true">
+            {/* Corner markers */}
+            <span className="absolute -top-px -left-px h-4 w-4 border-t-2 border-l-2 border-primary-glow/70" />
+            <span className="absolute -top-px -right-px h-4 w-4 border-t-2 border-r-2 border-primary-glow/70" />
+            <span className="absolute -bottom-px -left-px h-4 w-4 border-b-2 border-l-2 border-primary-glow/70" />
+            <span className="absolute -bottom-px -right-px h-4 w-4 border-b-2 border-r-2 border-primary-glow/70" />
+            {/* REC indicator */}
+            <span className="absolute top-3 right-3 flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-white/50">
+              <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
+              REC
+            </span>
+            {/* Center crosshair */}
+            <span className="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] text-white/40">● 00:00:12</span>
+          </div>
+
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs uppercase tracking-widest text-white/80 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-primary-glow animate-pulse" />
             Estúdio fotográfico premium
@@ -39,10 +54,10 @@ export const Hero = () => {
             em imagens<br />
             que <span className="underline decoration-primary decoration-4 underline-offset-4">vendem</span>.
           </h1>
-          <p className="mt-6 max-w-lg text-lg text-white/70">
+          <p className="mt-6 mx-auto max-w-lg text-lg text-white/70">
             Posicionamento visual de alta performance para marcas que querem ser desejadas, lembradas e escolhidas.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button size="lg" className="bg-blue-grad hover:opacity-90 border-0 rounded-full px-7 h-12 shadow-glow">
               Quero meu orçamento <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
@@ -50,21 +65,10 @@ export const Hero = () => {
               Ver portfólio
             </Button>
           </div>
-          <div className="mt-10 flex items-center gap-6 text-sm text-white/60">
+          <div className="mt-10 flex items-center justify-center gap-6 text-sm text-white/60">
             <div><strong className="text-white text-2xl font-display">+120</strong><br/>marcas atendidas</div>
             <div className="h-10 w-px bg-white/15" />
             <div><strong className="text-white text-2xl font-display">10 anos</strong><br/>de estúdio</div>
-          </div>
-        </div>
-
-        <div className="relative">
-          <div className="absolute -inset-6 bg-blue-grad rounded-[2rem] opacity-40 blur-2xl" />
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 shadow-glow">
-            <img src={hero} alt="Fotógrafo profissional segurando câmera" width={1024} height={1280} className="w-full h-auto" />
-          </div>
-          <div className="absolute -bottom-6 -left-6 bg-card-grad text-white rounded-2xl px-5 py-4 border border-white/10 shadow-card-premium hidden sm:block">
-            <p className="text-xs text-white/60 uppercase tracking-widest">Aprovado por</p>
-            <p className="font-display text-lg">+200 projetos</p>
           </div>
         </div>
       </div>
