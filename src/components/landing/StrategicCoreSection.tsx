@@ -85,20 +85,7 @@ export const StrategicCoreSection = () => {
             ))}
           </ul>
 
-          <div className="mt-8 relative flex flex-col items-center">
-            {tabs.map((t, i) => (
-              <div
-                key={t}
-                style={{
-                  transform: `translateY(${i * -8}px) scale(${1 - i * 0.05})`,
-                  zIndex: tabs.length - i,
-                }}
-                className="w-full max-w-xs rounded-full border border-foreground/15 bg-white shadow-sm py-3 px-6 text-center text-foreground font-medium"
-              >
-                {t}
-              </div>
-            ))}
-          </div>
+          <StrategicStack items={tabs} />
         </div>
       </div>
     </section>
