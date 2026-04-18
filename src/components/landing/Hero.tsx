@@ -28,7 +28,7 @@ export const Hero = () => {
       <div className="absolute -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-primary/30 blur-[140px]" />
       <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-primary-glow/20 blur-[120px]" />
 
-      <div className="container relative z-10 flex justify-center pt-12 pb-32 lg:pt-20 lg:pb-40">
+      <div className="container relative z-10 flex justify-center pt-12 pb-24 lg:py-28">
         <div className="fade-up relative w-full max-w-3xl text-center px-8 sm:px-12 py-12 sm:py-16">
           {/* REC-style frame */}
           <div className="pointer-events-none absolute inset-0 border border-white/15 rounded-sm" aria-hidden="true">
@@ -73,9 +73,7 @@ export const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="relative z-20 -mb-24 md:-mb-32">
-        <HeroVideoPanel />
-      </div>
+      <HeroVideoPanel />
     </section>
   );
 };

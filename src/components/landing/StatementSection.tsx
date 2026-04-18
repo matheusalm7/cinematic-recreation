@@ -4,7 +4,7 @@ import portfolio4 from "@/assets/portfolio-4.jpg";
 
 export const StatementSection = () => {
   return (
-    <section className="relative bg-background pt-40 md:pt-56 pb-24 md:pb-32 overflow-hidden">
+    <section className="relative bg-background py-24 md:py-32 overflow-hidden">
       <div className="container relative">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
