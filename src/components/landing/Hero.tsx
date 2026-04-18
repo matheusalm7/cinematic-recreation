@@ -1,134 +1,70 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Camera } from "lucide-react";
+import hero from "@/assets/hero-photographer.jpg";
 
 export const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-[#090909] text-[#F5F2EE] min-h-screen flex flex-col">
-      {/* Grain texture overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.08] pointer-events-none mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-        }}
-      />
-
-      {/* Bottom warm glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] rounded-full bg-[#C77749] opacity-[0.18] blur-[160px] pointer-events-none" />
-      <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-[#D9804F] opacity-20 blur-[120px] pointer-events-none" />
-
-      {/* Vignette */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%)" }} />
-
+    <section className="relative overflow-hidden bg-hero text-white">
       {/* Top nav */}
       <header className="relative z-20">
         <div className="container flex items-center justify-between py-6">
           <a href="#" className="flex items-center gap-2 font-display font-bold text-xl">
-            <Camera className="h-5 w-5 text-[#D9804F]" />
-            <span>STUDIO<span className="text-[#D9804F]">.</span></span>
+            <Camera className="h-5 w-5 text-primary-glow" />
+            <span>STUDIO<span className="text-primary-glow">.</span></span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-sm text-[#B8B0A8]">
-            <a href="#servicos" className="hover:text-[#F5F2EE] transition">Serviços</a>
-            <a href="#processo" className="hover:text-[#F5F2EE] transition">Processo</a>
-            <a href="#faq" className="hover:text-[#F5F2EE] transition">FAQ</a>
+          <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
+            <a href="#portfolio" className="hover:text-white transition">Portfólio</a>
+            <a href="#servicos" className="hover:text-white transition">Serviços</a>
+            <a href="#processo" className="hover:text-white transition">Processo</a>
+            <a href="#faq" className="hover:text-white transition">FAQ</a>
           </nav>
-          <Button className="bg-[#11100F] hover:bg-[#1a1918] border border-[#C77749]/30 text-[#F5F2EE] rounded-full px-5">
+          <Button variant="default" className="bg-blue-grad hover:opacity-90 border-0 rounded-full px-5">
             Falar agora
           </Button>
         </div>
       </header>
 
-      {/* Hero content centered */}
-      <div className="relative z-10 flex-1 flex items-center justify-center px-4 py-16 md:py-20">
-        <div className="relative w-full max-w-4xl mx-auto">
-          {/* REC Frame */}
-          <div className="relative px-6 py-16 md:px-16 md:py-24">
-            {/* Frame border */}
-            <div className="absolute inset-0 border border-[#C77749]/40 pointer-events-none" />
+      {/* Glows */}
+      <div className="absolute -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-primary/30 blur-[140px]" />
+      <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-primary-glow/20 blur-[120px]" />
 
-            {/* Corner markers */}
-            <div className="absolute -top-1 -left-1 w-3 h-3 bg-[#D9804F]" />
-            <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#D9804F]" />
-            <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-[#D9804F]" />
-            <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#D9804F]" />
-
-            {/* Mid markers */}
-            <div className="absolute top-1/2 -left-[3px] w-1.5 h-6 -translate-y-1/2 bg-[#C77749]/60" />
-            <div className="absolute top-1/2 -right-[3px] w-1.5 h-6 -translate-y-1/2 bg-[#C77749]/60" />
-
-            {/* REC indicator top-left */}
-            <div className="absolute -top-8 left-0 flex items-center gap-2 text-[10px] tracking-[0.3em] text-[#C77749] uppercase">
-              <span className="h-2 w-2 rounded-full bg-[#D9804F] animate-pulse" />
-              REC · 4K · 24fps
-            </div>
-
-            {/* Timecode top-right */}
-            <div className="absolute -top-8 right-0 text-[10px] tracking-[0.25em] text-[#B8B0A8] uppercase font-mono">
-              00:00:12:04
-            </div>
-
-            {/* Bottom-left marker */}
-            <div className="absolute -bottom-8 left-0 text-[10px] tracking-[0.25em] text-[#B8B0A8] uppercase font-mono">
-              ISO 800 · f/2.8
-            </div>
-
-            {/* Bottom-right marker */}
-            <div className="absolute -bottom-8 right-0 text-[10px] tracking-[0.3em] text-[#C77749] uppercase">
-              SCENE · 01
-            </div>
-
-            {/* Content inside frame */}
-            <div className="text-center fade-up">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#C77749]/30 bg-[#11100F]/60 px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-[#B8B0A8] backdrop-blur mb-8">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#D9804F]" />
-                Estúdio fotográfico premium
-              </span>
-
-              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-[#F5F2EE]">
-                Sua{" "}
-                <span className="italic font-serif font-normal text-[#D9804F]">marca</span>
-                <br />
-                em imagens que
-                <br />
-                <span className="italic font-serif font-normal text-[#C77749]">vendem</span>.
-              </h1>
-
-              <p className="mt-8 max-w-xl mx-auto text-base md:text-lg text-[#B8B0A8] leading-relaxed">
-                Posicionamento visual de alta performance para marcas que querem ser desejadas, lembradas e escolhidas.
-              </p>
-
-              <div className="mt-10 flex justify-center">
-                <Button
-                  size="lg"
-                  className="bg-[#11100F] hover:bg-[#1a1918] border border-[#C77749]/40 text-[#F5F2EE] rounded-full px-7 h-12 group"
-                >
-                  Quero meu orçamento
-                  <ArrowRight className="ml-2 h-4 w-4 text-[#D9804F] transition-transform group-hover:translate-x-1" />
-                </Button>
-              </div>
-            </div>
+      <div className="container relative z-10 grid lg:grid-cols-2 gap-12 items-center pt-12 pb-24 lg:py-28">
+        <div className="fade-up">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs uppercase tracking-widest text-white/80 backdrop-blur">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary-glow animate-pulse" />
+            Estúdio fotográfico premium
+          </span>
+          <h1 className="mt-6 font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05]">
+            Sua <span className="italic text-primary-glow">marca</span><br />
+            em imagens<br />
+            que <span className="underline decoration-primary decoration-4 underline-offset-4">vendem</span>.
+          </h1>
+          <p className="mt-6 max-w-lg text-lg text-white/70">
+            Posicionamento visual de alta performance para marcas que querem ser desejadas, lembradas e escolhidas.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button size="lg" className="bg-blue-grad hover:opacity-90 border-0 rounded-full px-7 h-12 shadow-glow">
+              Quero meu orçamento <ArrowRight className="ml-1 h-4 w-4" />
+            </Button>
+            <Button size="lg" variant="outline" className="rounded-full h-12 border-white/20 bg-white/5 text-white hover:bg-white/10">
+              Ver portfólio
+            </Button>
           </div>
+          <div className="mt-10 flex items-center gap-6 text-sm text-white/60">
+            <div><strong className="text-white text-2xl font-display">+120</strong><br/>marcas atendidas</div>
+            <div className="h-10 w-px bg-white/15" />
+            <div><strong className="text-white text-2xl font-display">10 anos</strong><br/>de estúdio</div>
+          </div>
+        </div>
 
-          {/* Floating pills */}
-          <div className="hidden md:block absolute -left-4 top-1/3 -translate-x-full">
-            <div className="rounded-full border border-[#C77749]/30 bg-[#11100F]/80 backdrop-blur px-4 py-2 text-[10px] tracking-[0.25em] text-[#B8B0A8] uppercase whitespace-nowrap">
-              Direção · Criativa
-            </div>
+        <div className="relative">
+          <div className="absolute -inset-6 bg-blue-grad rounded-[2rem] opacity-40 blur-2xl" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 shadow-glow">
+            <img src={hero} alt="Fotógrafo profissional segurando câmera" width={1024} height={1280} className="w-full h-auto" />
           </div>
-          <div className="hidden md:block absolute -right-4 top-12 translate-x-full">
-            <div className="rounded-full border border-[#C77749]/30 bg-[#11100F]/80 backdrop-blur px-4 py-2 text-[10px] tracking-[0.25em] text-[#B8B0A8] uppercase whitespace-nowrap">
-              Editorial · 2026
-            </div>
-          </div>
-          <div className="hidden md:block absolute -right-4 bottom-16 translate-x-full">
-            <div className="rounded-full border border-[#C77749]/30 bg-[#11100F]/80 backdrop-blur px-4 py-2 text-[10px] tracking-[0.25em] text-[#B8B0A8] uppercase whitespace-nowrap">
-              +120 Marcas
-            </div>
-          </div>
-          <div className="hidden lg:block absolute -left-4 bottom-24 -translate-x-full">
-            <div className="rounded-full border border-[#C77749]/30 bg-[#11100F]/80 backdrop-blur px-4 py-2 text-[10px] tracking-[0.25em] text-[#B8B0A8] uppercase whitespace-nowrap">
-              10 Anos · Estúdio
-            </div>
+          <div className="absolute -bottom-6 -left-6 bg-card-grad text-white rounded-2xl px-5 py-4 border border-white/10 shadow-card-premium hidden sm:block">
+            <p className="text-xs text-white/60 uppercase tracking-widest">Aprovado por</p>
+            <p className="font-display text-lg">+200 projetos</p>
           </div>
         </div>
       </div>
