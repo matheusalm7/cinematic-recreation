@@ -14,6 +14,14 @@ const items = [
 export const DifferentialsSection = () => {
   return (
     <section className="relative bg-background py-24 overflow-hidden">
+      <img
+        src={sonyFx3}
+        alt="Sony FX3 cinema camera"
+        loading="lazy"
+        width={1024}
+        height={1024}
+        className="hidden lg:block pointer-events-none select-none absolute -right-24 xl:-right-16 top-1/2 -translate-y-1/2 w-[420px] xl:w-[520px] opacity-90 drop-shadow-[0_30px_60px_rgba(0,0,0,0.55)] z-0"
+      />
       <div className="container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
