@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { DecorativeGear } from "./DecorativeGear";
+import sonyFx3 from "@/assets/sony-fx3.png";
 
 const items = [
   "Pré-produção estratégica para cada projeto",
