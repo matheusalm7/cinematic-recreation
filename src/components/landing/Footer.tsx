@@ -37,7 +37,7 @@ export const Footer = () => {
 
         <div className="mt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs md:text-sm text-white/50">
           <div className="space-y-1">
-            <p>© {new Date().getFullYear()} Agnus — Produtora Audiovisual</p>
+            <p>© {new Date().getFullYear()} Agnus Creative Studio — Produtora Audiovisual</p>
             <p>Todos os direitos reservados.</p>
           </div>
           <a
