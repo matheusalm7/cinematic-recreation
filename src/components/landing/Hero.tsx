@@ -38,10 +38,19 @@ export const Hero = () => {
 
       <div className="container relative z-10 flex justify-center pt-12 pb-24 lg:py-28">
         <div className="fade-up relative w-full max-w-5xl text-center px-4 sm:px-8 py-12 sm:py-16">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs uppercase tracking-widest text-white/80 backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary-glow animate-pulse" />
-            Estúdio fotográfico premium
-          </span>
+          <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 backdrop-blur">
+            <div className="flex -space-x-2">
+              {SOCIAL_AVATARS.map((src, i) => (
+                <Avatar key={i} className="h-7 w-7 ring-2 ring-background">
+                  <AvatarImage src={src} alt="" />
+                  <AvatarFallback>U</AvatarFallback>
+                </Avatar>
+              ))}
+            </div>
+            <span className="text-xs sm:text-sm text-white/80">
+              Confiado por <strong className="text-white">+120 marcas</strong>.
+            </span>
+          </div>
           <h1 className="mt-8 font-display text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] font-bold leading-[0.95] tracking-tight">
             Sua <span className="italic text-primary-glow">marca</span><br />
             em imagens<br />
