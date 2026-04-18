@@ -14,7 +14,6 @@ const items = [
 export const DifferentialsSection = () => {
   return (
     <section className="relative bg-background py-24 overflow-hidden">
-      <DecorativeGear variant="camera" side="right" position="middle" />
       <div className="container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
