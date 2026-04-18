@@ -81,9 +81,9 @@ export const TestimonialsSection = () => {
     <section className="bg-background py-24 overflow-hidden">
       <div className="container">
         <div className="text-center max-w-xl mx-auto">
-          <p className="text-xs uppercase tracking-[0.3em] text-primary-glow">Depoimentos</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-primary-glow">Testimonials</p>
           <h2 className="mt-3 font-display text-4xl md:text-5xl font-bold text-foreground">
-            O que os nossos clientes estão dizendo.
+            What our customers are saying.
           </h2>
         </div>
       </div>
