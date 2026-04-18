@@ -12,11 +12,19 @@ const SOCIAL_AVATARS = [
 
 export const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-hero text-white">
+    <section className="relative overflow-hidden text-foreground">
+      {/* Background: blue at top → white at bottom */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[hsl(218_75%_10%)] via-[hsl(220_60%_45%)] via-50% to-background" />
+      {/* Soft blue glows for atmosphere */}
+      <div className="absolute -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-primary/30 blur-[140px] -z-10" />
+      <div className="absolute top-[20%] left-1/4 h-[500px] w-[500px] rounded-full bg-primary-glow/20 blur-[140px] -z-10" />
+      {/* Bottom fade to pure white for next-section continuity */}
+      <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-b from-transparent to-background -z-10" />
+
       {/* Top nav */}
       <header className="relative z-20">
         <div className="container flex items-center justify-between py-6">
-          <a href="#" className="flex items-center gap-2 font-display font-bold text-xl">
+          <a href="#" className="flex items-center gap-2 font-display font-bold text-xl text-white">
             <Camera className="h-5 w-5 text-primary-glow" />
             <span>STUDIO<span className="text-primary-glow">.</span></span>
           </a>
@@ -32,12 +40,8 @@ export const Hero = () => {
         </div>
       </header>
 
-      {/* Glows */}
-      <div className="absolute -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-primary/30 blur-[140px]" />
-      <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-primary-glow/20 blur-[120px]" />
-
-      <div className="container relative z-10 flex justify-center pt-12 pb-24 lg:py-28">
-        <div className="fade-up relative w-full max-w-5xl text-center px-4 sm:px-8 py-12 sm:py-16">
+      <div className="container relative z-10 flex justify-center pt-12 pb-12 lg:pt-20 lg:pb-16">
+        <div className="fade-up relative w-full max-w-5xl text-center px-4 sm:px-8">
           <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 backdrop-blur">
             <div className="flex -space-x-2">
               {SOCIAL_AVATARS.map((src, i) => (
@@ -51,12 +55,12 @@ export const Hero = () => {
               Confiado por <strong className="text-white">+120 marcas</strong>.
             </span>
           </div>
-          <h1 className="mt-8 font-display text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] font-bold leading-[0.95] tracking-tight">
+          <h1 className="mt-8 font-display text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] font-bold leading-[0.95] tracking-tight text-white">
             Sua <span className="italic text-primary-glow">marca</span><br />
             em imagens<br />
             que <span className="underline decoration-primary decoration-[6px] underline-offset-[10px]">vendem</span>.
           </h1>
-          <p className="mt-8 mx-auto max-w-xl text-lg md:text-xl text-white/70">
+          <p className="mt-8 mx-auto max-w-xl text-lg md:text-xl text-white/75">
             Posicionamento visual de alta performance para marcas que querem ser desejadas, lembradas e escolhidas.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -66,11 +70,6 @@ export const Hero = () => {
             <Button size="lg" variant="outline" className="rounded-full h-12 border-white/20 bg-white/5 text-white hover:bg-white/10">
               Ver portfólio
             </Button>
-          </div>
-          <div className="mt-10 flex items-center justify-center gap-6 text-sm text-white/60">
-            <div><strong className="text-white text-2xl font-display">+120</strong><br/>marcas atendidas</div>
-            <div className="h-10 w-px bg-white/15" />
-            <div><strong className="text-white text-2xl font-display">10 anos</strong><br/>de estúdio</div>
           </div>
         </div>
       </div>

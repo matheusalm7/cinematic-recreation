@@ -21,67 +21,56 @@ const miniCards = [
 
 export const HeroVideoPanel = () => {
   return (
-    <div className="relative z-10 mx-auto -mt-6 md:-mt-10 max-w-4xl px-4 pb-20">
-      <div className="relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-6 md:p-8 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)] overflow-hidden">
-        {/* Subtle gradient sheen */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary-glow/5" />
+    <div className="relative z-10 mx-auto max-w-6xl px-4 pb-24 lg:pb-32">
+      {/* Soft blue glow behind the showcase */}
+      <div className="absolute inset-x-10 top-0 h-[60%] bg-primary/20 blur-[120px] -z-10 rounded-full" />
 
-        {/* Frame corners */}
-        <span className="pointer-events-none absolute top-2 left-2 h-3 w-3 border-t border-l border-primary-glow/40" />
-        <span className="pointer-events-none absolute top-2 right-2 h-3 w-3 border-t border-r border-primary-glow/40" />
-        <span className="pointer-events-none absolute bottom-2 left-2 h-3 w-3 border-b border-l border-primary-glow/40" />
-        <span className="pointer-events-none absolute bottom-2 right-2 h-3 w-3 border-b border-r border-primary-glow/40" />
-
-        {/* Top meta row: REC / 4K / timecode */}
-        <div className="relative flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-white/40 mb-5">
-          <span className="flex items-center gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
-            REC
-          </span>
-          <span className="hidden sm:inline">● 00:00:24</span>
-          <span>4K</span>
-        </div>
+      <div className="relative rounded-3xl border border-border bg-card/95 backdrop-blur-md p-8 md:p-14 lg:p-16 shadow-[0_40px_120px_-30px_hsl(218_75%_10%/0.45)] overflow-hidden">
+        {/* Subtle inner gradient sheen */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-primary-glow/[0.05]" />
 
         {/* Header */}
-        <div className="relative text-center max-w-2xl mx-auto">
-          <span className="text-[10px] md:text-xs font-semibold tracking-[0.3em] text-primary-glow uppercase">
+        <div className="relative text-center max-w-3xl mx-auto">
+          <span className="inline-block text-[11px] md:text-xs font-semibold tracking-[0.3em] text-primary uppercase">
             Captação de Vídeo
           </span>
-          <h2 className="mt-2 font-display text-xl md:text-2xl lg:text-3xl font-semibold text-white leading-tight">
-            Vídeo com direção, estrutura e execução comercial.
+          <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground leading-[1.1] tracking-tight">
+            Vídeo com direção, estrutura<br className="hidden md:inline" /> e execução comercial.
           </h2>
-          <p className="mt-3 text-sm md:text-base text-white/60 leading-relaxed">
+          <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             Produção pensada para marcas que precisam de conteúdo forte para campanhas, produto, redes sociais e posicionamento.
           </p>
         </div>
 
         {/* Mini cards */}
-        <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
+        <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 mt-10 md:mt-12">
           {miniCards.map((c, i) => (
             <div
               key={i}
-              className="group rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-colors p-4"
+              className="group rounded-2xl border border-border bg-background/60 hover:bg-background transition-colors p-5 md:p-6"
             >
-              <div className="flex items-center gap-2 mb-1.5">
-                <c.icon className="h-3.5 w-3.5 text-primary-glow" />
-                <h3 className="font-display text-sm font-semibold text-white">
+              <div className="flex items-center gap-2.5 mb-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
+                  <c.icon className="h-4 w-4 text-primary" />
+                </div>
+                <h3 className="font-display text-base font-semibold text-foreground">
                   {c.title}
                 </h3>
               </div>
-              <p className="text-xs text-white/55 leading-relaxed">{c.text}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{c.text}</p>
             </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="relative flex items-center justify-center gap-3 mt-6">
+        <div className="relative flex items-center justify-center gap-3 mt-10">
           <Button
-            size="sm"
-            className="bg-blue-grad hover:opacity-90 border-0 rounded-full px-5 h-10 shadow-glow"
+            size="lg"
+            className="bg-blue-grad hover:opacity-90 border-0 rounded-full px-7 h-12 shadow-glow"
           >
-            <Play className="h-3 w-3 mr-1 fill-current" />
+            <Play className="h-3.5 w-3.5 mr-1 fill-current" />
             Solicitar orçamento
-            <ArrowRight className="ml-1 h-3 w-3" />
+            <ArrowRight className="ml-1 h-4 w-4" />
           </Button>
         </div>
       </div>
