@@ -29,33 +29,17 @@ export const Hero = () => {
       <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-primary-glow/20 blur-[120px]" />
 
       <div className="container relative z-10 flex justify-center pt-12 pb-24 lg:py-28">
-        <div className="fade-up relative w-full max-w-3xl text-center px-8 sm:px-12 py-12 sm:py-16">
-          {/* REC-style frame */}
-          <div className="pointer-events-none absolute inset-0 border border-white/15 rounded-sm" aria-hidden="true">
-            {/* Corner markers */}
-            <span className="absolute -top-px -left-px h-4 w-4 border-t-2 border-l-2 border-primary-glow/70" />
-            <span className="absolute -top-px -right-px h-4 w-4 border-t-2 border-r-2 border-primary-glow/70" />
-            <span className="absolute -bottom-px -left-px h-4 w-4 border-b-2 border-l-2 border-primary-glow/70" />
-            <span className="absolute -bottom-px -right-px h-4 w-4 border-b-2 border-r-2 border-primary-glow/70" />
-            {/* REC indicator */}
-            <span className="absolute top-3 right-3 flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-white/50">
-              <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
-              REC
-            </span>
-            {/* Center crosshair */}
-            <span className="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] text-white/40">● 00:00:12</span>
-          </div>
-
+        <div className="fade-up relative w-full max-w-5xl text-center px-4 sm:px-8 py-12 sm:py-16">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs uppercase tracking-widest text-white/80 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-primary-glow animate-pulse" />
             Estúdio fotográfico premium
           </span>
-          <h1 className="mt-6 font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05]">
+          <h1 className="mt-8 font-display text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] font-bold leading-[0.95] tracking-tight">
             Sua <span className="italic text-primary-glow">marca</span><br />
             em imagens<br />
-            que <span className="underline decoration-primary decoration-4 underline-offset-4">vendem</span>.
+            que <span className="underline decoration-primary decoration-[6px] underline-offset-[10px]">vendem</span>.
           </h1>
-          <p className="mt-6 mx-auto max-w-lg text-lg text-white/70">
+          <p className="mt-8 mx-auto max-w-xl text-lg md:text-xl text-white/70">
             Posicionamento visual de alta performance para marcas que querem ser desejadas, lembradas e escolhidas.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
