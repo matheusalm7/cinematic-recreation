@@ -23,8 +23,6 @@ export const HeroVideoPanel = () => {
   return (
     <div className="relative z-10 mx-auto max-w-6xl px-4 pb-24 lg:pb-32">
       <div className="relative rounded-3xl border border-white/10 bg-[hsl(218_75%_10%)]/95 backdrop-blur-md p-8 md:p-14 lg:p-16 shadow-[0_40px_120px_-30px_rgba(0,0,0,0.6)] overflow-hidden">
-        {/* Subtle inner gradient sheen */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary-glow/5" />
 
         {/* Header */}
         <div className="relative text-center max-w-3xl mx-auto">
