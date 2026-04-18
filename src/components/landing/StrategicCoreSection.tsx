@@ -7,6 +7,44 @@ const bullets = [
 
 const tabs = ["Posicionamento", "Gestão", "Crescimento"];
 
+const StrategicStack = ({ items }: { items: string[] }) => {
+  // [StrategicStack] dark glass layered cards
+  const CARD_H = 56;
+  const OFFSET = 28;
+  const total = items.length;
+  const wrapperH = CARD_H + OFFSET * (total - 1);
+
+  return (
+    <div
+      className="mt-8 mx-auto w-full max-w-[280px] relative"
+      style={{ height: `${wrapperH}px` }}
+    >
+      {items.map((label, i) => (
+        <div
+          key={label}
+          className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center rounded-2xl px-6 text-center text-white/90 text-sm tracking-wide select-none"
+          style={{
+            top: `${i * OFFSET}px`,
+            height: `${CARD_H}px`,
+            width: `${100 - i * 6}%`,
+            zIndex: total - i,
+            background:
+              "linear-gradient(180deg, hsl(var(--primary) / 0.22) 0%, hsl(220 60% 12% / 0.82) 100%)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+            border: "1px solid hsl(var(--primary) / 0.35)",
+            boxShadow:
+              "0 10px 30px -12px hsl(220 70% 6% / 0.55), inset 0 1px 0 hsl(var(--primary) / 0.18)",
+            opacity: 1 - i * 0.05,
+          }}
+        >
+          {label}
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const ChartSVG = () => (
   <svg viewBox="0 0 400 180" className="w-full h-auto" preserveAspectRatio="none">
     <defs>
