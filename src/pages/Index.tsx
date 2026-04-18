@@ -1,5 +1,6 @@
 import { Hero } from "@/components/landing/Hero";
 import { StatementSection } from "@/components/landing/StatementSection";
+import { StrategicCoreSection } from "@/components/landing/StrategicCoreSection";
 import { ServicesSection } from "@/components/landing/ServicesSection";
 import { DifferentialsSection } from "@/components/landing/DifferentialsSection";
 import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
@@ -14,6 +15,7 @@ const Index = () => {
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Hero />
       <StatementSection />
+      <StrategicCoreSection />
       <ServicesSection />
       <DifferentialsSection />
       <TestimonialsSection />
