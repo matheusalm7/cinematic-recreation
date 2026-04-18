@@ -8,39 +8,70 @@ const bullets = [
 const tabs = ["Posicionamento", "Gestão", "Crescimento"];
 
 const StrategicStack = ({ items }: { items: string[] }) => {
-  // [StrategicStack] solid blue layered cards w/ perspective — matches reference
-  const CARD_H = 44;
-  const OFFSET = 22;
-  const total = items.length;
-  const wrapperH = CARD_H + OFFSET * (total - 1) + 8;
+  const layerStyles = [
+    {
+      top: 0,
+      shiftX: 0,
+      width: "100%",
+      background:
+        "linear-gradient(180deg, hsl(var(--foreground) / 0.78) 0%, hsl(var(--foreground) / 0.92) 100%)",
+    },
+    {
+      top: 18,
+      shiftX: -10,
+      width: "96%",
+      background:
+        "linear-gradient(180deg, hsl(var(--primary) / 0.18) 0%, hsl(var(--foreground) / 0.96) 100%)",
+    },
+    {
+      top: 36,
+      shiftX: -18,
+      width: "92%",
+      background:
+        "linear-gradient(180deg, hsl(var(--primary) / 0.42) 0%, hsl(var(--primary) / 0.58) 100%)",
+    },
+  ];
 
   return (
-    <div
-      className="mt-8 mx-auto w-full max-w-[340px] relative"
-      style={{ height: `${wrapperH}px`, perspective: "900px" }}
-    >
+    <div className="mt-8 mx-auto relative w-[92%]" style={{ height: "112px" }}>
       {items.map((label, i) => {
-        const fromTop = i; // 0 = top card
+        const layer = layerStyles[i];
+
         return (
           <div
             key={label}
-            className="absolute left-1/2 flex items-center justify-center text-center text-white text-[13px] font-medium tracking-wide select-none"
+            className="absolute left-1/2 overflow-hidden rounded-[15px] border select-none"
             style={{
-              top: `${fromTop * OFFSET}px`,
-              height: `${CARD_H}px`,
-              width: `${100 - fromTop * 4}%`,
-              transform: `translateX(-50%) rotateX(18deg) scale(${1 - fromTop * 0.02})`,
-              transformOrigin: "center top",
-              zIndex: total - fromTop,
-              borderRadius: "14px",
-              background:
-                "linear-gradient(180deg, hsl(217 70% 38%) 0%, hsl(220 75% 26%) 100%)",
-              border: "1px solid hsl(210 90% 78% / 0.55)",
+              top: `${layer.top}px`,
+              width: layer.width,
+              height: "44px",
+              transform: `translateX(calc(-50% + ${layer.shiftX}px))`,
+              zIndex: items.length - i,
+              background: layer.background,
+              borderColor: "hsl(var(--primary) / 0.3)",
               boxShadow:
-                "0 14px 28px -14px hsl(220 80% 5% / 0.7), inset 0 1px 0 hsl(210 100% 90% / 0.25), inset 0 -1px 0 hsl(220 80% 10% / 0.5)",
+                "0 14px 26px -16px hsl(var(--foreground) / 0.5), 0 4px 10px hsl(var(--foreground) / 0.2), inset 0 1px 0 hsl(0 0% 100% / 0.22), inset 0 -1px 0 hsl(var(--foreground) / 0.28)",
+              backdropFilter: "blur(4px)",
+              WebkitBackdropFilter: "blur(4px)",
             }}
           >
-            {label}
+            <div
+              className="absolute inset-x-3 top-0 h-px"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.34), transparent)",
+              }}
+            />
+            <div
+              className="absolute inset-[1px] rounded-[14px]"
+              style={{
+                background:
+                  "linear-gradient(180deg, hsl(0 0% 100% / 0.08) 0%, transparent 38%, transparent 100%)",
+              }}
+            />
+            <span className="relative z-10 flex h-full items-center justify-center whitespace-nowrap px-4 text-[11.5px] font-normal tracking-[0.01em] text-white/72 sm:text-xs">
+              {label}
+            </span>
           </div>
         );
       })}
