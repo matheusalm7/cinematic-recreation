@@ -13,7 +13,6 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Hero />
-      <VideoCaptureSection />
       <StatementSection />
       <ServicesSection />
       <DifferentialsSection />

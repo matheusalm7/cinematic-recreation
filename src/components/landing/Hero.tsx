@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Camera } from "lucide-react";
+import { HeroVideoPanel } from "./HeroVideoPanel";
 
 export const Hero = () => {
   return (
