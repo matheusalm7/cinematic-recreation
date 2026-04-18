@@ -22,22 +22,19 @@ const miniCards = [
 export const HeroVideoPanel = () => {
   return (
     <div className="relative z-10 mx-auto max-w-6xl px-4 pb-24 lg:pb-32">
-      {/* Soft blue glow behind the showcase */}
-      <div className="absolute inset-x-10 top-0 h-[60%] bg-primary/20 blur-[120px] -z-10 rounded-full" />
-
-      <div className="relative rounded-3xl border border-border bg-card/95 backdrop-blur-md p-8 md:p-14 lg:p-16 shadow-[0_40px_120px_-30px_hsl(218_75%_10%/0.45)] overflow-hidden">
+      <div className="relative rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-8 md:p-14 lg:p-16 shadow-[0_40px_120px_-30px_rgba(0,0,0,0.6)] overflow-hidden">
         {/* Subtle inner gradient sheen */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-primary-glow/[0.05]" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary-glow/5" />
 
         {/* Header */}
         <div className="relative text-center max-w-3xl mx-auto">
-          <span className="inline-block text-[11px] md:text-xs font-semibold tracking-[0.3em] text-primary uppercase">
+          <span className="inline-block text-[11px] md:text-xs font-semibold tracking-[0.3em] text-primary-glow uppercase">
             Captação de Vídeo
           </span>
-          <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground leading-[1.1] tracking-tight">
+          <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-[1.1] tracking-tight">
             Vídeo com direção, estrutura<br className="hidden md:inline" /> e execução comercial.
           </h2>
-          <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-5 text-base md:text-lg text-white/70 leading-relaxed max-w-2xl mx-auto">
             Produção pensada para marcas que precisam de conteúdo forte para campanhas, produto, redes sociais e posicionamento.
           </p>
         </div>
@@ -47,17 +44,17 @@ export const HeroVideoPanel = () => {
           {miniCards.map((c, i) => (
             <div
               key={i}
-              className="group rounded-2xl border border-border bg-background/60 hover:bg-background transition-colors p-5 md:p-6"
+              className="group rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-colors p-5 md:p-6"
             >
               <div className="flex items-center gap-2.5 mb-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
-                  <c.icon className="h-4 w-4 text-primary" />
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/15">
+                  <c.icon className="h-4 w-4 text-primary-glow" />
                 </div>
-                <h3 className="font-display text-base font-semibold text-foreground">
+                <h3 className="font-display text-base font-semibold text-white">
                   {c.title}
                 </h3>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">{c.text}</p>
+              <p className="text-sm text-white/60 leading-relaxed">{c.text}</p>
             </div>
           ))}
         </div>
