@@ -71,9 +71,10 @@ export const Hero = () => {
             <div className="h-10 w-px bg-white/15" />
             <div><strong className="text-white text-2xl font-display">10 anos</strong><br/>de estúdio</div>
           </div>
-        </div>
       </div>
-      <HeroVideoPanel />
+      <div className="relative z-20 -mb-24 md:-mb-32">
+        <HeroVideoPanel />
+      </div>
     </section>
   );
 };

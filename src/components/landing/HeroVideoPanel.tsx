@@ -21,7 +21,7 @@ const miniCards = [
 
 export const HeroVideoPanel = () => {
   return (
-    <div className="relative z-10 mx-auto -mt-6 md:-mt-10 max-w-4xl px-4 pb-20">
+    <div className="relative z-10 mx-auto -mt-16 md:-mt-24 max-w-4xl px-4">
       <div className="relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-6 md:p-8 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)] overflow-hidden">
         {/* Subtle gradient sheen */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary-glow/5" />
