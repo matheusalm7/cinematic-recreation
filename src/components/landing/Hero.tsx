@@ -16,8 +16,8 @@ export const Hero = () => {
       {/* Glows */}
       <div className="absolute -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-primary/30 blur-[140px]" />
       <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-primary-glow/20 blur-[120px]" />
-      {/* White fade-out at the bottom, after the showcase, to merge with next section */}
-      <div className="pointer-events-none absolute bottom-0 inset-x-0 h-40 bg-gradient-to-b from-transparent to-background z-10" />
+      {/* White fade-out at the bottom (behind the showcase), merging with next section */}
+      <div className="pointer-events-none absolute bottom-0 inset-x-0 h-72 bg-gradient-to-b from-transparent to-background z-0" />
 
       {/* Top nav */}
       <header className="relative z-20">
