@@ -8,39 +8,42 @@ const bullets = [
 const tabs = ["Posicionamento", "Gestão", "Crescimento"];
 
 const StrategicStack = ({ items }: { items: string[] }) => {
-  // [StrategicStack] dark glass layered cards
-  const CARD_H = 56;
-  const OFFSET = 28;
+  // [StrategicStack] solid blue layered cards w/ perspective — matches reference
+  const CARD_H = 44;
+  const OFFSET = 22;
   const total = items.length;
-  const wrapperH = CARD_H + OFFSET * (total - 1);
+  const wrapperH = CARD_H + OFFSET * (total - 1) + 8;
 
   return (
     <div
-      className="mt-8 mx-auto w-full max-w-[280px] relative"
-      style={{ height: `${wrapperH}px` }}
+      className="mt-8 mx-auto w-full max-w-[340px] relative"
+      style={{ height: `${wrapperH}px`, perspective: "900px" }}
     >
-      {items.map((label, i) => (
-        <div
-          key={label}
-          className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center rounded-2xl px-6 text-center text-white/90 text-sm tracking-wide select-none"
-          style={{
-            top: `${i * OFFSET}px`,
-            height: `${CARD_H}px`,
-            width: `${100 - i * 6}%`,
-            zIndex: total - i,
-            background:
-              "linear-gradient(180deg, hsl(var(--primary) / 0.22) 0%, hsl(220 60% 12% / 0.82) 100%)",
-            backdropFilter: "blur(8px)",
-            WebkitBackdropFilter: "blur(8px)",
-            border: "1px solid hsl(var(--primary) / 0.35)",
-            boxShadow:
-              "0 10px 30px -12px hsl(220 70% 6% / 0.55), inset 0 1px 0 hsl(var(--primary) / 0.18)",
-            opacity: 1 - i * 0.05,
-          }}
-        >
-          {label}
-        </div>
-      ))}
+      {items.map((label, i) => {
+        const fromTop = i; // 0 = top card
+        return (
+          <div
+            key={label}
+            className="absolute left-1/2 flex items-center justify-center text-center text-white text-[13px] font-medium tracking-wide select-none"
+            style={{
+              top: `${fromTop * OFFSET}px`,
+              height: `${CARD_H}px`,
+              width: `${100 - fromTop * 4}%`,
+              transform: `translateX(-50%) rotateX(18deg) scale(${1 - fromTop * 0.02})`,
+              transformOrigin: "center top",
+              zIndex: total - fromTop,
+              borderRadius: "14px",
+              background:
+                "linear-gradient(180deg, hsl(217 70% 38%) 0%, hsl(220 75% 26%) 100%)",
+              border: "1px solid hsl(210 90% 78% / 0.55)",
+              boxShadow:
+                "0 14px 28px -14px hsl(220 80% 5% / 0.7), inset 0 1px 0 hsl(210 100% 90% / 0.25), inset 0 -1px 0 hsl(220 80% 10% / 0.5)",
+            }}
+          >
+            {label}
+          </div>
+        );
+      })}
     </div>
   );
 };
