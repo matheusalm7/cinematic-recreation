@@ -8,49 +8,38 @@ const bullets = [
 const tabs = ["Posicionamento", "Gestão", "Crescimento"];
 
 const StrategicStack = ({ items }: { items: string[] }) => {
-  // Each subsequent layer is wider and shifted further left/down,
-  // creating the stacked perspective shown in the reference image.
-  const layers = [
-    { top: 0, width: "78%", offsetX: 0 },
-    { top: 30, width: "88%", offsetX: -22 },
-    { top: 60, width: "100%", offsetX: -46 },
-  ];
+  // Three identically-sized cards, evenly stepped down and to the left.
+  const STEP_Y = 38;   // vertical offset per layer
+  const STEP_X = 26;   // horizontal offset per layer (to the left)
+  const CARD_H = 56;
+  const totalH = CARD_H + STEP_Y * (items.length - 1);
 
   return (
-    <div className="mt-auto pt-10 relative w-full" style={{ height: "150px" }}>
-      {items.map((label, i) => {
-        const layer = layers[i];
-        return (
-          <div
-            key={label}
-            className="absolute left-1/2 overflow-hidden rounded-[14px]"
-            style={{
-              top: `${layer.top}px`,
-              width: layer.width,
-              height: "52px",
-              transform: `translateX(calc(-50% + ${layer.offsetX}px))`,
-              zIndex: i + 1,
-              background:
-                "linear-gradient(180deg, hsl(222 47% 18%) 0%, hsl(222 47% 13%) 100%)",
-              border: "1px solid hsl(217 91% 60% / 0.25)",
-              boxShadow:
-                "0 18px 30px -18px hsl(222 47% 5% / 0.6), inset 0 1px 0 hsl(0 0% 100% / 0.06)",
-            }}
-          >
-            {/* top highlight */}
-            <div
-              className="absolute inset-x-4 top-0 h-px"
-              style={{
-                background:
-                  "linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.18), transparent)",
-              }}
-            />
-            <span className="relative z-10 flex h-full items-center justify-center text-[13px] font-normal tracking-wide text-white/85">
-              {label}
-            </span>
-          </div>
-        );
-      })}
+    <div
+      className="mt-auto pt-10 relative w-full"
+      style={{ height: `${totalH + 20}px` }}
+    >
+      {items.map((label, i) => (
+        <div
+          key={label}
+          className="absolute rounded-[16px]"
+          style={{
+            top: `${i * STEP_Y}px`,
+            left: `${-i * STEP_X}px`,
+            right: `${i * STEP_X}px`,
+            height: `${CARD_H}px`,
+            zIndex: i + 1,
+            background: "hsl(222 55% 13%)",
+            border: "1px solid hsl(217 91% 60% / 0.35)",
+            boxShadow:
+              "0 16px 28px -18px hsl(222 47% 5% / 0.55), inset 0 1px 0 hsl(0 0% 100% / 0.05)",
+          }}
+        >
+          <span className="flex h-full items-center justify-center text-[14px] font-normal tracking-wide text-white/85">
+            {label}
+          </span>
+        </div>
+      ))}
     </div>
   );
 };
