@@ -8,68 +8,44 @@ const bullets = [
 const tabs = ["Posicionamento", "Gestão", "Crescimento"];
 
 const StrategicStack = ({ items }: { items: string[] }) => {
-  const layerStyles = [
-    {
-      top: 0,
-      shiftX: 0,
-      width: "100%",
-      background:
-        "linear-gradient(180deg, hsl(var(--foreground) / 0.78) 0%, hsl(var(--foreground) / 0.92) 100%)",
-    },
-    {
-      top: 18,
-      shiftX: -10,
-      width: "96%",
-      background:
-        "linear-gradient(180deg, hsl(var(--primary) / 0.18) 0%, hsl(var(--foreground) / 0.96) 100%)",
-    },
-    {
-      top: 36,
-      shiftX: -18,
-      width: "92%",
-      background:
-        "linear-gradient(180deg, hsl(var(--primary) / 0.42) 0%, hsl(var(--primary) / 0.58) 100%)",
-    },
+  // Each subsequent layer is wider and shifted further left/down,
+  // creating the stacked perspective shown in the reference image.
+  const layers = [
+    { top: 0, width: "78%", offsetX: 0 },
+    { top: 30, width: "88%", offsetX: -22 },
+    { top: 60, width: "100%", offsetX: -46 },
   ];
 
   return (
-    <div className="mt-8 mx-auto relative w-[92%]" style={{ height: "112px" }}>
+    <div className="mt-auto pt-10 relative w-full" style={{ height: "150px" }}>
       {items.map((label, i) => {
-        const layer = layerStyles[i];
-
+        const layer = layers[i];
         return (
           <div
             key={label}
-            className="absolute left-1/2 overflow-hidden rounded-[15px] border select-none"
+            className="absolute left-1/2 overflow-hidden rounded-[14px]"
             style={{
               top: `${layer.top}px`,
               width: layer.width,
-              height: "44px",
-              transform: `translateX(calc(-50% + ${layer.shiftX}px))`,
-              zIndex: items.length - i,
-              background: layer.background,
-              borderColor: "hsl(var(--primary) / 0.3)",
+              height: "52px",
+              transform: `translateX(calc(-50% + ${layer.offsetX}px))`,
+              zIndex: i + 1,
+              background:
+                "linear-gradient(180deg, hsl(222 47% 18%) 0%, hsl(222 47% 13%) 100%)",
+              border: "1px solid hsl(217 91% 60% / 0.25)",
               boxShadow:
-                "0 14px 26px -16px hsl(var(--foreground) / 0.5), 0 4px 10px hsl(var(--foreground) / 0.2), inset 0 1px 0 hsl(0 0% 100% / 0.22), inset 0 -1px 0 hsl(var(--foreground) / 0.28)",
-              backdropFilter: "blur(4px)",
-              WebkitBackdropFilter: "blur(4px)",
+                "0 18px 30px -18px hsl(222 47% 5% / 0.6), inset 0 1px 0 hsl(0 0% 100% / 0.06)",
             }}
           >
+            {/* top highlight */}
             <div
-              className="absolute inset-x-3 top-0 h-px"
+              className="absolute inset-x-4 top-0 h-px"
               style={{
                 background:
-                  "linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.34), transparent)",
+                  "linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.18), transparent)",
               }}
             />
-            <div
-              className="absolute inset-[1px] rounded-[14px]"
-              style={{
-                background:
-                  "linear-gradient(180deg, hsl(0 0% 100% / 0.08) 0%, transparent 38%, transparent 100%)",
-              }}
-            />
-            <span className="relative z-10 flex h-full items-center justify-center whitespace-nowrap px-4 text-[11.5px] font-normal tracking-[0.01em] text-white/72 sm:text-xs">
+            <span className="relative z-10 flex h-full items-center justify-center text-[13px] font-normal tracking-wide text-white/85">
               {label}
             </span>
           </div>
@@ -146,7 +122,7 @@ export const StrategicCoreSection = () => {
         </div>
 
         {/* Card 3 - bullets + tabs */}
-        <div className="rounded-2xl border border-foreground/15 bg-white shadow-sm p-8 flex flex-col">
+        <div className="rounded-2xl border border-foreground/15 bg-white shadow-sm p-8 pb-0 flex flex-col overflow-hidden">
           <ul className="space-y-4">
             {bullets.map((b) => (
               <li key={b} className="flex items-start gap-3">
