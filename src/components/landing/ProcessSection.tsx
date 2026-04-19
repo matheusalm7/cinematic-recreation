@@ -90,16 +90,6 @@ export const ProcessSection = () => {
         </div>
       </div>
 
-      {/* Authority strip */}
-      <div className="mt-20 bg-blue-grad py-4 overflow-hidden">
-        <div className="flex gap-12 marquee w-max font-display text-sm md:text-base text-white uppercase tracking-widest">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <span key={i} className="flex items-center gap-12 shrink-0">
-              Mais que fotos. Estratégia visual que comunica, vende e posiciona ✦
-            </span>
-          ))}
-        </div>
-      </div>
     </section>
   );
 };
