@@ -42,7 +42,7 @@ export const HeroVideoPanel = () => {
           {miniCards.map((c, i) => (
             <div
               key={i}
-              className="group rounded-2xl border border-white/10 bg-[hsl(218_65%_13%)] hover:bg-[hsl(218_65%_15%)] transition-colors p-5 md:p-6"
+              className="group rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-colors p-5 md:p-6"
             >
               <div className="flex items-center gap-2.5 mb-2">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/15">
