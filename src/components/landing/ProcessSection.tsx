@@ -46,10 +46,10 @@ export const ProcessSection = () => {
       <div className="container relative z-10">
         <div className="text-center max-w-xl mx-auto">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] text-white/70 backdrop-blur">
-            <Sparkles className="h-3 w-3 text-primary-glow" /> Processos
+            <Sparkles className="h-3 w-3 text-primary-glow" /> PROCESSES
           </span>
           <h2 className="mt-5 font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05]">
-            Como funciona o processo
+            How the process works
           </h2>
         </div>
 
@@ -65,7 +65,7 @@ export const ProcessSection = () => {
               <div className="relative z-10 grid md:grid-cols-2 gap-6 md:gap-10 items-start">
                 <div>
                   <p className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-white/70">
-                    <Sparkles className="h-3 w-3 text-primary-glow" /> Passo | {s.n}
+                    <Sparkles className="h-3 w-3 text-primary-glow" /> STEP | {s.n}
                   </p>
                   <h3 className="mt-4 font-display text-3xl md:text-4xl font-bold whitespace-pre-line leading-[1.1]">
                     {s.title}

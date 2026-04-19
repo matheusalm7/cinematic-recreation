@@ -66,10 +66,10 @@ export const FounderSection = () => {
 
         {/* Right: Heading + copy */}
         <div className="lg:pl-6">
-          <p className="text-xs uppercase tracking-[0.4em] text-primary">Quem está por trás</p>
+          <p className="text-xs uppercase tracking-[0.4em] text-primary">Who is behind</p>
           <h2 className="mt-4 font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-foreground">
-            Nascemos para<br />
-            mudar <span className="text-primary">o jogo.</span>
+            We were born to<br />
+            change <span className="text-primary">the game.</span>
           </h2>
           <p className="mt-8 text-muted-foreground text-lg leading-relaxed max-w-xl">
             Nossa direção criativa nasceu da força de quem constrói. Reunimos um time que enxerga além das imagens para entender a essência de cada marca.
