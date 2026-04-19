@@ -123,12 +123,11 @@ export const StrategicCoreSection = () => {
         {/* Card 1 - wide */}
         <div className="md:col-span-2 rounded-2xl border border-foreground/15 bg-white shadow-sm p-12 text-center">
           <h2 className="text-3xl md:text-5xl font-display leading-tight tracking-tight text-foreground">
-            Consultoria em odontologia para quem{" "}
-            <span className="italic text-primary font-display">cansou do improviso.</span>
+            Content built to drive{" "}
+            <span className="italic text-primary font-display">real results.</span>
           </h2>
           <p className="mt-6 text-base md:text-lg text-foreground/70 max-w-3xl mx-auto">
-            A ALMA é o núcleo estratégico que transforma consultórios odontológicos em negócios
-            sólidos, escaláveis e lucrativos — com método, clareza e acompanhamento próximo.
+            At Agnus, we go beyond creating visually appealing content. Every project is built with a clear objective: to attract attention, communicate value and support business growth.
           </p>
         </div>
 
@@ -140,8 +139,8 @@ export const StrategicCoreSection = () => {
           <div className="mt-6">
             <p className="text-sm uppercase tracking-widest text-foreground/50">Resultado real</p>
             <p className="mt-2 text-xl md:text-2xl font-display text-foreground">
-              <span className="italic text-primary">Não somos agência.</span> Somos o time
-              estratégico que faltava no seu consultório.
+              <span className="italic text-primary">We’re not here to just deliver services.</span> We
+              integrate as the strategic team driving your business forward.
             </p>
           </div>
         </div>

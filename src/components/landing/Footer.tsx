@@ -29,7 +29,7 @@ export const Footer = () => {
             aria-label="Voltar ao topo"
           >
             <ArrowUp className="h-5 w-5 group-hover:-translate-y-1 transition-transform" />
-            <span className="text-sm md:text-base">Voltar ao topo</span>
+            <span className="text-sm md:text-base">Back to top</span>
           </button>
         </div>
 
