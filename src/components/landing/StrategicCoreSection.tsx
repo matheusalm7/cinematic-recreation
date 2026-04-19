@@ -8,11 +8,17 @@ const bullets = [
 const tabs = ["Posicionamento", "Gestão", "Crescimento"];
 
 const StrategicStack = ({ items }: { items: string[] }) => {
-  // Three identically-sized cards, evenly stepped down and to the left.
-  const STEP_Y = 38;   // vertical offset per layer
-  const STEP_X = 26;   // horizontal offset per layer (to the left)
+  const STEP_Y = 38;
+  const STEP_X = 26;
   const CARD_H = 56;
   const totalH = CARD_H + STEP_Y * (items.length - 1);
+
+  // Sampled directly from the reference image
+  const layerColors = [
+    "#252E49", // top card
+    "#152348", // middle card
+    "#22376B", // bottom card (more vivid blue)
+  ];
 
   return (
     <div
@@ -29,10 +35,10 @@ const StrategicStack = ({ items }: { items: string[] }) => {
             right: `${i * STEP_X}px`,
             height: `${CARD_H}px`,
             zIndex: i + 1,
-            background: "hsl(222 55% 13%)",
-            border: "1px solid hsl(217 91% 60% / 0.35)",
+            background: layerColors[i],
+            border: "1px solid rgba(120, 150, 220, 0.35)",
             boxShadow:
-              "0 16px 28px -18px hsl(222 47% 5% / 0.55), inset 0 1px 0 hsl(0 0% 100% / 0.05)",
+              "0 18px 30px -18px rgba(10, 15, 35, 0.55), inset 0 1px 0 rgba(255,255,255,0.06)",
           }}
         >
           <span className="flex h-full items-center justify-center text-[14px] font-normal tracking-wide text-white/85">
