@@ -137,3 +137,13 @@
     to { opacity: 1; transform: translateY(0); }
   }
 }
+
+/* Paid Traffic floating animations */
+@keyframes floatFront {
+  0%, 100% { transform: rotate(-8deg) translateY(0px); }
+  50% { transform: rotate(-8deg) translateY(-8px); }
+}
+@keyframes floatBack {
+  0%, 100% { transform: rotate(12deg) translateY(0px); }
+  50% { transform: rotate(12deg) translateY(-6px); }
+}
