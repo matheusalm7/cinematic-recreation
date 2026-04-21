@@ -4,33 +4,28 @@ import { DecorativeGear } from "./DecorativeGear";
 const steps = [
   {
     n: "01",
-    title: "Contato e briefing",
-    desc: "Você entra em contato. Conversamos sobre sua ideia, seus objetivos e o que precisa ser entregue. Aqui, eu escuto e começo a traduzir sua visão em estratégia visual.",
+    title: "Understanding your business",
+    desc: "Before anything is executed, we get into your business to understand how you currently attract customers, where the bottlenecks are, and what actually needs to change for you to grow. Decisions come from your real situation.",
   },
   {
     n: "02",
-    title: "Conceito e\ndireção criativa",
-    desc: "Desenvolvemos o conceito juntos. Criação de moodboard, definição de paleta, estilo, referências e planejamento criativo. Tudo pensado para refletir a identidade da sua marca.",
+    title: "Strategic\nplanning",
+    desc: "Once that’s clear, we build a simple and focused plan around what actually drives results. You understand what will be done, why it matters, and how it impacts your growth.",
   },
   {
     n: "03",
-    title: "Produção e preparação",
-    desc: "Organizo toda a estrutura: iluminação, equipamentos, casting, styling. Você não precisa se preocupar com detalhes técnicos, eu cuido de tudo.",
+    title: "Guided\nexecution",
+    desc: "From here, execution is on us. Our team handles every step closely, without adding complexity or extra work for you. While we run the process, you stay fully focused on your business.",
   },
   {
     n: "04",
-    title: "Sessão de fotos",
-    desc: "Com tudo pronto, executamos. A fotografia acontece com direção clara, fluidez e foco no resultado. Você vê a sua marca ganhando forma em tempo real.",
+    title: "Continuous\noptimization",
+    desc: "As things go live, we look at what’s working and quickly adjust what needs improvement. Nothing stays static. The process evolves based on real performance.",
   },
   {
     n: "05",
-    title: "Edição e pós-produção",
-    desc: "Tratamento preciso, cor fiel, recorte limpo e padronização. Aqui, cada imagem é finalizada com o nível de qualidade que sua marca exige.",
-  },
-  {
-    n: "06",
-    title: "Entrega com design\npronto para uso",
-    desc: "Você recebe tudo ajustado e pronto para publicar: formatos otimizados (feed, reels, stories, catálogo, campanha), composição visual alinhada e texto integrado, se necessário.",
+    title: "Ready to use",
+    desc: "Everything is delivered ready to go, with clear next steps so you can start using it immediately and turn it into real results for your business.",
   },
 ];
 
