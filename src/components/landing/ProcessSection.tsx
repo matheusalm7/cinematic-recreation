@@ -79,7 +79,7 @@ export const ProcessSection = () => {
             href="#contato"
             className="inline-flex items-center gap-2 rounded-full bg-primary/30 backdrop-blur border border-primary/40 px-7 py-3.5 text-sm font-semibold text-white shadow-glow hover:bg-primary/40 transition"
           >
-            Get in touch now
+            Entre em contato agora
             <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/20">↗</span>
           </a>
         </div>
