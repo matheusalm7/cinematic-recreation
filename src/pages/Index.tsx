@@ -1,3 +1,4 @@
+import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/landing/Hero";
 import { StatementSection } from "@/components/landing/StatementSection";
 import { StrategicCoreSection } from "@/components/landing/StrategicCoreSection";
@@ -13,6 +14,7 @@ import { Footer } from "@/components/landing/Footer";
 const Index = () => {
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
+      <Header />
       <Hero />
       <StrategicCoreSection />
       <StatementSection />
