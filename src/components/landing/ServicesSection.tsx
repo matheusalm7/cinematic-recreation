@@ -1,8 +1,8 @@
-import fashion from "@/assets/service-fashion.png";
 import product from "@/assets/service-product.png";
 import ecommerce from "@/assets/service-ecommerce.png";
 import direction from "@/assets/service-direction.png";
 import { Sparkles } from "lucide-react";
+import { PaidTrafficArt } from "./PaidTrafficArt";
 
 interface ServiceCard {
   num: string;
@@ -12,6 +12,7 @@ interface ServiceCard {
   image?: string;
   imageClass?: string;
   size?: "sm" | "md" | "lg";
+  customArt?: boolean;
 }
 
 const services: ServiceCard[] = [
@@ -20,8 +21,7 @@ const services: ServiceCard[] = [
     tag: "PERFORMANCE",
     title: "Paid Traffic\nManagement",
     desc: "We create, manage and optimize ad campaigns to generate qualified leads and sales with predictable performance.",
-    image: fashion,
-    imageClass: "right-[-10%] top-[10%] w-[55%] rotate-[-6deg]",
+    customArt: true,
   },
   {
     num: "//02",
@@ -86,8 +86,9 @@ export const ServicesSection = () => {
               {/* radial blue glow inside card */}
               <div className="pointer-events-none absolute -top-10 -left-10 h-[320px] w-[320px] rounded-full bg-primary/35 blur-[90px] opacity-70 group-hover:opacity-100 transition-opacity" />
 
-              {/* image */}
-              {s.image && (
+              {/* image or custom art */}
+              {s.customArt && <PaidTrafficArt />}
+              {s.image && !s.customArt && (
                 <img
                   src={s.image}
                   alt=""
