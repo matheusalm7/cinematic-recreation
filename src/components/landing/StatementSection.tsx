@@ -67,11 +67,6 @@ export const StatementSection = () => {
       />
 
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20">
-        {/* Eyebrow */}
-        <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-foreground/45">
-          <span className="h-px w-10 bg-primary/60" />
-          <span>Belief / 02</span>
-        </div>
 
         {/* Headline */}
         <h2 className="mt-8 max-w-5xl font-display text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.98] tracking-tight text-foreground">
@@ -162,17 +157,6 @@ export const StatementSection = () => {
           })}
         </div>
 
-        {/* Discrete CTA */}
-        <div className="mt-20 md:mt-28 md:ml-[8.333%]">
-          <a
-            href="#contato"
-            className="group/cta inline-flex items-center gap-3 text-sm uppercase tracking-[0.25em] text-foreground/75 hover:text-primary transition-colors duration-300"
-          >
-            <span>Ver como isso funciona</span>
-            <span className="inline-block h-px w-10 bg-current transition-all duration-300 group-hover/cta:w-16" />
-            <span aria-hidden>→</span>
-          </a>
-        </div>
       </div>
     </section>
   );
