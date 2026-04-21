@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { ArrowRight, Camera } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { HeroVideoPanel } from "./HeroVideoPanel";
 
 const SOCIAL_AVATARS = [
@@ -19,24 +19,8 @@ export const Hero = () => {
       {/* White fade-out at the bottom (behind the showcase), merging with next section */}
       <div className="pointer-events-none absolute bottom-0 inset-x-0 h-72 bg-gradient-to-b from-transparent to-background z-0" />
 
-      {/* Top nav */}
-      <header className="relative z-20">
-        <div className="container flex items-center justify-between py-6">
-          <a href="#" className="flex items-center gap-2 font-display font-bold text-xl text-white">
-            <Camera className="h-5 w-5 text-primary-glow" />
-            <span>STUDIO<span className="text-primary-glow">.</span></span>
-          </a>
-          <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
-            <a href="#portfolio" className="hover:text-white transition">Portfólio</a>
-            <a href="#servicos" className="hover:text-white transition">Serviços</a>
-            <a href="#processo" className="hover:text-white transition">Processo</a>
-            <a href="#faq" className="hover:text-white transition">FAQ</a>
-          </nav>
-          <Button variant="default" className="bg-blue-grad hover:opacity-90 border-0 rounded-full px-5">
-            Falar agora
-          </Button>
-        </div>
-      </header>
+      {/* Spacer for fixed header */}
+      <div className="h-20" />
 
       <div className="container relative z-10 flex justify-center pt-12 pb-12 lg:pt-20 lg:pb-16">
         <div className="fade-up relative w-full max-w-5xl text-center px-4 sm:px-8">
