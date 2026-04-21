@@ -73,7 +73,7 @@ export const Header = () => {
             <img
               src={logoSrc}
               alt="Agnus - Logo"
-              className="h-10 md:h-11 w-auto object-contain"
+              className="h-14 md:h-16 w-auto object-contain"
               onError={() => {
                 console.log("[Header]", "Logo fallback activated");
                 setLogoError(true);
