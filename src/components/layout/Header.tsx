@@ -50,7 +50,7 @@ export const Header = () => {
         className={`
           relative flex items-center justify-between
           rounded-2xl border border-white/[0.08]
-          px-6 py-4 md:px-8 md:py-5
+          px-5 py-3 md:px-6 md:py-3.5
           backdrop-blur-xl
           transition-all duration-300
           ${scrolled
@@ -73,7 +73,7 @@ export const Header = () => {
             <img
               src={logoSrc}
               alt="Agnus - Logo"
-              className="h-9 md:h-12 w-auto object-contain"
+              className="h-7 md:h-8 w-auto object-contain brightness-[2]"
               onError={() => {
                 console.log("[Header]", "Logo fallback activated");
                 setLogoError(true);
@@ -89,7 +89,7 @@ export const Header = () => {
               key={link.href}
               onClick={() => handleNavClick(link.href)}
               className="
-                relative text-[15px] font-medium text-white/70
+                relative text-sm font-medium text-white/70
                 hover:text-white transition-colors duration-200
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:rounded
                 after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0
@@ -107,7 +107,7 @@ export const Header = () => {
           onClick={handleContact}
           className="
             hidden md:inline-flex items-center
-            rounded-full px-6 py-2.5 text-[15px] font-semibold
+            rounded-full px-5 py-2 text-sm font-semibold
             bg-gradient-to-r from-primary to-primary-glow
             text-white shadow-[0_0_20px_-4px_hsl(226_100%_57%/0.4)]
             hover:opacity-90 hover:shadow-[0_0_28px_-4px_hsl(226_100%_57%/0.55)]
