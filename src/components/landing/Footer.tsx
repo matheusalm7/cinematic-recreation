@@ -1,5 +1,5 @@
 import { ArrowUp, Instagram, Mail, MessageCircle } from "lucide-react";
-import agnusLogo from "@/assets/agnus-logo.png";
+import agnusLogo from "@/assets/logo-agnus.png";
 
 export const Footer = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -11,8 +11,9 @@ export const Footer = () => {
           <img
             src={agnusLogo}
             alt="Agnus"
-            className="h-10 md:h-12 w-auto object-contain brightness-[2]"
+            className="h-16 md:h-20 w-auto object-contain brightness-[2]"
           />
+
 
           <button
             onClick={scrollToTop}
