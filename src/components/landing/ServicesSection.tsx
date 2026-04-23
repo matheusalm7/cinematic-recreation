@@ -3,6 +3,7 @@ import ecommerce from "@/assets/service-ecommerce.png";
 import direction from "@/assets/service-direction.png";
 import { Sparkles } from "lucide-react";
 import { PaidTrafficArt } from "./PaidTrafficArt";
+import { DesignArt } from "./DesignArt";
 
 interface ServiceCard {
   num: string;
@@ -42,8 +43,7 @@ const services: ServiceCard[] = [
     tag: "DESIGN",
     title: "Graphic\nDesign",
     desc: "We design visual materials for campaigns, social media and brand communication with consistency and clarity.",
-    image: ecommerce,
-    imageClass: "right-[-12%] top-[20%] w-[55%] rotate-[6deg]",
+    customArt: true,
   },
   {
     num: "//05",
@@ -87,7 +87,8 @@ export const ServicesSection = () => {
               <div className="pointer-events-none absolute -top-10 -left-10 h-[320px] w-[320px] rounded-full bg-primary/35 blur-[90px] opacity-70 group-hover:opacity-100 transition-opacity" />
 
               {/* image or custom art */}
-              {s.customArt && <PaidTrafficArt />}
+              {s.customArt && s.tag === "PERFORMANCE" && <PaidTrafficArt />}
+              {s.customArt && s.tag === "DESIGN" && <DesignArt />}
               {s.image && !s.customArt && (
                 <img
                   src={s.image}
