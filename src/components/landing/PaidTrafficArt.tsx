@@ -35,24 +35,24 @@ export const PaidTrafficArt = () => {
       <div
         className="absolute right-[5%] top-[5%] w-[55%] sm:w-[52%] aspect-square 
           rounded-2xl md:rounded-3xl 
-          bg-gradient-to-br from-[#1a2544] to-[#0d1a33] 
-          border border-white/10 
-          shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_30px_rgba(59,130,246,0.15)] 
+          bg-white 
+          border border-white/20 
+          shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_30px_rgba(59,130,246,0.25)] 
           rotate-[12deg] 
           flex items-center justify-center
+          overflow-hidden
           animate-[floatBack_6s_ease-in-out_infinite]
-          group-hover:shadow-[0_25px_70px_rgba(0,0,0,0.6),0_0_40px_rgba(59,130,246,0.25)]
+          group-hover:shadow-[0_25px_70px_rgba(0,0,0,0.6),0_0_45px_rgba(59,130,246,0.4)]
           transition-shadow duration-700"
         style={{ zIndex: 1 }}
       >
-        <div className="absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-t from-transparent to-white/[0.04]" />
         <img
           src={googleAdsLogo}
           alt="Google Ads"
           loading="lazy"
           width={512}
           height={512}
-          className="w-[65%] h-[65%] object-contain relative z-10 drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)]"
+          className="w-[78%] h-[78%] object-contain object-center"
           onLoad={() => setLoaded((p) => ({ ...p, google: true }))}
           onError={() => handleError("google")}
         />
@@ -62,26 +62,24 @@ export const PaidTrafficArt = () => {
       <div
         className="absolute left-[0%] bottom-[5%] w-[55%] sm:w-[52%] aspect-square 
           rounded-2xl md:rounded-3xl 
-          bg-gradient-to-br from-[#162040] to-[#0e1630] 
-          border border-white/10 
-          shadow-[0_25px_60px_rgba(0,0,0,0.5),0_0_30px_rgba(59,130,246,0.2)] 
+          bg-white 
+          border border-white/20 
+          shadow-[0_25px_60px_rgba(0,0,0,0.5),0_0_30px_rgba(59,130,246,0.3)] 
           rotate-[-8deg] 
           flex items-center justify-center
+          overflow-hidden
           animate-[floatFront_5s_ease-in-out_infinite]
-          group-hover:shadow-[0_30px_70px_rgba(0,0,0,0.6),0_0_50px_rgba(59,130,246,0.3)]
+          group-hover:shadow-[0_30px_70px_rgba(0,0,0,0.6),0_0_55px_rgba(59,130,246,0.45)]
           transition-shadow duration-700"
         style={{ zIndex: 2 }}
       >
-        <div className="absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-t from-transparent to-white/[0.06]" />
-        {/* Highlight edge */}
-        <div className="absolute top-0 left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         <img
           src={metaLogo}
           alt="Meta"
           loading="lazy"
           width={512}
           height={512}
-          className="w-[62%] h-[62%] object-contain relative z-10 drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)]"
+          className="w-[80%] h-[80%] object-contain object-center"
           onLoad={() => setLoaded((p) => ({ ...p, meta: true }))}
           onError={() => handleError("meta")}
         />
