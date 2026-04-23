@@ -11,7 +11,7 @@ export const Footer = () => {
           <img
             src={agnusLogo}
             alt="Agnus"
-            className="h-16 md:h-20 w-auto object-contain brightness-[2]"
+            className="h-7 md:h-8 w-auto object-contain brightness-[2]"
           />
 
 
