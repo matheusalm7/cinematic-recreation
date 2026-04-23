@@ -1,9 +1,7 @@
-import product from "@/assets/service-product.png";
-import ecommerce from "@/assets/service-ecommerce.png";
-import direction from "@/assets/service-direction.png";
 import { Sparkles } from "lucide-react";
 import { PaidTrafficArt } from "./PaidTrafficArt";
 import { DesignArt } from "./DesignArt";
+import { VideoArt } from "./VideoArt";
 
 interface ServiceCard {
   num: string;
@@ -35,8 +33,6 @@ const services: ServiceCard[] = [
     tag: "BRAND",
     title: "Branding &\nPositioning",
     desc: "We define how your brand looks, communicates and positions itself to attract the right audience.",
-    image: product,
-    imageClass: "right-[-15%] top-[5%] w-[70%] rotate-[-4deg]",
   },
   {
     num: "//04",
@@ -50,8 +46,7 @@ const services: ServiceCard[] = [
     tag: "VIDEO",
     title: "Video Editing &\nPost-Production",
     desc: "We edit and finalize videos for ads, social media and campaigns, ensuring quality and platform adaptation.",
-    image: direction,
-    imageClass: "right-[-12%] top-[5%] w-[55%] rotate-[-4deg]",
+    customArt: true,
   },
   {
     num: "//06",
@@ -89,6 +84,7 @@ export const ServicesSection = () => {
               {/* image or custom art */}
               {s.customArt && s.tag === "PERFORMANCE" && <PaidTrafficArt />}
               {s.customArt && s.tag === "DESIGN" && <DesignArt />}
+              {s.customArt && s.tag === "VIDEO" && <VideoArt />}
               {s.image && !s.customArt && (
                 <img
                   src={s.image}
