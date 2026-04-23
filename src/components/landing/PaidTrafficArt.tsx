@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import metaLogo from "@/assets/logo-meta.png";
-import googleAdsLogo from "@/assets/logo-google-ads.png";
+import metaLogo from "@/assets/logo-meta.jpg";
+import googleAdsLogo from "@/assets/logo-google-ads.jpg";
 
 export const PaidTrafficArt = () => {
   const [loaded, setLoaded] = useState({ meta: false, google: false });
