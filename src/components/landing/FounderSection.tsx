@@ -66,7 +66,7 @@ export const FounderSection = () => {
     <section className="relative bg-background py-24 overflow-hidden">
       <div className="container relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left: Two duplicated Matheus cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-6 lg:gap-8 max-w-[560px] sm:max-w-none mx-auto lg:mx-0 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-5 lg:gap-6 max-w-[320px] sm:max-w-[520px] lg:max-w-[560px] mx-auto lg:mx-0 w-full">
           <MatheusCard badgeIdSuffix="1" />
           <MatheusCard badgeIdSuffix="2" />
         </div>
