@@ -1,3 +1,5 @@
+import strategicCaptureImage from "@/assets/strategic-capture-clapper.jpg";
+
 const beliefs = [
   {
     number: "01",
@@ -155,6 +157,35 @@ export const StatementSection = () => {
               </article>
             );
           })}
+        </div>
+
+        {/* Bloco complementar — Por trás de cada captação */}
+        <div className="mt-10 md:mt-14 mx-auto max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="relative flex justify-center md:justify-start">
+            <div
+              className="pointer-events-none absolute inset-0 rounded-full blur-3xl opacity-40"
+              style={{ background: "radial-gradient(circle, hsl(var(--primary) / 0.18) 0%, transparent 70%)" }}
+              aria-hidden
+            />
+            <img
+              src={strategicCaptureImage}
+              alt="Elemento visual de captação estratégica"
+              loading="lazy"
+              className="relative z-10 w-full max-w-[240px] sm:max-w-[280px] md:max-w-[340px] object-contain drop-shadow-2xl"
+            />
+          </div>
+
+          <div className="text-center md:text-left">
+            <p className="mb-4 font-display text-sm md:text-base font-semibold text-foreground tracking-wide">
+              Por trás de cada captação:
+            </p>
+            <ul className="space-y-2 text-sm md:text-base leading-relaxed text-foreground/65">
+              <li>→ direção comercial</li>
+              <li>→ narrativa visual</li>
+              <li>→ posicionamento estratégico</li>
+              <li>→ execução orientada à conversão</li>
+            </ul>
+          </div>
         </div>
 
       </div>
