@@ -159,27 +159,28 @@ export const StatementSection = () => {
           })}
         </div>
 
-        {/* Bloco complementar — Por trás de cada captação */}
-        <div className="mt-10 md:mt-14 mx-auto max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+        {/* Bloco complementar — Por trás de cada captação (encaixe fino com os 3 pilares) */}
+        <div className="mt-10 md:mt-12 mx-auto max-w-3xl grid grid-cols-1 md:grid-cols-[0.85fr_1.15fr] items-center gap-6 md:gap-8">
           <div className="relative flex justify-center md:justify-start">
             <div
-              className="pointer-events-none absolute inset-0 rounded-full blur-3xl opacity-40"
-              style={{ background: "radial-gradient(circle, hsl(var(--primary) / 0.18) 0%, transparent 70%)" }}
+              className="pointer-events-none absolute inset-0 rounded-full blur-3xl opacity-60"
+              style={{ background: "radial-gradient(circle, hsl(var(--primary) / 0.22) 0%, transparent 70%)" }}
               aria-hidden
             />
             <img
               src={strategicCaptureImage}
               alt="Elemento visual de captação estratégica"
               loading="lazy"
-              className="relative z-10 w-full max-w-[240px] sm:max-w-[280px] md:max-w-[340px] object-contain drop-shadow-2xl"
+              style={{ mixBlendMode: "multiply" }}
+              className="relative z-10 w-full max-w-[150px] sm:max-w-[180px] md:max-w-[210px] object-contain drop-shadow-2xl"
             />
           </div>
 
           <div className="text-center md:text-left">
-            <p className="mb-4 font-display text-sm md:text-base font-semibold text-foreground tracking-wide">
+            <p className="mb-3 font-display text-sm font-semibold tracking-tight text-foreground">
               Por trás de cada captação:
             </p>
-            <ul className="space-y-2 text-sm md:text-base leading-relaxed text-foreground/65">
+            <ul className="space-y-1.5 text-sm leading-relaxed text-foreground/60">
               <li>→ direção comercial</li>
               <li>→ narrativa visual</li>
               <li>→ posicionamento estratégico</li>
