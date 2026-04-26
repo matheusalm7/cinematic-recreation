@@ -1,5 +1,4 @@
 import founder from "@/assets/founder-portrait-new.jpg";
-import founderSecondary from "@/assets/founder-portrait.jpg";
 
 export const FounderSection = () => {
   const circularText = "MUDAR O JOGO • NASCEMOS PARA • ";
@@ -9,24 +8,14 @@ export const FounderSection = () => {
       <div className="container relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left: Portrait + overlapping card + circular badge */}
         <div className="relative max-w-[560px] mx-auto lg:mx-0 w-full">
-          {/* Portraits — main + secondary */}
-          <div className="grid grid-cols-5 gap-3 sm:gap-4">
-            <div className="col-span-3 relative overflow-hidden rounded-sm shadow-2xl">
-              <img
-                src={founder}
-                alt="Matheus Nascimento, fundador"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-[4/5]"
-              />
-            </div>
-            <div className="col-span-2 relative overflow-hidden rounded-sm shadow-2xl mt-8 sm:mt-12">
-              <img
-                src={founderSecondary}
-                alt="Matheus Nascimento em direção criativa"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-[3/5]"
-              />
-            </div>
+          {/* Portrait */}
+          <div className="relative overflow-hidden rounded-sm shadow-2xl">
+            <img
+              src={founder}
+              alt="Matheus Nascimento, fundador"
+              loading="lazy"
+              className="w-full h-auto object-cover aspect-[4/5]"
+            />
           </div>
 
           {/* Overlapping dark info card */}
