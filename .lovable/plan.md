@@ -1,52 +1,104 @@
 ## Objetivo
 
-Refinar exclusivamente o bloco abaixo dos 3 pilares ("Direção / Intenção / Execução") na seção "Você não precisa de mais conteúdo. Precisa de direção." (`StatementSection.tsx`), sem alterar nenhuma outra parte do site.
+Duas alterações cirúrgicas na landing, sem tocar em mais nada:
 
-Dois ajustes:
-1. **Texto** mais compacto, sutil e claramente acoplado aos 3 cards acima (não parecer nova seção).
-2. **Imagem** com aparência de objeto recortado/flutuante, no mesmo padrão visual da câmera/lente da seção Processes (`DecorativeGear`): sem fundo retangular visível, com glow azul suave e `drop-shadow`.
+1. Remover a seção FAQ (`FaqSection`) da landing.
+2. Duplicar o card "Matheus Nascimento" dentro da seção "Who is behind" (`FounderSection`), ajustando apenas o layout dessa seção para ficar proporcional e responsivo.
 
-## Problema da imagem atual
+---
 
-O asset usado é `src/assets/strategic-capture-clapper.jpg` — JPG não suporta transparência, por isso aparece como retângulo. A câmera de Processes usa `camera-gear.png` / `lens-gear.png` (PNG transparente), o que dá o efeito flutuante.
+## Fase 1 — Remover a seção FAQ
 
-Como a regra é **não substituir a imagem enviada por outra**, a solução é: continuar usando o asset enviado, mas mascarar o fundo branco do JPG via CSS — `mix-blend-mode: multiply` sobre fundo branco da seção (que já é `bg-white`) faz o fundo branco do JPG sumir visualmente, deixando apenas o objeto. Isso replica a aparência "sem fundo" sem trocar o arquivo.
+Arquivo: `src/pages/Index.tsx`
 
-> Observação: se o usuário preferir, em uma próxima iteração podemos pedir/adicionar uma versão PNG transparente do mesmo asset para resultado ainda mais limpo. Para esta tarefa, ficamos só no CSS.
+- Remover o import `import { FaqSection } from "@/components/landing/FaqSection";`
+- Remover a renderização `<FaqSection />` (fica entre `<FounderSection />` e `<FinalCtaSection />`).
+- Manter o arquivo `src/components/landing/FaqSection.tsx` no projeto (não deletar), apenas deixar de chamá-lo. Isso evita risco e mantém o componente disponível caso seja reaproveitado.
 
-## Mudanças (somente em `src/components/landing/StatementSection.tsx`)
+Observação importante: a `FaqSection` atual contém dois blocos:
+- um **CTA intermediário** ("Quer fotos que vendam e posicionem?") no topo;
+- a lista de **perguntas frequentes** abaixo.
 
-Substituir o bloco "Por trás de cada captação" atual por uma versão mais compacta e melhor integrada:
+Como ambos vivem dentro da mesma `<section id="faq">` e o pedido é "remover completamente a seção de FAQ", os dois sairão juntos. O fluxo final passa direto de `FounderSection` para `FinalCtaSection` (que já é o CTA/formulário final), o que conecta naturalmente sem buraco visual.
 
-- Container: `max-w-3xl` (mais estreito, encaixa com os cards), `mt-10 md:mt-12` (proximidade maior com os pilares acima), grid `md:grid-cols-[0.85fr_1.15fr]`, `items-center`, `gap-6 md:gap-8`.
-- **Imagem** (esquerda no desktop, topo no mobile):
-  - Glow azul suave atrás: `absolute inset-0 rounded-full bg-primary/10 blur-3xl`.
-  - `<img>` com `max-w-[150px] sm:max-w-[180px] md:max-w-[210px]`, `object-contain`, `drop-shadow-2xl`, `relative z-10`.
-  - `style={{ mixBlendMode: "multiply" }}` para apagar o fundo branco do JPG contra o `bg-white` da seção (efeito "sem fundo" estilo `DecorativeGear`).
-  - Sem card, sem borda, sem moldura.
-- **Texto** (direita no desktop, abaixo no mobile):
-  - Título `text-sm font-semibold tracking-tight text-foreground` + `mb-3`.
-  - Lista `text-sm leading-relaxed text-foreground/60`, `space-y-1.5`, conteúdo exato:
-    ```
-    → direção comercial
-    → narrativa visual
-    → posicionamento estratégico
-    → execução orientada à conversão
-    ```
-  - Alinhamento: `text-center md:text-left`.
+Nenhuma outra mudança em `Index.tsx`.
+
+---
+
+## Fase 2 — Duplicar o card "Matheus Nascimento" na seção Who is behind
+
+Arquivo: `src/components/landing/FounderSection.tsx`
+
+Estrutura atual:
+- Coluna esquerda (`lg:grid-cols-2`): retrato + card escuro sobreposto "Matheus Nascimento" + badge circular giratória.
+- Coluna direita: headline "We were born to change the game." + parágrafos.
+
+Alteração: dentro da coluna esquerda, em vez de um único bloco retrato+card, mostrar **dois blocos idênticos** de Matheus Nascimento (mesma foto, mesmo nome, mesmo cargo, mesma descrição, mesmos estilos, mesmos efeitos).
+
+### Layout
+
+- Manter o grid externo `lg:grid-cols-2` (cards à esquerda, texto à direita) — equilíbrio premium preservado.
+- Substituir o conteúdo da coluna esquerda por um sub-grid:
+  - Mobile (`grid-cols-1`): cards empilhados verticalmente, gap confortável (`gap-10`) para acomodar a sobreposição do card escuro.
+  - Desktop (`sm:grid-cols-2`): dois cards lado a lado, `gap-6 lg:gap-8`.
+- Reduzir levemente a escala interna de cada card duplicado para caber bem em duas colunas:
+  - Remover a badge circular giratória do segundo card (e opcionalmente do primeiro) só se ficar visualmente apertado em desktop; manter por padrão em ambos.
+  - Manter `aspect-[4/5]` no retrato; o `max-w-[560px]` original sai do wrapper externo (que era para 1 card grande) e cada card fica fluido dentro da sua coluna do sub-grid.
+- O card escuro sobreposto continua com o mesmo posicionamento relativo (`-bottom-6 -right-4 sm:right-0`), com larguras relativas (`w-[78%] sm:w-[62%]`) — funciona igual em escala menor.
+- Coluna direita (texto): inalterada.
+
+### Implementação
+
+Para reduzir duplicação de JSX e risco, extrair o JSX do "card Matheus" (retrato + card escuro sobreposto + badge circular) em um pequeno componente local **dentro do mesmo arquivo** `FounderSection.tsx` — sem criar arquivo novo, sem novo import.
+
+```tsx
+const MatheusCard = () => (
+  <div className="relative w-full">
+    {/* Portrait */}
+    <div className="relative overflow-hidden rounded-sm shadow-2xl">
+      <img src={founder} alt="Matheus Nascimento, fundador" loading="lazy"
+           className="w-full h-auto object-cover aspect-[4/5]" />
+    </div>
+    {/* Overlapping dark info card — mesmo conteúdo de hoje */}
+    <div className="absolute -bottom-6 -right-4 sm:right-0 w-[78%] sm:w-[62%] bg-hero text-white p-6 sm:p-8 shadow-glow">
+      {/* …mesmo JSX atual: nome, ícone, divider, 3 linhas… */}
+    </div>
+    {/* Badge circular giratória — mesmo JSX atual */}
+  </div>
+);
+```
+
+E na seção:
+
+```tsx
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-6 lg:gap-8 max-w-[560px] sm:max-w-none mx-auto lg:mx-0">
+  <MatheusCard />
+  <MatheusCard />
+</div>
+```
+
+Nada do conteúdo (texto, imagem, classes do card escuro, badge) é alterado — é cópia fiel.
+
+### Responsividade
+
+- 375px / mobile: dois cards empilhados, cada um ocupando largura confortável, sem overflow.
+- 640–1024px: dois cards lado a lado em duas colunas.
+- ≥1024px: layout `grid-cols-2` externo mantém cards à esquerda e texto à direita; cards lado a lado dentro da coluna esquerda.
+
+---
 
 ## Arquivos tocados
 
-- `src/components/landing/StatementSection.tsx` — única alteração (substituir o JSX do bloco "Por trás de cada captação"). Import de `strategicCaptureImage` permanece.
+- `src/pages/Index.tsx` — remover import e uso de `FaqSection`.
+- `src/components/landing/FounderSection.tsx` — extrair `MatheusCard` interno, renderizar duas vezes em sub-grid, ajustar wrapper externo (sair de `max-w-[560px]` único para grid responsivo).
 
 ## Não tocar
 
-Header, Hero, HeroVideoPanel, StrategicCoreSection, ServicesSection, TestimonialsSection, ProcessSection (e a câmera/`DecorativeGear`), FounderSection, FaqSection, FinalCtaSection, Footer, `Index.tsx`, assets, Tailwind config, CSS global, rotas. Os 3 cards/pilares e o título da própria `StatementSection` também ficam intactos.
+Header, Hero, StrategicCoreSection, StatementSection, ServicesSection, TestimonialsSection, ProcessSection, FinalCtaSection, Footer, assets, Tailwind config, CSS global, rotas, integrações. Conteúdo textual e imagens permanecem idênticos.
 
 ## Critérios de sucesso
 
-- Bloco encostado nos 3 cards (espaçamento reduzido), `max-w-3xl`, parece extensão dos pilares.
-- Imagem menor, sem retângulo branco visível, com glow azul e drop-shadow — visual equivalente à câmera de Processes.
-- Texto pequeno, sutil, exatamente as 4 linhas com setas.
-- Mobile: imagem em cima, texto abaixo, centralizado, sem overflow.
-- Nenhuma outra seção alterada; sem erros de TS / imports não usados.
+- FAQ não aparece em nenhum breakpoint; transição `FounderSection → FinalCtaSection` natural, sem buraco.
+- "Who is behind" mostra dois cards Matheus idênticos, proporcionais, com mesma foto/texto/estilo.
+- Mobile empilhado, desktop lado a lado, sem overflow horizontal.
+- Sem erros de TS, sem imports não usados, sem mudanças fora do escopo.
