@@ -1,11 +1,12 @@
-import founder from "@/assets/founder-portrait-new.jpg";
+import founder1 from "@/assets/founder-portrait-new.jpg";
+import founder2 from "@/assets/founder-2.jpg";
 
 export const FounderSection = () => {
   const circularText = "MUDAR O JOGO • NASCEMOS PARA • ";
 
   const founders = [
-    { id: "matheus-1", name: "Matheus", surname: "Nascimento", initial: "M" },
-    { id: "matheus-2", name: "Matheus", surname: "Nascimento", initial: "M" },
+    { id: "matheus-1", name: "Matheus", surname: "Nascimento", initial: "M", image: founder1 },
+    { id: "luis-1", name: "Luis", surname: "Henrique", initial: "L", image: founder2 },
   ];
 
   return (
@@ -37,7 +38,7 @@ export const FounderSection = () => {
               {/* Portrait */}
               <div className="relative overflow-hidden rounded-sm shadow-2xl">
                 <img
-                  src={founder}
+                  src={f.image}
                   alt={`${f.name} ${f.surname}, fundador`}
                   loading="lazy"
                   className="w-full h-auto object-cover aspect-[4/5]"
