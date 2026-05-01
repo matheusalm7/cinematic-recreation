@@ -1,7 +1,7 @@
 import { Sparkles } from "lucide-react";
-import { PaidTrafficArt } from "./PaidTrafficArt";
-import { DesignArt } from "./DesignArt";
-import { VideoArt } from "./VideoArt";
+import serviceAuthority from "@/assets/service-authority.jpg";
+import serviceGrowth from "@/assets/service-growth.jpg";
+import serviceFinishing from "@/assets/service-finishing.jpg";
 
 interface ServiceCard {
   num: string;
@@ -9,56 +9,56 @@ interface ServiceCard {
   title: string;
   desc: string;
   image?: string;
-  imageClass?: string;
-  size?: "sm" | "md" | "lg";
-  customArt?: boolean;
 }
 
 const services: ServiceCard[] = [
   {
     num: "//01",
-    tag: "POST-PRODUCTION",
-    title: "Conversion-Ready Finishing\n",
-    desc: "We create, manage and optimize ad campaigns to generate qualified leads and sales with predictable performance.",
-    customArt: true,
+    tag: "PERFORMANCE",
+    title: "Visual Authority\nSystem",
+    desc: "Visual productions designed to position your brand as a market reference and elevate perceived value before the first sale.",
+    image: serviceAuthority,
   },
   {
     num: "//02",
-    tag: "WEB",
-    title: "Websites &\nLanding Pages",
-    desc: "We create conversion-focused pages designed to transform visitors into leads or customers.",
+    tag: "ATTENTION",
+    title: "Attention &\nEngagement Engine",
+    desc: "Strategic content built to capture attention, sustain interest, and move your audience closer to action.",
   },
   {
     num: "//03",
-    tag: "BRAND",
-    title: "Branding &\nPositioning",
-    desc: "We define how your brand looks, communicates and positions itself to attract the right audience.",
+    tag: "POSITIONING",
+    title: "Brand Positioning\nAssets",
+    desc: "Strategic assets that differentiate your brand and make you the obvious choice in a crowded market.",
   },
   {
     num: "//04",
-    tag: "DESIGN",
-    title: "Graphic\nDesign",
-    desc: "We design visual materials for campaigns, social media and brand communication with consistency and clarity.",
-    customArt: true,
+    tag: "GROWTH",
+    title: "Growth\nAmplification",
+    desc: "Paid traffic strategies focused on scaling what already works and turning attention into consistent revenue.",
+    image: serviceGrowth,
   },
   {
     num: "//05",
-    tag: "VIDEO",
-    title: "Video Editing &\nPost-Production",
-    desc: "We edit and finalize videos for ads, social media and campaigns, ensuring quality and platform adaptation.",
-    customArt: true,
+    tag: "FINISHING",
+    title: "Conversion-Ready\nFinishing",
+    desc: "Editing and finalization optimized for performance — built to attract, engage, and convert across platforms.",
+    image: serviceFinishing,
   },
   {
     num: "//06",
-    tag: "SOCIAL",
-    title: "Social Media\nManagement",
-    desc: "We plan and manage your content to keep your brand active, consistent and relevant online.",
+    tag: "DIRECTION",
+    title: "Strategic Creative\nDirection",
+    desc: "Clear visual and narrative direction to ensure consistency, positioning, and impact across every touchpoint.",
   },
 ];
 
 export const ServicesSection = () => {
   return (
-    <section id="servicos" className="relative bg-navy-grad text-white py-24 md:py-32 overflow-hidden">
+    <section
+      id="servicos"
+      className="relative bg-navy-grad text-white py-24 md:py-32 overflow-hidden"
+    >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[400px] w-[800px] bg-primary/10 blur-[160px] rounded-full" />
 
       <div className="container relative z-10">
@@ -72,45 +72,66 @@ export const ServicesSection = () => {
           </h2>
         </div>
 
-        <div className="mt-16 grid md:grid-cols-2 gap-5 md:gap-6">
-          {services.map((s) => (
-            <article
-              key={s.num}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-card-grad p-7 md:p-9 min-h-[340px] md:min-h-[380px] hover:border-primary/40 transition-all hover:-translate-y-1"
-            >
-              {/* radial blue glow inside card */}
-              <div className="pointer-events-none absolute -top-10 -left-10 h-[320px] w-[320px] rounded-full bg-primary/35 blur-[90px] opacity-70 group-hover:opacity-100 transition-opacity" />
+        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {services.map((s) => {
+            const hasImage = Boolean(s.image);
+            return (
+              <article
+                key={s.num}
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-card-grad p-7 md:p-8 min-h-[420px] hover:border-primary/40 transition-all duration-300 hover:-translate-y-1"
+              >
+                {/* radial blue glow inside card */}
+                <div className="pointer-events-none absolute -top-10 -left-10 h-[280px] w-[280px] rounded-full bg-primary/30 blur-[90px] opacity-60 group-hover:opacity-90 transition-opacity" />
 
-              {/* image or custom art */}
-              {s.customArt && s.tag === "POST-PRODUCTION" && <PaidTrafficArt />}
-              {s.customArt && s.tag === "DESIGN" && <DesignArt />}
-              {s.customArt && s.tag === "VIDEO" && <VideoArt />}
-              {s.image && !s.customArt && (
-                <img
-                  src={s.image}
-                  alt=""
-                  loading="lazy"
-                  aria-hidden="true"
-                  className={`pointer-events-none select-none absolute drop-shadow-[0_25px_45px_rgba(0,0,0,0.5)] ${s.imageClass}`}
-                />
-              )}
+                {/* For cards without image: subtle decorative accents */}
+                {!hasImage && (
+                  <>
+                    <div className="pointer-events-none absolute -bottom-20 -right-10 h-[260px] w-[260px] rounded-full bg-primary-glow/15 blur-[100px]" />
+                    <div className="pointer-events-none absolute inset-x-7 bottom-7 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+                  </>
+                )}
 
-              <div className="relative z-10 flex flex-col h-full">
-                <p className="font-display text-sm text-white/50 tracking-wider">{s.num}</p>
-                <span className="mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white/80 backdrop-blur">
-                  <span className="h-1 w-1 rounded-full bg-primary-glow" /> {s.tag}
-                </span>
+                <div className="relative z-10 flex h-full flex-col">
+                  <div className="flex items-center justify-between">
+                    <p className="font-display text-sm text-white/50 tracking-wider">
+                      {s.num}
+                    </p>
+                    <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white/80 backdrop-blur">
+                      <span className="h-1 w-1 rounded-full bg-primary-glow" />
+                      {s.tag}
+                    </span>
+                  </div>
 
-                <h3 className="mt-6 font-display text-3xl md:text-4xl font-bold whitespace-pre-line leading-[1.05] max-w-[60%]">
-                  {s.title}
-                </h3>
+                  <h3 className="mt-6 font-display text-2xl md:text-[26px] font-bold whitespace-pre-line leading-[1.1]">
+                    {s.title}
+                  </h3>
 
-                <p className="mt-auto pt-8 text-sm text-white/70 max-w-[55%] leading-relaxed">
-                  {s.desc}
-                </p>
-              </div>
-            </article>
-          ))}
+                  {hasImage && (
+                    <div className="relative mt-6 overflow-hidden rounded-2xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+                      <img
+                        src={s.image}
+                        alt=""
+                        loading="lazy"
+                        width={1024}
+                        height={1024}
+                        aria-hidden="true"
+                        className="aspect-[16/10] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                      />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[hsl(var(--navy-deep))]/60 via-transparent to-transparent" />
+                    </div>
+                  )}
+
+                  <p
+                    className={`text-sm text-white/70 leading-relaxed ${
+                      hasImage ? "mt-5" : "mt-auto pt-10"
+                    }`}
+                  >
+                    {s.desc}
+                  </p>
+                </div>
+              </article>
+            );
+          })}
         </div>
 
         <div className="mt-12 text-center">
@@ -119,7 +140,9 @@ export const ServicesSection = () => {
             className="inline-flex items-center gap-2 rounded-full bg-blue-grad px-7 py-3.5 text-sm font-semibold text-white shadow-glow hover:opacity-90 transition"
           >
             Entre em contato agora
-            <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/20">↗</span>
+            <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/20">
+              ↗
+            </span>
           </a>
         </div>
       </div>
