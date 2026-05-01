@@ -12,12 +12,19 @@ const SOCIAL_AVATARS = [
 
 export const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-hero text-white">
-      {/* Glows */}
-      <div className="absolute -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-primary/30 blur-[140px]" />
-      <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-primary-glow/20 blur-[120px]" />
-      {/* Section gradient: blue at top → soft white at bottom, blending into the next section */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-b from-transparent via-background/40 to-background z-0" />
+    <section className="relative overflow-hidden text-white">
+      {/* External background: blue on top, switching to white near the bottom of the video box */}
+      <div
+        aria-hidden
+        className="absolute inset-0 z-0 bg-hero
+                   [clip-path:inset(0_0_22%_0)]
+                   md:[clip-path:inset(0_0_18%_0)]
+                   lg:[clip-path:inset(0_0_16%_0)]"
+      />
+      <div aria-hidden className="absolute inset-0 z-0 bg-background [clip-path:inset(78%_0_0_0)] md:[clip-path:inset(82%_0_0_0)] lg:[clip-path:inset(84%_0_0_0)]" />
+      {/* Glows (kept inside blue area) */}
+      <div className="absolute -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-primary/30 blur-[140px] z-0" />
+      <div className="absolute top-1/3 left-1/4 h-[400px] w-[400px] rounded-full bg-primary-glow/20 blur-[120px] z-0" />
 
       {/* Spacer for fixed header */}
       <div className="h-20" />
