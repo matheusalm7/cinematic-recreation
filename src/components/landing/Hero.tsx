@@ -12,12 +12,17 @@ const SOCIAL_AVATARS = [
 
 export const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-hero text-white">
-      {/* Glows */}
-      <div className="absolute -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-primary/30 blur-[140px]" />
-      <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-primary-glow/20 blur-[120px]" />
-      {/* Section gradient: blue at top → soft white at bottom, blending into the next section */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-b from-transparent via-background/40 to-background z-0" />
+    <section
+      className="relative overflow-hidden text-white
+                 bg-[linear-gradient(to_bottom,hsl(var(--navy-deep))_0%,hsl(var(--navy-deep))_78%,hsl(var(--background))_78%,hsl(var(--background))_100%)]
+                 md:bg-[linear-gradient(to_bottom,hsl(var(--navy-deep))_0%,hsl(var(--navy-deep))_82%,hsl(var(--background))_82%,hsl(var(--background))_100%)]
+                 lg:bg-[linear-gradient(to_bottom,hsl(var(--navy-deep))_0%,hsl(var(--navy-deep))_84%,hsl(var(--background))_84%,hsl(var(--background))_100%)]"
+    >
+      {/* Layered hero gradient (radial glows) on top of the blue area only */}
+      <div aria-hidden className="absolute inset-x-0 top-0 h-[78%] md:h-[82%] lg:h-[84%] bg-hero z-0" />
+      {/* Glows (kept inside blue area) */}
+      <div className="absolute -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-primary/30 blur-[140px] z-0" />
+      <div className="absolute top-1/3 left-1/4 h-[400px] w-[400px] rounded-full bg-primary-glow/20 blur-[120px] z-0" />
 
       {/* Spacer for fixed header */}
       <div className="h-20" />
