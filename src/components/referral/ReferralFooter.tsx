@@ -1,9 +1,18 @@
+import type { ReferralContent } from "@/content/referralContent";
+
 interface Props {
-  text: string;
+  content: ReferralContent["footer"];
 }
 
-export const ReferralFooter = ({ text }: Props) => (
-  <footer className="bg-navy-deep text-white/60 py-8">
-    <div className="container text-center text-sm">{text}</div>
+export const ReferralFooter = ({ content }: Props) => (
+  <footer className="border-t border-[hsl(var(--referral-border))]/60 py-6">
+    <div className="container flex flex-col sm:flex-row items-center justify-between gap-2 text-white/60 text-sm">
+      <p>{content.copyright}</p>
+      <p className="flex items-center gap-1.5">
+        {content.madeWith}
+        <span aria-hidden className="text-primary">💙</span>
+        {content.madeWithSuffix}
+      </p>
+    </div>
   </footer>
 );

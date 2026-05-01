@@ -55,6 +55,10 @@ export default {
           DEFAULT: "hsl(var(--navy))",
           soft: "hsl(var(--navy-soft))",
         },
+        mint: {
+          DEFAULT: "hsl(var(--mint))",
+          strong: "hsl(var(--mint-strong))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

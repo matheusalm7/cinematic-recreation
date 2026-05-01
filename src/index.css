@@ -46,6 +46,18 @@
     --light-soft: 220 33% 97%;
     --light-card: 220 100% 99%;
 
+    /* Referral mint accent (Turbo Indique e Ganhe) */
+    --mint: 162 65% 70%;                /* ~#7EE8C8 */
+    --mint-strong: 162 70% 60%;
+    --referral-bg-start: 220 70% 8%;
+    --referral-bg-end: 175 60% 10%;
+    --referral-card: 220 50% 9%;
+    --referral-input: 220 45% 11%;
+    --referral-border: 220 30% 22%;
+    --gradient-referral: radial-gradient(120% 80% at 90% 50%, hsl(175 70% 18% / 0.7), transparent 55%),
+                         radial-gradient(80% 60% at 10% 30%, hsl(220 70% 14% / 0.9), transparent 60%),
+                         linear-gradient(140deg, hsl(220 75% 6%), hsl(180 60% 7%));
+
     /* Gradients */
     --gradient-hero: radial-gradient(120% 80% at 70% 30%, hsl(222 90% 30% / 0.55), transparent 60%),
                      radial-gradient(80% 60% at 20% 80%, hsl(226 100% 57% / 0.25), transparent 60%),

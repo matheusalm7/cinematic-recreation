@@ -1,11 +1,8 @@
 import { useState } from "react";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { CheckCircle2, AlertCircle } from "lucide-react";
+import { CheckCircle2, AlertCircle, ArrowRight } from "lucide-react";
 import type { ReferralContent } from "@/content/referralContent";
 
 interface Props {
@@ -15,7 +12,12 @@ interface Props {
 
 const phoneRegex = /^[\d\s()+\-]{8,}$/;
 
+// Dark, transparent, single-bottom-border inputs to match the original site
+const inputClass =
+  "w-full bg-transparent border-0 border-b border-[hsl(var(--referral-border))] focus:border-[hsl(var(--mint))] focus:outline-none focus:ring-0 text-white placeholder:text-white/30 px-0 py-3 text-base rounded-none transition-colors";
+
 export const ReferralForm = ({ content, id }: Props) => {
+  const f = content.fields;
   const schema = z.object({
     companyName: z.string().trim().min(1, content.required).max(120),
     contactPerson: z.string().trim().min(1, content.required).max(120),
@@ -64,7 +66,9 @@ export const ReferralForm = ({ content, id }: Props) => {
 
   const [data, setData] = useState<FormState>(initial);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
+    "idle",
+  );
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setData((p) => ({ ...p, [key]: value }));
@@ -97,31 +101,41 @@ export const ReferralForm = ({ content, id }: Props) => {
   };
 
   const fieldError = (k: string) =>
-    errors[k] ? <p className="text-xs text-destructive mt-1">{errors[k]}</p> : null;
+    errors[k] ? (
+      <p className="text-xs text-destructive mt-1">{errors[k]}</p>
+    ) : null;
 
   return (
-    <section id={id} className="bg-light-soft py-20 md:py-28">
-      <div className="container max-w-3xl">
-        <div className="bg-card rounded-2xl shadow-[var(--shadow-card)] p-6 md:p-10 border border-border">
-          <h2 className="font-[Sora] text-2xl md:text-3xl font-bold text-foreground">
-            {content.title}
-          </h2>
-          <p className="text-muted-foreground mt-2">{content.subtitle}</p>
-
+    <section id={id} className="pb-24">
+      <div className="container max-w-2xl">
+        <div className="rounded-2xl border border-[hsl(var(--referral-border))] bg-[hsl(var(--referral-card))]/60 backdrop-blur-sm p-6 md:p-10">
           {status === "success" ? (
-            <div className="mt-8 flex flex-col items-center text-center py-10 gap-4">
-              <CheckCircle2 className="h-14 w-14 text-primary" />
-              <p className="text-lg font-semibold text-foreground">{content.success}</p>
-              <Button variant="outline" onClick={() => setStatus("idle")}>
+            <div className="flex flex-col items-center text-center py-10 gap-4">
+              <CheckCircle2 className="h-14 w-14 text-[hsl(var(--mint))]" />
+              <p className="text-lg font-semibold text-white">
+                {content.success}
+              </p>
+              <Button
+                variant="outline"
+                onClick={() => setStatus("idle")}
+                className="border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white"
+              >
                 ↺
               </Button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div className="md:col-span-2">
-                <Label htmlFor="companyName">{content.fields.companyName} *</Label>
-                <Input
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6">
+              <div>
+                <Label
+                  htmlFor="companyName"
+                  className="text-white/90 text-sm font-medium"
+                >
+                  {f.companyName}
+                </Label>
+                <input
                   id="companyName"
+                  className={inputClass}
+                  placeholder={f.companyNamePlaceholder}
                   value={data.companyName}
                   onChange={(e) => update("companyName", e.target.value)}
                   maxLength={120}
@@ -130,9 +144,16 @@ export const ReferralForm = ({ content, id }: Props) => {
               </div>
 
               <div>
-                <Label htmlFor="contactPerson">{content.fields.contactPerson} *</Label>
-                <Input
+                <Label
+                  htmlFor="contactPerson"
+                  className="text-white/90 text-sm font-medium"
+                >
+                  {f.contactPerson}
+                </Label>
+                <input
                   id="contactPerson"
+                  className={inputClass}
+                  placeholder={f.contactPersonPlaceholder}
                   value={data.contactPerson}
                   onChange={(e) => update("contactPerson", e.target.value)}
                   maxLength={120}
@@ -141,9 +162,16 @@ export const ReferralForm = ({ content, id }: Props) => {
               </div>
 
               <div>
-                <Label htmlFor="referredPhone">{content.fields.referredPhone} *</Label>
-                <Input
+                <Label
+                  htmlFor="referredPhone"
+                  className="text-white/90 text-sm font-medium"
+                >
+                  {f.referredPhone}
+                </Label>
+                <input
                   id="referredPhone"
+                  className={inputClass}
+                  placeholder={f.referredPhonePlaceholder}
                   value={data.referredPhone}
                   onChange={(e) => update("referredPhone", e.target.value)}
                   maxLength={30}
@@ -151,43 +179,69 @@ export const ReferralForm = ({ content, id }: Props) => {
                 {fieldError("referredPhone")}
               </div>
 
-              <div className="md:col-span-2">
-                <Label htmlFor="instagramOrSite">{content.fields.instagramOrSite}</Label>
-                <Input
+              <div>
+                <Label
+                  htmlFor="instagramOrSite"
+                  className="text-white/90 text-sm font-medium"
+                >
+                  {f.instagramOrSite}
+                </Label>
+                <input
                   id="instagramOrSite"
+                  className={inputClass}
+                  placeholder={f.instagramOrSitePlaceholder}
                   value={data.instagramOrSite}
                   onChange={(e) => update("instagramOrSite", e.target.value)}
                   maxLength={200}
                 />
               </div>
 
-              <div className="md:col-span-2">
-                <Label>{content.fields.talkedAbout} *</Label>
-                <RadioGroup
-                  value={data.talkedAbout}
-                  onValueChange={(v) => update("talkedAbout", v as "yes" | "no")}
-                  className="flex gap-6 mt-2"
+              <div>
+                <Label
+                  htmlFor="talkedAbout"
+                  className="text-white/90 text-sm font-medium"
                 >
-                  <div className="flex items-center gap-2">
-                    <RadioGroupItem value="yes" id="talked-yes" />
-                    <Label htmlFor="talked-yes" className="cursor-pointer">
-                      {content.fields.yes}
-                    </Label>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <RadioGroupItem value="no" id="talked-no" />
-                    <Label htmlFor="talked-no" className="cursor-pointer">
-                      {content.fields.no}
-                    </Label>
-                  </div>
-                </RadioGroup>
+                  {f.talkedAbout}
+                </Label>
+                <select
+                  id="talkedAbout"
+                  value={data.talkedAbout}
+                  onChange={(e) =>
+                    update("talkedAbout", e.target.value as "yes" | "no" | "")
+                  }
+                  className={`${inputClass} appearance-none cursor-pointer`}
+                  style={{
+                    backgroundImage:
+                      "url(\"data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-opacity='0.5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e\")",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "right 0 center",
+                    paddingRight: "1.5rem",
+                  }}
+                >
+                  <option value="" className="bg-[hsl(var(--referral-card))]">
+                    {f.talkedAboutPlaceholder}
+                  </option>
+                  <option value="yes" className="bg-[hsl(var(--referral-card))]">
+                    {f.yes}
+                  </option>
+                  <option value="no" className="bg-[hsl(var(--referral-card))]">
+                    {f.no}
+                  </option>
+                </select>
                 {fieldError("talkedAbout")}
               </div>
 
               <div>
-                <Label htmlFor="yourName">{content.fields.yourName} *</Label>
-                <Input
+                <Label
+                  htmlFor="yourName"
+                  className="text-white/90 text-sm font-medium"
+                >
+                  {f.yourName}
+                </Label>
+                <input
                   id="yourName"
+                  className={inputClass}
+                  placeholder={f.yourNamePlaceholder}
                   value={data.yourName}
                   onChange={(e) => update("yourName", e.target.value)}
                   maxLength={120}
@@ -196,9 +250,16 @@ export const ReferralForm = ({ content, id }: Props) => {
               </div>
 
               <div>
-                <Label htmlFor="yourWhatsapp">{content.fields.yourWhatsapp} *</Label>
-                <Input
+                <Label
+                  htmlFor="yourWhatsapp"
+                  className="text-white/90 text-sm font-medium"
+                >
+                  {f.yourWhatsapp}
+                </Label>
+                <input
                   id="yourWhatsapp"
+                  className={inputClass}
+                  placeholder={f.yourWhatsappPlaceholder}
                   value={data.yourWhatsapp}
                   onChange={(e) => update("yourWhatsapp", e.target.value)}
                   maxLength={30}
@@ -206,10 +267,17 @@ export const ReferralForm = ({ content, id }: Props) => {
                 {fieldError("yourWhatsapp")}
               </div>
 
-              <div className="md:col-span-2">
-                <Label htmlFor="pixKey">{content.fields.pixKey} *</Label>
-                <Input
+              <div>
+                <Label
+                  htmlFor="pixKey"
+                  className="text-white/90 text-sm font-medium"
+                >
+                  {f.pixKey}
+                </Label>
+                <input
                   id="pixKey"
+                  className={inputClass}
+                  placeholder={f.pixKeyPlaceholder}
                   value={data.pixKey}
                   onChange={(e) => update("pixKey", e.target.value)}
                   maxLength={150}
@@ -217,34 +285,40 @@ export const ReferralForm = ({ content, id }: Props) => {
                 {fieldError("pixKey")}
               </div>
 
-              <div className="md:col-span-2">
-                <Label htmlFor="comment">{content.fields.comment}</Label>
-                <Textarea
+              <div>
+                <Label
+                  htmlFor="comment"
+                  className="text-white/90 text-sm font-medium"
+                >
+                  {f.comment}
+                </Label>
+                <textarea
                   id="comment"
+                  className={`${inputClass} resize-none`}
+                  placeholder={f.commentPlaceholder}
                   value={data.comment}
                   onChange={(e) => update("comment", e.target.value)}
                   maxLength={1000}
-                  rows={4}
+                  rows={3}
                 />
               </div>
 
               {status === "error" && (
-                <div className="md:col-span-2 flex items-center gap-2 text-destructive text-sm">
+                <div className="flex items-center gap-2 text-destructive text-sm">
                   <AlertCircle className="h-4 w-4" />
                   {content.error}
                 </div>
               )}
 
-              <div className="md:col-span-2">
-                <Button
-                  type="submit"
-                  disabled={status === "loading"}
-                  size="lg"
-                  className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground shadow-[var(--shadow-glow)]"
-                >
-                  {status === "loading" ? content.submitting : content.submit}
-                </Button>
-              </div>
+              <Button
+                type="submit"
+                disabled={status === "loading"}
+                size="lg"
+                className="mt-2 h-12 w-full rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-[var(--shadow-glow)] gap-2"
+              >
+                {status === "loading" ? content.submitting : content.submit}
+                {status !== "loading" && <ArrowRight className="h-4 w-4" />}
+              </Button>
             </form>
           )}
         </div>

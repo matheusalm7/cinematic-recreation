@@ -29,19 +29,28 @@ export const ReferralLandingPage = ({ locale }: Props) => {
   }, [locale, content.meta.description, content.meta.title]);
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
-    <main className="min-h-screen bg-background overflow-x-hidden">
+    <main
+      className="min-h-screen overflow-x-hidden text-white"
+      style={{ background: "var(--gradient-referral)" }}
+    >
       <ReferralHero
         content={content.hero}
         onPrimary={() => scrollTo("referral-form")}
-        onSecondary={() => scrollTo("how-it-works")}
       />
-      <HowItWorksSection content={content.how} id="how-it-works" />
       <ReferralForm content={content.form} id="referral-form" />
-      <ReferralFooter text={content.footer} />
+      <HowItWorksSection
+        content={content.how}
+        id="how-it-works"
+        onPrimary={() => scrollTo("referral-form")}
+      />
+      <ReferralFooter content={content.footer} />
     </main>
   );
 };
