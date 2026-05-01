@@ -72,62 +72,68 @@ export const ServicesSection = () => {
           </h2>
         </div>
 
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        <div className="mt-16 grid md:grid-cols-2 gap-6 md:gap-7">
           {services.map((s) => {
             const hasImage = Boolean(s.image);
             return (
               <article
                 key={s.num}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-card-grad p-7 md:p-8 min-h-[420px] hover:border-primary/40 transition-all duration-300 hover:-translate-y-1"
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-card-grad p-7 md:p-9 min-h-[360px] hover:border-primary/40 transition-all duration-300 hover:-translate-y-1"
               >
-                {/* radial blue glow inside card */}
-                <div className="pointer-events-none absolute -top-10 -left-10 h-[280px] w-[280px] rounded-full bg-primary/30 blur-[90px] opacity-60 group-hover:opacity-90 transition-opacity" />
+                <div className="pointer-events-none absolute -top-10 -left-10 h-[320px] w-[320px] rounded-full bg-primary/25 blur-[100px] opacity-60 group-hover:opacity-90 transition-opacity" />
 
-                {/* For cards without image: subtle decorative accents */}
                 {!hasImage && (
                   <>
-                    <div className="pointer-events-none absolute -bottom-20 -right-10 h-[260px] w-[260px] rounded-full bg-primary-glow/15 blur-[100px]" />
-                    <div className="pointer-events-none absolute inset-x-7 bottom-7 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+                    <div className="pointer-events-none absolute -bottom-24 -right-12 h-[300px] w-[300px] rounded-full bg-primary-glow/15 blur-[110px]" />
+                    <div className="pointer-events-none absolute inset-x-9 bottom-9 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
                   </>
                 )}
 
-                <div className="relative z-10 flex h-full flex-col">
-                  <div className="flex items-center justify-between">
-                    <p className="font-display text-sm text-white/50 tracking-wider">
-                      {s.num}
+                <div
+                  className={`relative z-10 grid h-full gap-7 ${
+                    hasImage ? "md:grid-cols-[1fr_1.05fr] md:items-center" : ""
+                  }`}
+                >
+                  {/* Text column */}
+                  <div className="flex h-full flex-col">
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="font-display text-sm text-white/50 tracking-wider">
+                        {s.num}
+                      </p>
+                      <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white/80 backdrop-blur">
+                        <span className="h-1 w-1 rounded-full bg-primary-glow" />
+                        {s.tag}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-6 font-display text-2xl md:text-[28px] font-bold whitespace-pre-line leading-[1.08]">
+                      {s.title}
+                    </h3>
+
+                    <p
+                      className={`text-sm md:text-[15px] text-white/70 leading-relaxed ${
+                        hasImage ? "mt-5" : "mt-6 md:mt-8 max-w-[44ch]"
+                      }`}
+                    >
+                      {s.desc}
                     </p>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white/80 backdrop-blur">
-                      <span className="h-1 w-1 rounded-full bg-primary-glow" />
-                      {s.tag}
-                    </span>
                   </div>
 
-                  <h3 className="mt-6 font-display text-2xl md:text-[26px] font-bold whitespace-pre-line leading-[1.1]">
-                    {s.title}
-                  </h3>
-
+                  {/* Image column */}
                   {hasImage && (
-                    <div className="relative mt-6 overflow-hidden rounded-2xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+                    <div className="relative overflow-hidden rounded-2xl border border-white/10 shadow-[0_25px_70px_rgba(0,0,0,0.5)]">
                       <img
                         src={s.image}
                         alt=""
                         loading="lazy"
-                        width={1024}
-                        height={1024}
+                        width={1280}
+                        height={896}
                         aria-hidden="true"
-                        className="aspect-[16/10] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                        className="aspect-[5/4] md:aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                       />
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[hsl(var(--navy-deep))]/60 via-transparent to-transparent" />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[hsl(var(--navy-deep))]/55 via-transparent to-transparent" />
                     </div>
                   )}
-
-                  <p
-                    className={`text-sm text-white/70 leading-relaxed ${
-                      hasImage ? "mt-5" : "mt-auto pt-10"
-                    }`}
-                  >
-                    {s.desc}
-                  </p>
                 </div>
               </article>
             );
