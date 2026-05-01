@@ -13,10 +13,7 @@ const SOCIAL_AVATARS = [
 export const Hero = () => {
   return (
     <section
-      className="relative overflow-hidden text-white
-                 bg-[linear-gradient(to_bottom,hsl(var(--navy-deep))_0%,hsl(var(--navy-deep))_78%,hsl(var(--background))_78%,hsl(var(--background))_100%)]
-                 md:bg-[linear-gradient(to_bottom,hsl(var(--navy-deep))_0%,hsl(var(--navy-deep))_82%,hsl(var(--background))_82%,hsl(var(--background))_100%)]
-                 lg:bg-[linear-gradient(to_bottom,hsl(var(--navy-deep))_0%,hsl(var(--navy-deep))_84%,hsl(var(--background))_84%,hsl(var(--background))_100%)]"
+      className="relative overflow-hidden bg-[linear-gradient(to_bottom,hsl(var(--navy-deep))_0%,hsl(var(--navy-deep))_78%,hsl(var(--background))_78%,hsl(var(--background))_100%)] md:bg-[linear-gradient(to_bottom,hsl(var(--navy-deep))_0%,hsl(var(--navy-deep))_82%,hsl(var(--background))_82%,hsl(var(--background))_100%)] lg:bg-[linear-gradient(to_bottom,hsl(var(--navy-deep))_0%,hsl(var(--navy-deep))_84%,hsl(var(--background))_84%,hsl(var(--background))_100%)] text-primary-foreground bg-primary-foreground"
     >
       {/* Layered hero gradient (radial glows) on top of the blue area only */}
       <div aria-hidden className="absolute inset-x-0 top-0 h-[78%] md:h-[82%] lg:h-[84%] bg-hero z-0" />

@@ -17,8 +17,8 @@ interface ServiceCard {
 const services: ServiceCard[] = [
   {
     num: "//01",
-    tag: "PERFORMANCE",
-    title: "Paid Traffic\nManagement",
+    tag: "POST-PRODUCTION",
+    title: "Conversion-Ready Finishing\n",
     desc: "We create, manage and optimize ad campaigns to generate qualified leads and sales with predictable performance.",
     customArt: true,
   },
@@ -82,7 +82,7 @@ export const ServicesSection = () => {
               <div className="pointer-events-none absolute -top-10 -left-10 h-[320px] w-[320px] rounded-full bg-primary/35 blur-[90px] opacity-70 group-hover:opacity-100 transition-opacity" />
 
               {/* image or custom art */}
-              {s.customArt && s.tag === "PERFORMANCE" && <PaidTrafficArt />}
+              {s.customArt && s.tag === "POST-PRODUCTION" && <PaidTrafficArt />}
               {s.customArt && s.tag === "DESIGN" && <DesignArt />}
               {s.customArt && s.tag === "VIDEO" && <VideoArt />}
               {s.image && !s.customArt && (

@@ -89,7 +89,7 @@ const ChartSVG = () => (
 
 export const StrategicCoreSection = () => {
   return (
-    <section className="bg-white text-[hsl(var(--navy-deep,222_47%_11%))] py-24 px-6">
+    <section className="bg-white text-[hsl(var(--navy-deep,222_47%_11%))] py-24 px-6 border-primary-foreground">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Card 1 - wide */}
         <div className="md:col-span-2 rounded-2xl border border-foreground/15 bg-white shadow-sm p-12 text-center">
