@@ -159,3 +159,139 @@
   0%, 100% { transform: rotate(12deg) translateY(0px); }
   50% { transform: rotate(12deg) translateY(-6px); }
 }
+
+/* =========================================================
+   /duplicate-page premium green/cream recolor (scoped only)
+   Applies via .duplicate-theme wrapper. Does NOT affect other pages.
+   Palette:
+     deep   #002e25  -> 168 100% 9%
+     accent #044f24  -> 144 90% 16%
+     cream  #fdecd0  -> 36 89% 90%
+     warm   #ebb87e  -> 29 73% 71%
+     ember  #522613  -> 16 62% 20%
+   ========================================================= */
+.duplicate-theme {
+  /* Re-map design tokens for this page only */
+  --background: 168 100% 9%;
+  --foreground: 36 89% 90%;
+  --card: 168 100% 11%;
+  --card-foreground: 36 89% 90%;
+  --popover: 168 100% 9%;
+  --popover-foreground: 36 89% 90%;
+
+  --primary: 144 90% 16%;
+  --primary-foreground: 36 89% 90%;
+  --primary-glow: 29 73% 71%;
+
+  --secondary: 168 100% 9%;
+  --secondary-foreground: 36 89% 90%;
+
+  --muted: 168 60% 14%;
+  --muted-foreground: 36 50% 80%;
+
+  --accent: 144 90% 16%;
+  --accent-foreground: 36 89% 90%;
+
+  --border: 36 89% 90%;
+  --input: 36 89% 90%;
+  --ring: 144 90% 16%;
+
+  --navy-deep: 168 100% 9%;
+  --navy: 168 90% 11%;
+  --navy-soft: 144 90% 16%;
+  --light-soft: 36 89% 90%;
+  --light-card: 36 89% 92%;
+
+  --gradient-hero: radial-gradient(120% 80% at 70% 30%, hsl(144 90% 16% / 0.55), transparent 60%),
+                   radial-gradient(80% 60% at 20% 80%, hsl(29 73% 71% / 0.18), transparent 60%),
+                   linear-gradient(180deg, hsl(168 100% 7%), hsl(168 100% 12%));
+  --gradient-blue: linear-gradient(135deg, hsl(144 90% 16%), hsl(168 100% 14%));
+  --gradient-navy: linear-gradient(180deg, hsl(168 100% 9%), hsl(168 100% 12%));
+  --gradient-card: linear-gradient(160deg, hsl(168 90% 14%), hsl(168 100% 8%));
+
+  --shadow-glow: 0 30px 80px -20px hsl(144 90% 16% / 0.55);
+  --shadow-card: 0 20px 50px -20px hsl(168 100% 6% / 0.45);
+  --shadow-soft: 0 10px 30px -10px hsl(168 100% 6% / 0.35);
+}
+
+/* Translate "white" utilities -> cream, scoped to the page */
+.duplicate-theme .text-white { color: hsl(36 89% 90%) !important; }
+.duplicate-theme [class*="text-white\\/"],
+.duplicate-theme .text-white\/30,
+.duplicate-theme .text-white\/40,
+.duplicate-theme .text-white\/50,
+.duplicate-theme .text-white\/55,
+.duplicate-theme .text-white\/60,
+.duplicate-theme .text-white\/65,
+.duplicate-theme .text-white\/70,
+.duplicate-theme .text-white\/75,
+.duplicate-theme .text-white\/80,
+.duplicate-theme .text-white\/85,
+.duplicate-theme .text-white\/90 { color: hsl(36 89% 90% / 0.85); }
+
+.duplicate-theme .text-white\/30 { color: hsl(36 89% 90% / 0.45); }
+.duplicate-theme .text-white\/40 { color: hsl(36 89% 90% / 0.5); }
+.duplicate-theme .text-white\/50 { color: hsl(36 89% 90% / 0.55); }
+.duplicate-theme .text-white\/60 { color: hsl(36 89% 90% / 0.62); }
+.duplicate-theme .text-white\/65 { color: hsl(36 89% 90% / 0.68); }
+.duplicate-theme .text-white\/70 { color: hsl(36 89% 90% / 0.72); }
+.duplicate-theme .text-white\/80 { color: hsl(36 89% 90% / 0.82); }
+.duplicate-theme .text-white\/85 { color: hsl(36 89% 90% / 0.88); }
+.duplicate-theme .text-white\/90 { color: hsl(36 89% 90% / 0.92); }
+
+.duplicate-theme .hover\:text-white:hover { color: hsl(36 89% 90%) !important; }
+
+/* Solid white surfaces -> cream */
+.duplicate-theme .bg-white { background-color: hsl(36 89% 90%) !important; }
+.duplicate-theme .bg-white\/5,
+.duplicate-theme .bg-white\/10,
+.duplicate-theme .bg-white\/20,
+.duplicate-theme .bg-white\/60,
+.duplicate-theme .bg-white\/\[0\.02\],
+.duplicate-theme .bg-white\/\[0\.03\],
+.duplicate-theme .bg-white\/\[0\.05\] { background-color: hsl(36 89% 90% / 0.06); }
+.duplicate-theme .bg-white\/10 { background-color: hsl(36 89% 90% / 0.10); }
+.duplicate-theme .bg-white\/20 { background-color: hsl(36 89% 90% / 0.18); }
+.duplicate-theme .bg-white\/60 { background-color: hsl(36 89% 90% / 0.6); }
+.duplicate-theme .hover\:bg-white\/5:hover { background-color: hsl(36 89% 90% / 0.08); }
+.duplicate-theme .hover\:bg-white\/10:hover { background-color: hsl(36 89% 90% / 0.12); }
+.duplicate-theme .hover\:bg-white\/\[0\.05\]:hover { background-color: hsl(36 89% 90% / 0.08); }
+
+/* White borders -> cream borders */
+.duplicate-theme [class*="border-white\\/"],
+.duplicate-theme .border-white\/5,
+.duplicate-theme .border-white\/10,
+.duplicate-theme .border-white\/15,
+.duplicate-theme .border-white\/20,
+.duplicate-theme .border-white\/\[0\.08\] { border-color: hsl(36 89% 90% / 0.14) !important; }
+
+/* Placeholders */
+.duplicate-theme .placeholder\:text-white\/40::placeholder { color: hsl(36 89% 90% / 0.5); }
+
+/* Hard-coded navy hsl literals used inline -> deep green */
+.duplicate-theme .bg-\[hsl\(218_75\%_10\%\)\] { background-color: hsl(168 100% 9%) !important; }
+.duplicate-theme [class*="bg-\\[hsl\\(var\\(--navy"] { /* covered by token override */ }
+
+/* Inline gradient literals that reference navy -> green equivalents */
+.duplicate-theme .bg-\[linear-gradient\(145deg\2c hsl\(222_60\%_22\%\)\2c hsl\(218_75\%_10\%\)\)\] {
+  background-image: linear-gradient(145deg, hsl(144 90% 16%), hsl(168 100% 9%)) !important;
+}
+
+/* Header pill gradient using hardcoded primary hsl */
+.duplicate-theme .shadow-\[0_0_20px_-4px_hsl\(226_100\%_57\%\/0\.4\)\] {
+  box-shadow: 0 0 20px -4px hsl(144 90% 16% / 0.5) !important;
+}
+.duplicate-theme .hover\:shadow-\[0_0_28px_-4px_hsl\(226_100\%_57\%\/0\.55\)\]:hover {
+  box-shadow: 0 0 28px -4px hsl(144 90% 16% / 0.65) !important;
+}
+
+/* Process radial glow recolor */
+.duplicate-theme .bg-\[radial-gradient\(ellipse_at_center\2c _hsl\(226_100\%_57\%_\/_0\.55\)\2c _transparent_65\%\)\] {
+  background-image: radial-gradient(ellipse at center, hsl(144 90% 16% / 0.55), transparent 65%) !important;
+}
+
+/* StrategicCoreSection white panel inside dark page -> cream card */
+.duplicate-theme .text-\[hsl\(var\(--navy-deep\2c 222_47\%_11\%\)\)\] {
+  color: hsl(168 100% 9%) !important;
+}
+
