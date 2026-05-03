@@ -16,6 +16,7 @@ const DuplicatePage = () => {
       <Header />
       <Hero />
       <PerformanceManagementSection />
+      <TrustGapSection />
       <ServicesSection />
       <TestimonialsSection />
       <ProcessSection />
