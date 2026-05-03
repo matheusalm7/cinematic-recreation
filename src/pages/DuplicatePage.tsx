@@ -10,6 +10,7 @@ import { FounderSection } from "@/components/landing/FounderSection";
 import { FaqSection } from "@/components/landing/FaqSection";
 import { FinalCtaSection } from "@/components/landing/FinalCtaSection";
 import { Footer } from "@/components/landing/Footer";
+import { ReferencePixelMatchSection } from "@/components/landing/ReferencePixelMatchSection";
 
 const DuplicatePage = () => {
   return (
@@ -26,6 +27,7 @@ const DuplicatePage = () => {
       <FaqSection />
       <FinalCtaSection />
       <Footer />
+      <ReferencePixelMatchSection />
     </main>
   );
 };
