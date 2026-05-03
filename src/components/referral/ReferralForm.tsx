@@ -2,10 +2,13 @@ import { useState } from "react";
 import { z } from "zod";
 import { CheckCircle2, AlertCircle, ArrowRight } from "lucide-react";
 import type { ReferralContent } from "@/content/referralContent";
+import { supabase } from "@/integrations/supabase/client";
 
 interface Props {
   content: ReferralContent["form"];
   id?: string;
+  locale?: "pt" | "en";
+  page?: string;
 }
 
 const phoneRegex = /^[\d\s()+\-]{8,}$/;
