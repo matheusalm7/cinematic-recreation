@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, MessageCircle, Award, BarChart3 } from "lucide-react";
+import { AnimatedPerformanceGraph } from "./AnimatedPerformanceGraph";
 
 const whatsMessages = [
   { name: "Pietro Augusto", time: "há 1 min", text: "Olá! Tenho interesse no item do anúncio." },
