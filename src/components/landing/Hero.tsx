@@ -39,9 +39,13 @@ export const Hero = () => {
               Trusted by <strong className="text-white">120+ brands</strong>.
             </span>
           </div>
-          <h1 className="mt-8 text-6xl sm:text-7xl md:text-8xl font-bold leading-[0.95] tracking-tight text-white font-serif lg:text-7xl">
-            Before you sell, your <span className="italic text-primary-glow">business </span><br />
-            needs to look like the <span className="underline decoration-primary decoration-[6px] underline-offset-[10px]">right choice</span>.
+          <h1 translate="no" className="mt-8 text-6xl sm:text-7xl md:text-8xl font-bold leading-[0.95] tracking-tight text-white font-serif lg:text-7xl">
+            <span>Before you sell, your </span>
+            <span className="italic text-primary-glow">business</span>
+            <br />
+            <span>needs to look like the </span>
+            <span className="underline decoration-primary decoration-[6px] underline-offset-[10px]">right choice</span>
+            <span>.</span>
           </h1>
           <p className="mt-8 mx-auto max-w-xl text-lg md:text-xl text-white/75">
             We shape how local businesses are seen, remembered, and chosen, transforming perception into preference even before the first conversation.
