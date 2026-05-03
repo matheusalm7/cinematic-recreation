@@ -43,11 +43,10 @@ export const PerformanceManagementSection = () => {
             Performance
           </span>
           <h2 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight text-[hsl(36_89%_90%)]">
-            Gestão de <span className="italic text-[hsl(29_73%_71%)]">Performance</span>
+            Local Growth <span className="italic text-[hsl(29_73%_71%)]">Performance</span>
           </h2>
           <p className="mt-6 text-base md:text-lg leading-relaxed text-[hsl(36_89%_90%/0.72)] max-w-2xl">
-            Dormimos e acordamos pensando em estratégias para te fazer vender mais.
-            Somos TUDO: menos "apertadores de botão."
+            We improve how your business is found, earns trust, and is chosen, so more people call, book, visit, and buy.
           </p>
           <div className="mt-8">
             <Button size="lg" className="bg-[hsl(144_90%_16%)] hover:bg-[hsl(144_90%_20%)] text-[hsl(36_89%_90%)] border-0 rounded-full px-7 h-12 shadow-[0_20px_60px_-20px_hsl(144_90%_16%/0.7)]">
