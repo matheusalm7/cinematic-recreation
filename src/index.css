@@ -295,3 +295,21 @@
   color: hsl(168 100% 9%) !important;
 }
 
+/* Hide the "Captação de Vídeo" hero panel only on /duplicate-page */
+.duplicate-theme .hero-video-panel-wrap { display: none !important; }
+
+/* Header / navbar hardcoded navy literals -> deep green */
+.duplicate-theme .bg-\[hsl\(218_75\%_10\%\/0\.65\)\] { background-color: hsl(168 100% 9% / 0.7) !important; }
+.duplicate-theme .bg-\[hsl\(218_75\%_10\%\/0\.85\)\] { background-color: hsl(168 100% 9% / 0.88) !important; }
+.duplicate-theme .bg-\[hsl\(218_75\%_10\%\/0\.92\)\] { background-color: hsl(168 100% 9% / 0.94) !important; }
+
+/* Header CTA gradient (primary -> primary-glow becomes green -> warm).
+   Force a clean green gradient so the menu button reads as green/cream. */
+.duplicate-theme .from-primary.to-primary-glow,
+.duplicate-theme .bg-gradient-to-r.from-primary.to-primary-glow {
+  background-image: linear-gradient(135deg, hsl(144 90% 16%), hsl(168 100% 14%)) !important;
+}
+
+/* Recolor any leftover blue underline/decoration accents */
+.duplicate-theme .decoration-primary { text-decoration-color: hsl(144 90% 16%) !important; }
+
