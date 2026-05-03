@@ -14,7 +14,7 @@ interface Props {
 const phoneRegex = /^[\d\s()+\-]{8,}$/;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export const ReferralForm = ({ content, id }: Props) => {
+export const ReferralForm = ({ content, id, locale = "pt", page = "/" }: Props) => {
   const f = content.fields;
   const hasEmail = !!f.yourEmail;
   const hasPayoutSelect = (f.payoutOptions?.length ?? 0) > 0;
