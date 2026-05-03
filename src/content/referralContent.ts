@@ -3,53 +3,62 @@ export type Locale = "pt" | "en";
 export const RULES_PDF_URL =
   "https://cdn.prod.website-files.com/618da0947823662661595607/66eae3cf925d75303e567ba6_Indique%20e%20Ganhe%20(1).pdf";
 
-export const TURBO_LOGO_URL =
-  "https://cdn.prod.website-files.com/618da0947823662661595607/66a93576fb700884776cefc7_TurboPartners%20logo.svg";
-
 export const referralContent = {
   pt: {
     meta: {
-      title: "Indique e Ganhe | Turbo Partners",
+      title: "Indique e Ganhe | Agnus",
       description:
-        "Indique empresas para a Turbo Partners e ganhe R$1.000 por cada cliente fechado.",
+        "Indique empresas para a Agnus e ganhe R$1.000 por cada cliente fechado.",
     },
     hero: {
       badge: "INDIQUE E GANHE",
       titleLine1: "Ganhe R$1.000 por cada",
-      titleAccent: "indicação para a Turbo",
+      titleAccent: "indicação para a Agnus",
       subtitle: "Conheça agora como funciona o nosso programa de indicações",
       ctaPrimary: "Realizar indicação agora",
       ctaSecondary: "Verificar regras",
     },
     form: {
-      title: "Faça sua indicação",
-      subtitle: "Preencha os dados abaixo e nossa equipe entrará em contato.",
+      title: "Solicitar contato",
+      subtitle:
+        "Preencha o formulário abaixo e nossa equipe entrará em contato com o próximo passo.",
+      badge: "Consulta Premium",
+      microcopy: "Sem spam. Apenas um próximo passo claro para o negócio indicado.",
+      sideHeadline:
+        "Vamos transformar sua indicação em uma oportunidade real.",
+      sideSubheadline:
+        "Conte um pouco sobre o negócio indicado e a equipe da Agnus entra em contato com o próximo passo.",
+      bullets: [
+        "Primeira impressão mais forte",
+        "Posicionamento local mais claro",
+        "Mais confiança antes do primeiro contato",
+      ],
       fields: {
         companyName: "Nome da empresa indicada",
         companyNamePlaceholder: "Nome da Empresa Indicada",
-        contactPerson: "Pessoa de Contato (Da empresa)",
+        contactPerson: "Pessoa de Contato (da empresa)",
         contactPersonPlaceholder: "Pessoa da empresa indicada",
         referredPhone: "Telefone do indicado",
-        referredPhonePlaceholder: "(27)99999-9999",
-        instagramOrSite: "Instagram ou Site  (opcional)",
+        referredPhonePlaceholder: "(27) 99999-9999",
+        instagramOrSite: "Instagram ou Site (opcional)",
         instagramOrSitePlaceholder: "Caso tenha",
-        talkedAbout: "Já conversou com o indicado sobre a Turbo?",
+        talkedAbout: "Já conversou com o indicado sobre a Agnus?",
         talkedAboutPlaceholder: "Selecione a opção..",
         yes: "Sim",
         no: "Não",
         yourName: "Seu nome completo",
         yourNamePlaceholder: "O seu nome completo",
         yourWhatsapp: "Seu WhatsApp",
-        yourWhatsappPlaceholder: "(27)99999-9999",
+        yourWhatsappPlaceholder: "(27) 99999-9999",
         pixKey: "Chave PIX",
         pixKeyPlaceholder: "CPF, e-mail, telefone ou aleatória",
         comment: "Comentário adicional",
         commentPlaceholder: "Conte um pouco sobre a indicação",
       },
-      submit: "Enviar indicação",
+      submit: "Enviar indicação para a Agnus",
       submitting: "Enviando...",
       success: "Obrigado pela indicação!",
-      error: "Oops! Something went wrong while submitting the form.",
+      error: "Algo deu errado ao enviar o formulário.",
       required: "Campo obrigatório",
       invalidPhone: "Telefone inválido",
     },
@@ -62,7 +71,7 @@ export const referralContent = {
         {
           number: "01",
           title: "Encontre uma boa oportunidade",
-          text: "Descubra alguma empresa que possa se beneficiar de algum dos serviços prestados pela Turbo, como:",
+          text: "Descubra alguma empresa que possa se beneficiar de algum dos serviços prestados pela Agnus, como:",
           list: [
             "Aceleração (tráfego pago);",
             "Postagens para redes sociais;",
@@ -74,7 +83,7 @@ export const referralContent = {
         {
           number: "02",
           title: "Levante a bola",
-          text: "Mostre ao empreendedor (ou colaborador) em questão que a Turbo pode ser uma excelente parceira para atender às necessidades dele.",
+          text: "Mostre ao empreendedor (ou colaborador) em questão que a Agnus pode ser uma excelente parceira para atender às necessidades dele.",
           attentionLabel: "⚠️ Atenção:",
           attention:
             "Navegando em nosso site, você pode conhecer mais a fundo sobre nossos serviços, além de descobrir alguns ótimos argumentos de vendas.",
@@ -82,7 +91,7 @@ export const referralContent = {
         {
           number: "03",
           title: "Alinhe expectativas",
-          text: "Deixe claro para o empreendedor (ou colaborador) em questão que um especialista da Turbo irá entrar em contato com ele(a), para entender mais a fundo sobre a demanda e explicar, em mais detalhes, como trabalhamos.",
+          text: "Deixe claro para o empreendedor (ou colaborador) em questão que um especialista da Agnus irá entrar em contato com ele(a), para entender mais a fundo sobre a demanda e explicar, em mais detalhes, como trabalhamos.",
         },
         {
           number: "04",
@@ -97,28 +106,41 @@ export const referralContent = {
       ],
     },
     footer: {
-      copyright: "Turbo Partners 2024 - Todos os direitos reservados",
+      copyright: "Agnus 2024 - Todos os direitos reservados",
+      tagline:
+        "Agnus ajuda negócios locais a se tornarem a escolha óbvia online.",
       madeWith: "Feito com",
-      madeWithSuffix: "pela Turbo",
+      madeWithSuffix: "pela Agnus",
     },
   },
   en: {
     meta: {
-      title: "Refer and Earn | Turbo Partners",
+      title: "Refer and Earn | Agnus",
       description:
-        "Refer companies to Turbo Partners and earn R$1,000 for every closed client.",
+        "Refer companies to Agnus and earn R$1,000 for every closed client.",
     },
     hero: {
       badge: "REFER AND EARN",
       titleLine1: "Earn R$1,000 for every",
-      titleAccent: "referral to Turbo",
+      titleAccent: "referral to Agnus",
       subtitle: "Learn how our referral program works",
       ctaPrimary: "Submit a referral now",
       ctaSecondary: "Check the rules",
     },
     form: {
-      title: "Submit your referral",
-      subtitle: "Fill out the fields below and our team will get in touch.",
+      title: "Book your consultation",
+      subtitle:
+        "Fill out the form below and our team will get back to you with the next step.",
+      badge: "Premium Consultation",
+      microcopy: "No spam. Just a clear next step for your business.",
+      sideHeadline: "Let's turn your business into the obvious choice.",
+      sideSubheadline:
+        "Tell us a bit about your business and we'll show you how Agnus can strengthen the way customers see, trust, and choose you.",
+      bullets: [
+        "Stronger first impression",
+        "Clearer local positioning",
+        "More trust before the first call",
+      ],
       fields: {
         companyName: "Referred company name",
         companyNamePlaceholder: "Referred company name",
@@ -126,9 +148,9 @@ export const referralContent = {
         contactPersonPlaceholder: "Referred company contact",
         referredPhone: "Referred person's phone",
         referredPhonePlaceholder: "+1 555 555 5555",
-        instagramOrSite: "Instagram or website  (optional)",
+        instagramOrSite: "Instagram or website (optional)",
         instagramOrSitePlaceholder: "If available",
-        talkedAbout: "Have you already talked to them about Turbo?",
+        talkedAbout: "Have you already talked to them about Agnus?",
         talkedAboutPlaceholder: "Select an option..",
         yes: "Yes",
         no: "No",
@@ -141,7 +163,7 @@ export const referralContent = {
         comment: "Additional comment",
         commentPlaceholder: "Tell us a bit about the referral",
       },
-      submit: "Send referral",
+      submit: "Get Started With Agnus",
       submitting: "Sending...",
       success: "Thank you for your referral!",
       error: "Oops! Something went wrong while submitting the form.",
@@ -157,7 +179,7 @@ export const referralContent = {
         {
           number: "01",
           title: "Find a good opportunity",
-          text: "Find a company that could benefit from one of Turbo's services, such as:",
+          text: "Find a company that could benefit from one of Agnus' services, such as:",
           list: [
             "Paid traffic acceleration;",
             "Social media posts;",
@@ -169,7 +191,7 @@ export const referralContent = {
         {
           number: "02",
           title: "Start the conversation",
-          text: "Show the business owner (or team member) that Turbo can be a great partner to support their needs.",
+          text: "Show the business owner (or team member) that Agnus can be a great partner to support their needs.",
           attentionLabel: "⚠️ Heads up:",
           attention:
             "By browsing our website, you can learn more about our services and find strong sales arguments.",
@@ -177,7 +199,7 @@ export const referralContent = {
         {
           number: "03",
           title: "Align expectations",
-          text: "Make it clear to the business owner (or team member) that a Turbo specialist will reach out to better understand their needs and explain, in more detail, how we work.",
+          text: "Make it clear to the business owner (or team member) that an Agnus specialist will reach out to better understand their needs and explain, in more detail, how we work.",
         },
         {
           number: "04",
@@ -192,9 +214,10 @@ export const referralContent = {
       ],
     },
     footer: {
-      copyright: "Turbo Partners 2024 - All rights reserved",
+      copyright: "Agnus 2024 - All rights reserved",
+      tagline: "Agnus helps local businesses become the obvious choice online.",
       madeWith: "Made with",
-      madeWithSuffix: "by Turbo",
+      madeWithSuffix: "by Agnus",
     },
   },
 } as const;
