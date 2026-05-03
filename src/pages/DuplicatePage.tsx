@@ -17,6 +17,7 @@ const DuplicatePage = () => {
     <main className="duplicate-theme min-h-screen bg-background overflow-x-hidden">
       <Header />
       <Hero />
+      <PerformanceManagementSection />
       <StrategicCoreSection />
       <StatementSection />
       <ServicesSection />
