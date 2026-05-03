@@ -60,7 +60,9 @@ export const Hero = () => {
           </div>
         </div>
       </div>
-      <HeroVideoPanel />
+      <div className="hero-video-panel-wrap">
+        <HeroVideoPanel />
+      </div>
     </section>
   );
 };
