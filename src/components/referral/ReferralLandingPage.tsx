@@ -46,7 +46,12 @@ export const ReferralLandingPage = ({ locale }: Props) => {
         content={content.hero}
         onPrimary={() => scrollTo("referral-form")}
       />
-      <ReferralForm content={content.form} id="referral-form" />
+      <ReferralForm
+        content={content.form}
+        id="referral-form"
+        locale={locale}
+        page={locale === "en" ? "/refer-and-earn" : "/indique-e-ganhe"}
+      />
       <HowItWorksSection
         content={content.how}
         id="how-it-works"
