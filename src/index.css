@@ -328,3 +328,191 @@
 }
 
 
+
+/* ============================================================
+   Agnus Referral — premium dark theme, scoped to .agnus-referral
+   Affects ONLY /indique-e-ganhe and /refer-and-earn pages.
+   ============================================================ */
+.agnus-referral {
+  --ag-bg: #052E28;
+  --ag-bg-deep: #031F1B;
+  --ag-bg-soft: #073A32;
+  --ag-text: #F5EFD9;
+  --ag-text-soft: rgba(245, 239, 217, 0.72);
+  --ag-text-mute: rgba(245, 239, 217, 0.46);
+  --ag-green: #9FE870;
+  --ag-glow: #C8FF9B;
+  --ag-mint: #7EE0B5;
+  --ag-border: rgba(214, 255, 230, 0.10);
+  --ag-border-strong: rgba(214, 255, 230, 0.18);
+  --ag-card: rgba(255, 255, 255, 0.035);
+
+  color: var(--ag-text);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(159, 232, 112, 0.10), transparent 28%),
+    radial-gradient(circle at 85% 18%, rgba(126, 224, 181, 0.09), transparent 30%),
+    radial-gradient(circle at 50% 55%, rgba(200, 255, 155, 0.055), transparent 38%),
+    linear-gradient(180deg, #062F29 0%, #042823 48%, #031F1B 100%);
+  background-attachment: fixed;
+}
+
+/* faint editorial grid texture */
+.agnus-referral::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(245, 239, 217, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 239, 217, 0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%);
+}
+.agnus-referral > * { position: relative; z-index: 1; }
+
+.agnus-referral .ag-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+  border: 1px solid var(--ag-border);
+  border-radius: 24px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 24px 80px rgba(0,0,0,0.20);
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+.agnus-referral .ag-card:hover {
+  border-color: rgba(200,255,155,0.24);
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 32px 90px rgba(0,0,0,0.26),
+    0 0 36px rgba(159,232,112,0.08);
+}
+
+/* primary button */
+.agnus-referral .ag-btn-primary {
+  background: linear-gradient(135deg, #9FE870 0%, #C8FF9B 100%);
+  color: #08231D;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow:
+    0 16px 42px rgba(159,232,112,0.20),
+    0 0 20px rgba(200,255,155,0.10);
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+}
+.agnus-referral .ag-btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+  box-shadow:
+    0 22px 56px rgba(159,232,112,0.28),
+    0 0 32px rgba(200,255,155,0.18);
+}
+
+/* secondary button */
+.agnus-referral .ag-btn-secondary {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--ag-border-strong);
+  color: var(--ag-text);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  transition: background .25s ease, border-color .25s ease;
+}
+.agnus-referral .ag-btn-secondary:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(200,255,155,0.30);
+}
+
+/* navbar capsule */
+.agnus-referral .ag-navbar {
+  background: rgba(255,255,255,0.045);
+  border: 1px solid var(--ag-border);
+  border-radius: 999px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+
+/* form inputs */
+.agnus-referral .ag-input {
+  width: 100%;
+  height: 52px;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid var(--ag-border);
+  border-radius: 14px;
+  color: var(--ag-text);
+  padding: 14px 16px;
+  font-size: 15px;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+  outline: none;
+}
+.agnus-referral .ag-input::placeholder { color: rgba(245,239,217,0.42); }
+.agnus-referral .ag-input:focus {
+  border-color: rgba(200,255,155,0.38);
+  background: rgba(255,255,255,0.06);
+  box-shadow:
+    0 0 0 4px rgba(159,232,112,0.10),
+    0 0 20px rgba(159,232,112,0.08);
+}
+.agnus-referral textarea.ag-input { height: auto; min-height: 120px; resize: vertical; }
+.agnus-referral select.ag-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23C8FF9B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 44px;
+}
+.agnus-referral select.ag-input option { background: #052E28; color: #F5EFD9; }
+.agnus-referral .ag-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(245,239,217,0.62);
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* form premium card with top sheen */
+.agnus-referral .ag-form-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025));
+  border: 1px solid rgba(214,255,230,0.13);
+  border-radius: 30px;
+  padding: 36px;
+  box-shadow:
+    0 35px 110px rgba(0,0,0,0.28),
+    0 0 55px rgba(159,232,112,0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.agnus-referral .ag-form-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 12%; right: 12%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245,239,217,0.30), transparent);
+}
+@media (max-width: 640px) {
+  .agnus-referral .ag-form-card { padding: 22px; border-radius: 22px; }
+}
+
+.agnus-referral .ag-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px;
+  background: rgba(159,232,112,0.10);
+  border: 1px solid rgba(200,255,155,0.25);
+  color: var(--ag-glow);
+  border-radius: 999px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+}
+
+.agnus-referral .ag-accent { color: var(--ag-glow); }
+.agnus-referral .ag-mint { color: var(--ag-mint); }
+.agnus-referral .ag-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ag-border-strong), transparent);
+}
