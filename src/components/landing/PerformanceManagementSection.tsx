@@ -58,33 +58,8 @@ export const PerformanceManagementSection = () => {
 
         {/* Cards grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-          {/* Card 1 - Performance / chart */}
-          <article className="group relative overflow-hidden rounded-3xl border border-[hsl(36_89%_90%/0.14)] bg-[hsl(168_90%_11%/0.6)] backdrop-blur-sm p-7 md:p-9 min-h-[340px] md:min-h-[380px] transition-all duration-500 hover:border-[hsl(29_73%_71%/0.45)] hover:-translate-y-1 hover:shadow-[0_30px_80px_-25px_hsl(0_0%_0%/0.6)]">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[hsl(144_90%_16%/0.4)] ring-1 ring-[hsl(36_89%_90%/0.12)]">
-                <TrendingUp className="h-4 w-4 text-[hsl(29_73%_71%)]" />
-              </div>
-              <span className="text-xs uppercase tracking-[0.25em] text-[hsl(36_89%_90%/0.65)]">e-commerce</span>
-            </div>
-            <h3 className="font-display text-2xl md:text-3xl font-semibold text-[hsl(36_89%_90%)] leading-tight max-w-md">
-              Previsibilidade e picos de vendas para o seu e-commerce
-            </h3>
-            <div className="mt-8 relative h-40">
-              <svg viewBox="0 0 400 160" className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="perfGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="hsl(29 73% 71%)" stopOpacity="0.5" />
-                    <stop offset="100%" stopColor="hsl(29 73% 71%)" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-                <path d="M0,130 C60,120 90,100 140,90 C190,80 220,100 260,75 C300,50 340,30 400,15 L400,160 L0,160 Z" fill="url(#perfGrad)" />
-                <path d="M0,130 C60,120 90,100 140,90 C190,80 220,100 260,75 C300,50 340,30 400,15" fill="none" stroke="hsl(29 73% 71%)" strokeWidth="2.5" />
-                {[ [60,120],[140,90],[260,75],[340,30],[400,15] ].map(([x,y],i)=>(
-                  <circle key={i} cx={x} cy={y} r="4" fill="hsl(36 89% 90%)" stroke="hsl(144 90% 16%)" strokeWidth="2" />
-                ))}
-              </svg>
-            </div>
-          </article>
+          {/* Card 1 - Animated performance analytics */}
+          <AnimatedPerformanceGraph />
 
           {/* Card 2 - WhatsApp */}
           <article className="group relative overflow-hidden rounded-3xl border border-[hsl(36_89%_90%/0.14)] bg-[hsl(168_90%_11%/0.6)] backdrop-blur-sm p-7 md:p-9 min-h-[340px] md:min-h-[380px] transition-all duration-500 hover:border-[hsl(29_73%_71%/0.45)] hover:-translate-y-1 hover:shadow-[0_30px_80px_-25px_hsl(0_0%_0%/0.6)]">
