@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { z } from "zod";
-import { CheckCircle2, AlertCircle, ArrowRight, Check } from "lucide-react";
+import { CheckCircle2, AlertCircle, ArrowRight } from "lucide-react";
 import type { ReferralContent } from "@/content/referralContent";
 
 interface Props {
@@ -9,10 +9,14 @@ interface Props {
 }
 
 const phoneRegex = /^[\d\s()+\-]{8,}$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const ReferralForm = ({ content, id }: Props) => {
   const f = content.fields;
-  const schema = z.object({
+  const hasEmail = !!f.yourEmail;
+  const hasPayoutSelect = (f.payoutOptions?.length ?? 0) > 0;
+
+  const schemaShape: Record<string, z.ZodTypeAny> = {
     companyName: z.string().trim().min(1, content.required).max(120),
     contactPerson: z.string().trim().min(1, content.required).max(120),
     referredPhone: z
@@ -24,15 +28,24 @@ export const ReferralForm = ({ content, id }: Props) => {
     instagramOrSite: z.string().trim().max(200).optional().or(z.literal("")),
     talkedAbout: z.enum(["yes", "no"], { message: content.required }),
     yourName: z.string().trim().min(1, content.required).max(120),
-    yourWhatsapp: z
+    yourPhone: z
       .string()
       .trim()
       .min(1, content.required)
       .regex(phoneRegex, content.invalidPhone)
       .max(30),
-    pixKey: z.string().trim().min(1, content.required).max(150),
+    payout: z.string().trim().min(1, content.required).max(150),
     comment: z.string().trim().max(1000).optional().or(z.literal("")),
-  });
+  };
+  if (hasEmail) {
+    schemaShape.yourEmail = z
+      .string()
+      .trim()
+      .min(1, content.required)
+      .regex(emailRegex, content.invalidEmail)
+      .max(150);
+  }
+  const schema = z.object(schemaShape);
 
   type FormState = {
     companyName: string;
@@ -41,8 +54,9 @@ export const ReferralForm = ({ content, id }: Props) => {
     instagramOrSite: string;
     talkedAbout: "yes" | "no" | "";
     yourName: string;
-    yourWhatsapp: string;
-    pixKey: string;
+    yourPhone: string;
+    yourEmail: string;
+    payout: string;
     comment: string;
   };
 
@@ -53,8 +67,9 @@ export const ReferralForm = ({ content, id }: Props) => {
     instagramOrSite: "",
     talkedAbout: "",
     yourName: "",
-    yourWhatsapp: "",
-    pixKey: "",
+    yourPhone: "",
+    yourEmail: "",
+    payout: "",
     comment: "",
   };
 
@@ -70,7 +85,9 @@ export const ReferralForm = ({ content, id }: Props) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const result = schema.safeParse(data);
+    const payload: Record<string, unknown> = { ...data };
+    if (!hasEmail) delete payload.yourEmail;
+    const result = schema.safeParse(payload);
     if (!result.success) {
       const errs: Record<string, string> = {};
       result.error.issues.forEach((i) => {
@@ -78,18 +95,18 @@ export const ReferralForm = ({ content, id }: Props) => {
         if (!errs[k]) errs[k] = i.message;
       });
       setErrors(errs);
-      console.log("[AgnusReferralPages] validation failed", errs);
+      console.log("[AgnusReferralRefinement] validation failed", errs);
       return;
     }
     setErrors({});
     setStatus("loading");
     try {
-      console.log("[AgnusReferralPages] submitting referral");
+      console.log("[AgnusReferralRefinement] submitting referral");
       await new Promise((r) => setTimeout(r, 1200));
       setStatus("success");
       setData(initial);
     } catch (err) {
-      console.log("[AgnusReferralPages] error", err);
+      console.log("[AgnusReferralRefinement] error", err);
       setStatus("error");
     }
   };
@@ -135,22 +152,6 @@ export const ReferralForm = ({ content, id }: Props) => {
             >
               {content.sideSubheadline}
             </p>
-            <ul className="mt-7 space-y-3">
-              {content.bullets.map((b) => (
-                <li key={b} className="flex items-start gap-3">
-                  <span
-                    className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full"
-                    style={{
-                      background: "rgba(159,232,112,0.12)",
-                      border: "1px solid rgba(200,255,155,0.30)",
-                    }}
-                  >
-                    <Check className="h-3.5 w-3.5 ag-accent" />
-                  </span>
-                  <span style={{ color: "var(--ag-text)" }}>{b}</span>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Right column - Form card */}
@@ -250,26 +251,57 @@ export const ReferralForm = ({ content, id }: Props) => {
                       maxLength={120}
                     />
                   </Field>
-                  <Field name="yourWhatsapp" label={f.yourWhatsapp}>
+                  <Field name="yourPhone" label={f.yourPhone}>
                     <input
-                      id="yourWhatsapp"
+                      id="yourPhone"
                       className="ag-input"
-                      placeholder={f.yourWhatsappPlaceholder}
-                      value={data.yourWhatsapp}
-                      onChange={(e) => update("yourWhatsapp", e.target.value)}
+                      placeholder={f.yourPhonePlaceholder}
+                      value={data.yourPhone}
+                      onChange={(e) => update("yourPhone", e.target.value)}
                       maxLength={30}
                     />
                   </Field>
+                  {hasEmail && (
+                    <div className="sm:col-span-2">
+                      <Field name="yourEmail" label={f.yourEmail}>
+                        <input
+                          id="yourEmail"
+                          type="email"
+                          className="ag-input"
+                          placeholder={f.yourEmailPlaceholder}
+                          value={data.yourEmail}
+                          onChange={(e) => update("yourEmail", e.target.value)}
+                          maxLength={150}
+                        />
+                      </Field>
+                    </div>
+                  )}
                   <div className="sm:col-span-2">
-                    <Field name="pixKey" label={f.pixKey}>
-                      <input
-                        id="pixKey"
-                        className="ag-input"
-                        placeholder={f.pixKeyPlaceholder}
-                        value={data.pixKey}
-                        onChange={(e) => update("pixKey", e.target.value)}
-                        maxLength={150}
-                      />
+                    <Field name="payout" label={f.payout}>
+                      {hasPayoutSelect ? (
+                        <select
+                          id="payout"
+                          value={data.payout}
+                          onChange={(e) => update("payout", e.target.value)}
+                          className="ag-input"
+                        >
+                          <option value="">{f.payoutPlaceholder}</option>
+                          {f.payoutOptions.map((opt) => (
+                            <option key={opt} value={opt}>
+                              {opt}
+                            </option>
+                          ))}
+                        </select>
+                      ) : (
+                        <input
+                          id="payout"
+                          className="ag-input"
+                          placeholder={f.payoutPlaceholder}
+                          value={data.payout}
+                          onChange={(e) => update("payout", e.target.value)}
+                          maxLength={150}
+                        />
+                      )}
                     </Field>
                   </div>
                   <div className="sm:col-span-2">
