@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { RULES_PDF_URL, type ReferralContent } from "@/content/referralContent";
+import { type ReferralContent } from "@/content/referralContent";
 
 interface Props {
   content: ReferralContent["how"];
@@ -23,7 +23,7 @@ export const HowItWorksSection = ({ content, id, onPrimary }: Props) => {
             >
               {content.subtitle}
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+            <div className="mt-8 flex">
               <Button
                 size="lg"
                 onClick={onPrimary}
@@ -32,15 +32,6 @@ export const HowItWorksSection = ({ content, id, onPrimary }: Props) => {
                 {content.ctaPrimary}
                 <ArrowRight className="h-4 w-4" />
               </Button>
-              <a
-                href={RULES_PDF_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-4 text-sm md:text-base"
-                style={{ color: "var(--ag-text-soft)" }}
-              >
-                {content.ctaSecondary}
-              </a>
             </div>
           </div>
 

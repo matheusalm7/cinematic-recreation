@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { RULES_PDF_URL, type ReferralContent } from "@/content/referralContent";
+import type { ReferralContent } from "@/content/referralContent";
 
 interface Props {
   content: ReferralContent["hero"];
@@ -8,8 +8,7 @@ interface Props {
 
 export const ReferralHero = ({ content, onPrimary }: Props) => {
   return (
-    <section id="top" className="relative overflow-hidden pt-32 md:pt-40 pb-16 md:pb-24">
-      {/* glow blobs */}
+    <section id="top" className="relative overflow-hidden pt-28 sm:pt-32 md:pt-40 pb-14 md:pb-24">
       <div
         aria-hidden
         className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[640px] w-[640px] rounded-full opacity-60"
@@ -27,9 +26,7 @@ export const ReferralHero = ({ content, onPrimary }: Props) => {
           <br className="hidden sm:block" />{" "}
           <span
             className="ag-accent"
-            style={{
-              textShadow: "0 0 40px rgba(200,255,155,0.35)",
-            }}
+            style={{ textShadow: "0 0 40px rgba(200,255,155,0.35)" }}
           >
             {content.titleAccent}
           </span>
@@ -42,7 +39,7 @@ export const ReferralHero = ({ content, onPrimary }: Props) => {
           {content.subtitle}
         </p>
 
-        <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center items-center">
+        <div className="mt-10 flex justify-center">
           <button
             onClick={onPrimary}
             className="ag-btn-primary h-12 px-7 inline-flex items-center gap-2"
@@ -50,26 +47,6 @@ export const ReferralHero = ({ content, onPrimary }: Props) => {
             {content.ctaPrimary}
             <ArrowRight className="h-4 w-4" />
           </button>
-          <a
-            href={RULES_PDF_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ag-btn-secondary h-12 px-6 inline-flex items-center text-sm md:text-base"
-          >
-            {content.ctaSecondary}
-          </a>
-        </div>
-
-        {/* trust indicators */}
-        <div
-          className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs uppercase tracking-[0.18em]"
-          style={{ color: "var(--ag-text-mute)" }}
-        >
-          <span>Built for local businesses</span>
-          <span aria-hidden>•</span>
-          <span>Trusted by founders</span>
-          <span aria-hidden>•</span>
-          <span>Premium creative studio</span>
         </div>
       </div>
     </section>

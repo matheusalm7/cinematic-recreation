@@ -14,10 +14,8 @@ export const ReferralFooter = ({ content }: Props) => (
     }}
   >
     <div className="container max-w-6xl">
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div className="flex items-center gap-3">
-          <img src={logoSrc} alt="Agnus" className="h-8 w-auto" />
-        </div>
+      <div className="flex flex-col items-center text-center gap-5">
+        <img src={logoSrc} alt="Agnus" className="h-9 w-auto" />
         <p
           className="max-w-md text-sm md:text-base"
           style={{ color: "var(--ag-text-soft)" }}
@@ -27,7 +25,7 @@ export const ReferralFooter = ({ content }: Props) => (
       </div>
       <div className="ag-divider mt-10" />
       <div
-        className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs"
+        className="mt-6 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2 text-xs text-center"
         style={{ color: "var(--ag-text-mute)" }}
       >
         <p>{content.copyright}</p>
