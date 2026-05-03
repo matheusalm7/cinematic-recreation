@@ -14,7 +14,7 @@ import { ReferencePixelMatchSection } from "@/components/landing/ReferencePixelM
 
 const DuplicatePage = () => {
   return (
-    <main className="min-h-screen bg-background overflow-x-hidden">
+    <main className="duplicate-theme min-h-screen bg-background overflow-x-hidden">
       <Header />
       <Hero />
       <StrategicCoreSection />
