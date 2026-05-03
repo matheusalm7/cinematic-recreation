@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/landing/Hero";
 import { PerformanceManagementSection } from "@/components/landing/PerformanceManagementSection";
+import { TrustGapSection } from "@/components/landing/TrustGapSection";
 import { ServicesSection } from "@/components/landing/ServicesSection";
 import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { ProcessSection } from "@/components/landing/ProcessSection";
@@ -16,6 +17,7 @@ const DuplicatePage = () => {
       <Header />
       <Hero />
       <PerformanceManagementSection />
+      <TrustGapSection />
       <ServicesSection />
       <TestimonialsSection />
       <ProcessSection />
