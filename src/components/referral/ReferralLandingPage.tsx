@@ -3,6 +3,7 @@ import { ReferralHero } from "./ReferralHero";
 import { ReferralForm } from "./ReferralForm";
 import { HowItWorksSection } from "./HowItWorksSection";
 import { ReferralFooter } from "./ReferralFooter";
+import { ReferralNavbar } from "./ReferralNavbar";
 import { referralContent, type Locale } from "@/content/referralContent";
 
 interface Props {
@@ -13,7 +14,7 @@ export const ReferralLandingPage = ({ locale }: Props) => {
   const content = referralContent[locale];
 
   useEffect(() => {
-    console.log("[ReferralLandingPage] mounted", { locale });
+    console.log("[AgnusReferralPages] mounted", { locale });
     document.title = content.meta.title;
     const setMeta = (name: string, value: string) => {
       let el = document.querySelector(`meta[name="${name}"]`);
@@ -36,10 +37,11 @@ export const ReferralLandingPage = ({ locale }: Props) => {
   };
 
   return (
-    <main
-      className="min-h-screen overflow-x-hidden text-white"
-      style={{ background: "var(--gradient-referral)" }}
-    >
+    <main className="agnus-referral min-h-screen overflow-x-hidden">
+      <ReferralNavbar
+        ctaLabel={content.hero.ctaPrimary}
+        onCta={() => scrollTo("referral-form")}
+      />
       <ReferralHero
         content={content.hero}
         onPrimary={() => scrollTo("referral-form")}
