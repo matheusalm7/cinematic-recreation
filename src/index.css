@@ -313,3 +313,12 @@
 /* Recolor any leftover blue underline/decoration accents */
 .duplicate-theme .decoration-primary { text-decoration-color: hsl(144 90% 16%) !important; }
 
+/* Hero: force the entire hero section background to be a single continuous
+   deep-green surface (the original gradient transitions to cream at the bottom,
+   leaving a wrong-colored band behind the H1 buttons after we hide the video panel). */
+.duplicate-theme section.bg-primary-foreground,
+.duplicate-theme section[class*="linear-gradient"][class*="navy-deep"] {
+  background-image: none !important;
+  background-color: hsl(168 100% 9%) !important;
+}
+
