@@ -12,22 +12,25 @@ export const ReferralNavbar = ({ ctaLabel, onCta }: Props) => (
   >
     <nav
       aria-label="Agnus referral navigation"
-      className="ag-navbar h-16 px-4 sm:px-6 grid grid-cols-3 items-center"
+      className="ag-navbar h-16 px-4 sm:px-6 flex items-center relative"
     >
-      <div className="hidden sm:block" aria-hidden />
-      <a href="#top" className="flex items-center justify-center col-start-1 sm:col-start-2 col-span-2 sm:col-span-1">
+      {/* Mobile: centered logo absolutely. Desktop: logo on the left. */}
+      <a
+        href="#top"
+        className="absolute left-1/2 -translate-x-1/2 sm:static sm:left-auto sm:translate-x-0 flex items-center"
+      >
         <img
           src={logoSrc}
           alt="Agnus"
           className="h-7 w-auto"
           onError={(e) => {
-            console.log("[AgnusReferralRefinement] logo fallback");
+            console.log("[AgnusReferralForm] logo fallback");
             (e.currentTarget as HTMLImageElement).style.display = "none";
           }}
         />
         <span className="sr-only">Agnus</span>
       </a>
-      <div className="flex justify-end">
+      <div className="ml-auto flex items-center">
         <button
           onClick={onCta}
           className="ag-btn-primary h-10 px-5 text-sm hidden sm:inline-flex items-center"
