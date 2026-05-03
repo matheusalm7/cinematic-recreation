@@ -13,19 +13,21 @@ export const HowItWorksSection = ({ content, id, onPrimary }: Props) => {
     <section id={id} className="py-20 md:py-28">
       <div className="container max-w-6xl">
         <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] gap-12 lg:gap-16">
-          {/* Left column: title + CTAs (sticky on desktop) */}
-          <div className="lg:sticky lg:top-24 lg:self-start">
-            <h2 className="font-[Sora] text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <h2 className="font-[Sora] text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               {content.title}
             </h2>
-            <p className="mt-5 text-white/70 text-base md:text-lg max-w-md">
+            <p
+              className="mt-5 text-base md:text-lg max-w-md"
+              style={{ color: "var(--ag-text-soft)" }}
+            >
               {content.subtitle}
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
               <Button
                 size="lg"
                 onClick={onPrimary}
-                className="h-12 px-6 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-[var(--shadow-glow)] gap-2"
+                className="ag-btn-primary h-12 px-6 gap-2 border-0"
               >
                 {content.ctaPrimary}
                 <ArrowRight className="h-4 w-4" />
@@ -34,27 +36,33 @@ export const HowItWorksSection = ({ content, id, onPrimary }: Props) => {
                 href={RULES_PDF_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 hover:text-white underline underline-offset-4 text-sm md:text-base"
+                className="underline underline-offset-4 text-sm md:text-base"
+                style={{ color: "var(--ag-text-soft)" }}
               >
                 {content.ctaSecondary}
               </a>
             </div>
           </div>
 
-          {/* Right column: steps */}
           <div className="grid gap-5">
             {content.steps.map((step) => (
-              <article
-                key={step.number}
-                className="rounded-2xl border border-[hsl(var(--referral-border))] bg-[hsl(var(--referral-card))]/60 backdrop-blur-sm p-6 md:p-8"
-              >
-                <div className="inline-flex items-center justify-center min-w-[48px] h-[48px] px-3 rounded-lg border border-[hsl(var(--mint))]/30 bg-[hsl(var(--mint))]/5 text-[hsl(var(--mint))] font-[Sora] font-bold text-lg">
+              <article key={step.number} className="ag-card p-6 md:p-8">
+                <div
+                  className="inline-flex items-center justify-center min-w-[48px] h-[48px] px-3 rounded-xl font-[Sora] font-bold text-lg ag-accent"
+                  style={{
+                    background: "rgba(159,232,112,0.08)",
+                    border: "1px solid rgba(200,255,155,0.25)",
+                  }}
+                >
                   {step.number}
                 </div>
-                <h3 className="mt-5 font-[Sora] text-2xl md:text-[28px] font-semibold text-white leading-tight">
+                <h3 className="mt-5 font-[Sora] text-2xl md:text-[28px] font-semibold leading-tight">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-white/70 leading-relaxed text-base">
+                <p
+                  className="mt-3 leading-relaxed text-base"
+                  style={{ color: "var(--ag-text-soft)" }}
+                >
                   {step.text}
                 </p>
                 {"list" in step && step.list && (
@@ -62,9 +70,10 @@ export const HowItWorksSection = ({ content, id, onPrimary }: Props) => {
                     {step.list.map((item) => (
                       <li
                         key={item}
-                        className="text-white/75 text-base flex gap-2"
+                        className="text-base flex gap-2"
+                        style={{ color: "var(--ag-text-soft)" }}
                       >
-                        <span className="text-[hsl(var(--mint))]">•</span>
+                        <span className="ag-accent">•</span>
                         {item}
                       </li>
                     ))}
@@ -72,10 +81,13 @@ export const HowItWorksSection = ({ content, id, onPrimary }: Props) => {
                 )}
                 {"attention" in step && step.attention && (
                   <div className="mt-5">
-                    <p className="text-[hsl(var(--mint))] font-semibold text-sm">
+                    <p className="ag-accent font-semibold text-sm">
                       {step.attentionLabel}
                     </p>
-                    <p className="mt-2 text-white/70 text-base leading-relaxed">
+                    <p
+                      className="mt-2 text-base leading-relaxed"
+                      style={{ color: "var(--ag-text-soft)" }}
+                    >
                       {step.attention}
                     </p>
                   </div>
