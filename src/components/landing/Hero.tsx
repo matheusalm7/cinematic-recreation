@@ -36,16 +36,15 @@ export const Hero = () => {
               ))}
             </div>
             <span className="text-xs sm:text-sm text-white/80">
-              Confiado por <strong className="text-white">+120 marcas</strong>.
+              Trusted by <strong className="text-white">120+ brands</strong>.
             </span>
           </div>
-          <h1 className="mt-8 font-display text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] font-bold leading-[0.95] tracking-tight text-white">
-            Sua <span className="italic text-primary-glow">marca</span><br />
-            em imagens<br />
-            que <span className="underline decoration-primary decoration-[6px] underline-offset-[10px]">vendem</span>.
+          <h1 className="mt-8 text-6xl sm:text-7xl md:text-8xl font-bold leading-[0.95] tracking-tight text-white font-serif lg:text-7xl">
+            Before you sell, your <span className="italic text-primary-glow">business </span><br />
+            needs to look like the <span className="underline decoration-primary decoration-[6px] underline-offset-[10px]">right choice</span>.
           </h1>
           <p className="mt-8 mx-auto max-w-xl text-lg md:text-xl text-white/75">
-            Posicionamento visual de alta performance para marcas que querem ser desejadas, lembradas e escolhidas.
+            We shape how local businesses are seen, remembered, and chosen, transforming perception into preference even before the first conversation.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button size="lg" className="bg-blue-grad hover:opacity-90 border-0 rounded-full px-7 h-12 shadow-glow">
