@@ -104,12 +104,75 @@ export const ReferralForm = ({ content, id, locale = "pt", page = "/" }: Props) 
     setErrors({});
     setStatus("loading");
     try {
-      console.log("[AgnusReferralRefinement] submitting referral");
-      await new Promise((r) => setTimeout(r, 1200));
+      console.log("[AgnusReferralForm] submitting referral", { locale, page });
+      const cleanData: Record<string, string> = {};
+      Object.entries(data).forEach(([k, v]) => {
+        if (v && String(v).trim() !== "") {
+          if (k === "talkedAbout") {
+            cleanData[k] = v === "yes" ? f.yes : f.no;
+          } else {
+            cleanData[k] = String(v);
+          }
+        }
+      });
+
+      const { data: resData, error } = await supabase.functions.invoke(
+        "send-referral",
+        { body: { locale, page, data: cleanData } },
+      );
+      if (error) throw error;
+      console.log("[AgnusReferralForm] send-referral ok", resData);
+
+      // WhatsApp fallback: open wa.me with prefilled message in a new tab
+      try {
+        const lines: string[] = [];
+        const title =
+          locale === "en"
+            ? "New referral submitted to Agnus"
+            : "Nova indicação recebida pela Agnus";
+        lines.push(title, "", `${locale === "en" ? "Page" : "Página"}: ${page}`);
+        const labels: Record<string, string> =
+          locale === "en"
+            ? {
+                companyName: "Referred business name",
+                contactPerson: "Business contact name",
+                referredPhone: "Business phone number",
+                instagramOrSite: "Website/Instagram",
+                talkedAbout: "Spoken with Agnus before",
+                yourName: "Your full name",
+                yourPhone: "Your phone number",
+                yourEmail: "Your email",
+                payout: "Preferred payout method",
+                comment: "Notes",
+              }
+            : {
+                companyName: "Negócio indicado",
+                contactPerson: "Pessoa de contato",
+                referredPhone: "Telefone do indicado",
+                instagramOrSite: "Site/Instagram",
+                talkedAbout: "Já conversou com a Agnus",
+                yourName: "Seu nome",
+                yourPhone: "Seu WhatsApp",
+                yourEmail: "Seu email",
+                payout: "Chave PIX",
+                comment: "Comentário",
+              };
+        Object.entries(cleanData).forEach(([k, v]) => {
+          lines.push(`${labels[k] ?? k}: ${v}`);
+        });
+        const msg = encodeURIComponent(lines.join("\n"));
+        // Open one wa.me link (browsers block multiple popups). The other number
+        // also receives the email notification, ensuring no data loss.
+        const waUrl = `https://wa.me/5527992688011?text=${msg}`;
+        window.open(waUrl, "_blank", "noopener,noreferrer");
+      } catch (waErr) {
+        console.log("[AgnusReferralForm] wa.me fallback skipped", waErr);
+      }
+
       setStatus("success");
       setData(initial);
     } catch (err) {
-      console.log("[AgnusReferralRefinement] error", err);
+      console.log("[AgnusReferralForm] error", err);
       setStatus("error");
     }
   };
