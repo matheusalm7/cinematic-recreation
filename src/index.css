@@ -313,12 +313,18 @@
 /* Recolor any leftover blue underline/decoration accents */
 .duplicate-theme .decoration-primary { text-decoration-color: hsl(144 90% 16%) !important; }
 
-/* Hero: force the entire hero section background to be a single continuous
-   deep-green surface (the original gradient transitions to cream at the bottom,
-   leaving a wrong-colored band behind the H1 buttons after we hide the video panel). */
-.duplicate-theme section.bg-primary-foreground,
-.duplicate-theme section[class*="linear-gradient"][class*="navy-deep"] {
+/* Hero (duplicate-theme): the original component splits the section background
+   at 78%/82%/84% (navy-deep -> background) and layers a radial glow only on the
+   top 78%. With the video panel removed, the H1 buttons fall into the lower,
+   glow-less band, looking visually disconnected. We:
+   1) make the hero section a single continuous deep-green surface (no stop),
+   2) stretch the glow layer (`.bg-hero`) to cover the full section. */
+.duplicate-theme section.bg-primary-foreground {
   background-image: none !important;
   background-color: hsl(168 100% 9%) !important;
 }
+.duplicate-theme section.bg-primary-foreground > [class*="bg-hero"] {
+  height: 100% !important;
+}
+
 
