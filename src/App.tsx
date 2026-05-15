@@ -17,9 +17,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/duplicate-page" element={<DuplicatePage />} />
           <Route path="/indique-e-ganhe" element={<IndiqueEGanhe />} />
-          <Route path="/refer-and-earn" element={<ReferAndEarn />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
