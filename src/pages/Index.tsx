@@ -1,9 +1,8 @@
 import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/landing/Hero";
-import { StatementSection } from "@/components/landing/StatementSection";
-import { StrategicCoreSection } from "@/components/landing/StrategicCoreSection";
+import { PerformanceManagementSection } from "@/components/landing/PerformanceManagementSection";
+import { TrustGapSection } from "@/components/landing/TrustGapSection";
 import { ServicesSection } from "@/components/landing/ServicesSection";
-import { DifferentialsSection } from "@/components/landing/DifferentialsSection";
 import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { ProcessSection } from "@/components/landing/ProcessSection";
 import { FounderSection } from "@/components/landing/FounderSection";
@@ -12,14 +11,14 @@ import { FinalCtaSection } from "@/components/landing/FinalCtaSection";
 import { Footer } from "@/components/landing/Footer";
 
 const Index = () => {
+  console.log("[Index]", "render");
   return (
-    <main className="min-h-screen bg-background overflow-x-hidden">
+    <main className="duplicate-theme min-h-screen bg-background overflow-x-hidden">
       <Header />
       <Hero />
-      <StrategicCoreSection />
-      <StatementSection />
+      <PerformanceManagementSection />
+      <TrustGapSection />
       <ServicesSection />
-      <DifferentialsSection />
       <TestimonialsSection />
       <ProcessSection />
       <FounderSection />
