@@ -141,7 +141,7 @@ export const OurProcessSection = () => {
 
       <style>{`
         @keyframes grow-bar { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-        @keyframes float-y { 0%,100% { transform: translateY(0) translateX(var(--tx,0)); } 50% { transform: translateY(-8px) translateX(var(--tx,0)); } }
+        @keyframes float-y { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
       `}</style>
     </section>
   );
