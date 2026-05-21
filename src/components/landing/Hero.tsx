@@ -1,68 +1,103 @@
-import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { ArrowRight } from "lucide-react";
-import { HeroVideoPanel } from "./HeroVideoPanel";
 
 const SOCIAL_AVATARS = [
   "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=faces",
   "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=faces",
   "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=faces",
-  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=faces",
 ];
 
 export const Hero = () => {
   return (
-    <section
-      className="relative overflow-hidden bg-[linear-gradient(to_bottom,hsl(var(--navy-deep))_0%,hsl(var(--navy-deep))_78%,hsl(var(--background))_78%,hsl(var(--background))_100%)] md:bg-[linear-gradient(to_bottom,hsl(var(--navy-deep))_0%,hsl(var(--navy-deep))_82%,hsl(var(--background))_82%,hsl(var(--background))_100%)] lg:bg-[linear-gradient(to_bottom,hsl(var(--navy-deep))_0%,hsl(var(--navy-deep))_84%,hsl(var(--background))_84%,hsl(var(--background))_100%)] text-primary-foreground bg-primary-foreground"
-    >
-      {/* Layered hero gradient (radial glows) on top of the blue area only */}
-      <div aria-hidden className="absolute inset-x-0 top-0 h-[78%] md:h-[82%] lg:h-[84%] bg-hero z-0" />
-      {/* Glows (kept inside blue area) */}
-      <div className="absolute -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-primary/30 blur-[140px] z-0" />
-      <div className="absolute top-1/3 left-1/4 h-[400px] w-[400px] rounded-full bg-primary-glow/20 blur-[120px] z-0" />
+    <section className="relative min-h-screen w-full bg-[#042d1f] flex flex-col justify-center overflow-hidden selection:bg-[#f1ead4] selection:text-[#042d1f] px-6 md:px-12 py-24 font-sans">
+      {/* Background Texture */}
+      <div
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')" }}
+      />
 
-      {/* Spacer for fixed header */}
-      <div className="h-20" />
-
-      <div className="container relative z-10 flex justify-center pt-12 pb-12 lg:pt-20 lg:pb-16">
-        <div className="fade-up relative w-full max-w-5xl text-center px-4 sm:px-8">
-          <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 backdrop-blur">
-            <div className="flex -space-x-2">
-              {SOCIAL_AVATARS.map((src, i) => (
-                <Avatar key={i} className="h-7 w-7 ring-2 ring-background">
-                  <AvatarImage src={src} alt="" />
-                  <AvatarFallback>U</AvatarFallback>
-                </Avatar>
-              ))}
-            </div>
-            <span className="text-xs sm:text-sm text-white/80">
-              Trusted by <strong className="text-white">120+ brands</strong>.
-            </span>
+      {/* Top Utility Bar (avatars + pulse) — leaves room for fixed header */}
+      <div className="absolute top-28 left-6 md:left-12 right-6 md:right-12 flex justify-between items-start z-10">
+        <div className="flex items-center gap-4">
+          <div className="flex -space-x-3">
+            {SOCIAL_AVATARS.map((src, i) => (
+              <Avatar key={i} className="h-10 w-10 border-2 border-[#042d1f]">
+                <AvatarImage src={src} alt="" />
+                <AvatarFallback>U</AvatarFallback>
+              </Avatar>
+            ))}
           </div>
-          <h1 translate="no" className="mt-8 text-6xl sm:text-7xl md:text-8xl font-bold leading-[0.95] tracking-tight text-white font-serif lg:text-7xl">
-            <span>Before you sell, your </span>
-            <span className="italic text-primary-glow">business</span>
-            <br />
-            <span>needs to look like the </span>
-            <span className="underline decoration-primary decoration-[6px] underline-offset-[10px]">right choice</span>
-            <span>.</span>
-          </h1>
-          <p className="mt-8 mx-auto max-w-xl text-lg md:text-xl text-white/75">
-            We shape how local businesses are seen, remembered, and chosen, transforming perception into preference even before the first conversation.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button size="lg" className="bg-blue-grad hover:opacity-90 border-0 rounded-full px-7 h-12 shadow-glow">
-              Quero meu orçamento <ArrowRight className="ml-1 h-4 w-4" />
-            </Button>
-            <Button size="lg" variant="outline" className="rounded-full h-12 border-white/20 bg-white/5 text-white hover:bg-white/10">
-              Ver portfólio
-            </Button>
+          <div className="text-[#f1ead4]/60 text-[10px] uppercase tracking-[0.2em] font-medium">
+            Trusted by <span className="text-[#f1ead4]">120+ brands</span>
+          </div>
+        </div>
+        <div className="hidden md:block">
+          <div className="p-4 border border-[#f1ead4]/20 rounded-full">
+            <div className="w-2 h-2 bg-[#f1ead4] rounded-full animate-pulse" />
           </div>
         </div>
       </div>
-      <div className="hero-video-panel-wrap">
-        <HeroVideoPanel />
+
+      {/* Main Content */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+          <div className="lg:col-span-12">
+            <h1
+              translate="no"
+              className="text-[14vw] sm:text-[12vw] lg:text-[10vw] leading-[0.85] tracking-tighter text-[#f1ead4] font-normal uppercase italic"
+              style={{ fontFamily: "'Instrument Serif', serif" }}
+            >
+              Before you <span className="not-italic">sell,</span>
+              <br />
+              <span className="block">
+                your <span className="text-[#f1ead4]/40">business</span>
+              </span>
+              <span className="block lg:text-right">
+                needs to{" "}
+                <span className="not-italic underline decoration-1 underline-offset-8">look</span>{" "}
+                like the
+              </span>
+              <span className="block">right choice.</span>
+            </h1>
+          </div>
+
+          <div className="lg:col-span-5 lg:col-start-1 mt-12">
+            <p className="text-[#f1ead4]/80 text-lg md:text-xl leading-relaxed max-w-md">
+              We shape how local businesses are seen, remembered, and chosen, transforming perception into preference even before the first conversation.
+            </p>
+          </div>
+
+          <div className="lg:col-span-7 flex flex-col sm:flex-row gap-4 items-center justify-end">
+            <a
+              href="#contato"
+              className="group relative w-full sm:w-auto px-10 py-6 bg-[#f1ead4] text-[#042d1f] font-semibold text-sm uppercase tracking-widest transition-transform hover:scale-105 active:scale-95 text-center"
+            >
+              Quero meu orçamento
+              <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
+            </a>
+            <a
+              href="#servicos"
+              className="w-full sm:w-auto px-10 py-6 border border-[#f1ead4]/30 text-[#f1ead4] font-semibold text-sm uppercase tracking-widest hover:bg-[#f1ead4]/5 transition-colors text-center"
+            >
+              Ver portfólio
+            </a>
+          </div>
+        </div>
       </div>
+
+      {/* Bottom Branding */}
+      <div className="absolute bottom-12 left-6 md:left-12 right-6 md:right-12 flex justify-between items-end border-t border-[#f1ead4]/10 pt-8 z-10">
+        <div className="text-[#f1ead4]/40 text-[10px] uppercase tracking-widest flex flex-col gap-1">
+          <span>Based in Brazil</span>
+          <span>EST. 2024</span>
+        </div>
+        <div className="flex gap-8 text-[#f1ead4]/40 text-[10px] uppercase tracking-widest">
+          <a href="#" className="hover:text-[#f1ead4] transition-colors">Instagram</a>
+          <a href="#" className="hover:text-[#f1ead4] transition-colors">LinkedIn</a>
+        </div>
+      </div>
+
+      {/* Decorative glow */}
+      <div className="absolute -right-24 top-1/4 w-96 h-96 bg-[#f1ead4]/5 rounded-full blur-[120px] pointer-events-none" />
     </section>
   );
 };
