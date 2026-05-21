@@ -5,6 +5,7 @@ import { TrustGapSection } from "@/components/landing/TrustGapSection";
 import { ServicesSection } from "@/components/landing/ServicesSection";
 import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { ProcessSection } from "@/components/landing/ProcessSection";
+import { OurProcessSection } from "@/components/landing/OurProcessSection";
 import { FounderSection } from "@/components/landing/FounderSection";
 import { FaqSection } from "@/components/landing/FaqSection";
 import { FinalCtaSection } from "@/components/landing/FinalCtaSection";
