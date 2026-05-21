@@ -64,8 +64,8 @@ export const OurProcessSection = () => {
               <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[280px] h-[180px] rounded-t-full bg-[#fde0d8]" />
               {[
                 { src: f1, cls: "left-[8%] top-[35%] w-16 h-16" },
-                { src: f2, cls: "left-[28%] top-[8%] w-20 h-20" },
-                { src: f3, cls: "left-1/2 -translate-x-1/2 top-0 w-24 h-24" },
+                { src: f2, cls: "left-[26%] top-[8%] w-20 h-20" },
+                { src: f3, cls: "left-[calc(50%-3rem)] top-0 w-24 h-24" },
                 { src: f4, cls: "right-[20%] top-[12%] w-20 h-20" },
                 { src: f1, cls: "right-[4%] top-[40%] w-16 h-16" },
               ].map((c, i) => (
